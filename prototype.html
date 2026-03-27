@@ -210,6 +210,7 @@
   .sidebar.collapsed+.sidebar-overlay+.main .status-bar{left:56px}
   .sidebar.collapsed .collapse-text{display:none}
 
+  .breadcrumb{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim);margin-top:-18px;margin-bottom:16px}
   ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border)}
 </style>
 </head>
@@ -244,16 +245,16 @@
       <button class="h-btn" id="bellBtn">&#128276;<span class="h-dot">4</span></button>
       <div class="notif-dropdown" id="notifDropdown">
         <div class="notif-head">Уведомления <span id="notifClose">ЗАКРЫТЬ</span></div>
-        <div class="notif-item">
+        <div class="notif-item" onclick="nav('incidents');document.getElementById('notifDropdown').classList.remove('show')">
           <div style="display:flex;gap:8px"><div class="notif-dot" style="background:var(--danger)"></div><div><div class="notif-item-title">Near Miss — Тенгиз</div><div class="notif-item-desc">Серик А. зарегистрировал инцидент INC-037</div><div class="notif-item-time">15 мин назад</div></div></div>
         </div>
-        <div class="notif-item">
+        <div class="notif-item" onclick="nav('programs');document.getElementById('notifDropdown').classList.remove('show')">
           <div style="display:flex;gap:8px"><div class="notif-dot" style="background:var(--warning)"></div><div><div class="notif-item-title">Согласование ГНКТ-12</div><div class="notif-item-desc">Программа ожидает вашего согласования</div><div class="notif-item-time">1 час назад</div></div></div>
         </div>
-        <div class="notif-item">
+        <div class="notif-item" onclick="nav('hoc');document.getElementById('notifDropdown').classList.remove('show')">
           <div style="display:flex;gap:8px"><div class="notif-dot" style="background:var(--success)"></div><div><div class="notif-item-title">HOC-0145 закрыта</div><div class="notif-item-desc">Аскар К. закрыл карту наблюдения</div><div class="notif-item-time">2 часа назад</div></div></div>
         </div>
-        <div class="notif-item">
+        <div class="notif-item" onclick="nav('risk');document.getElementById('notifDropdown').classList.remove('show')">
           <div style="display:flex;gap:8px"><div class="notif-dot" style="background:var(--blue)"></div><div><div class="notif-item-title">JSA-089 утверждён</div><div class="notif-item-desc">Дамир Н. утвердил оценку рисков</div><div class="notif-item-time">3 часа назад</div></div></div>
         </div>
       </div>
@@ -271,6 +272,7 @@
   <div class="content">
     <!-- DASHBOARD -->
     <div class="page active" id="p-dashboard">
+      <div class="breadcrumb">Главная</div>
       <div class="stats">
         <div class="stat" onclick="nav('hoc')" style="cursor:pointer"><div class="stat-label">НОС-карт (месяц)</div><div class="stat-val">147</div><div class="stat-change up">&#8593; 12%</div></div>
         <div class="stat green" onclick="nav('hoc')" style="cursor:pointer"><div class="stat-label">Закрыто НОС</div><div class="stat-val" style="animation-delay:.1s">135</div><div class="stat-change up">92%</div></div>
@@ -281,7 +283,7 @@
       <!-- Site cards -->
       <div style="margin-bottom:8px"><span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);font-weight:600">Объекты</span></div>
       <div class="site-cards">
-        <div class="site-card">
+        <div class="site-card" onclick="nav('hoc');setTimeout(function(){filterHocSite('Тенгиз')},100)">
           <div class="site-card-name">Тенгиз</div>
           <div class="site-card-stats">
             <div class="site-card-stat"><div class="site-card-stat-val" style="color:var(--accent)">42</div><div class="site-card-stat-lbl">НОС</div></div>
@@ -289,7 +291,7 @@
             <div class="site-card-stat"><div class="site-card-stat-val" style="color:var(--success)">12</div><div class="site-card-stat-lbl">PJSM</div></div>
           </div>
         </div>
-        <div class="site-card">
+        <div class="site-card" onclick="nav('hoc');setTimeout(function(){filterHocSite('Карачаганак')},100)">
           <div class="site-card-name">Карачаганак</div>
           <div class="site-card-stats">
             <div class="site-card-stat"><div class="site-card-stat-val" style="color:var(--accent)">38</div><div class="site-card-stat-lbl">НОС</div></div>
@@ -297,7 +299,7 @@
             <div class="site-card-stat"><div class="site-card-stat-val" style="color:var(--success)">9</div><div class="site-card-stat-lbl">PJSM</div></div>
           </div>
         </div>
-        <div class="site-card">
+        <div class="site-card" onclick="nav('hoc');setTimeout(function(){filterHocSite('Кашаган')},100)">
           <div class="site-card-name">Кашаган</div>
           <div class="site-card-stats">
             <div class="site-card-stat"><div class="site-card-stat-val" style="color:var(--accent)">35</div><div class="site-card-stat-lbl">НОС</div></div>
@@ -305,7 +307,7 @@
             <div class="site-card-stat"><div class="site-card-stat-val" style="color:var(--success)">8</div><div class="site-card-stat-lbl">PJSM</div></div>
           </div>
         </div>
-        <div class="site-card">
+        <div class="site-card" onclick="nav('hoc');setTimeout(function(){filterHocSite('Узень')},100)">
           <div class="site-card-name">Узень</div>
           <div class="site-card-stats">
             <div class="site-card-stat"><div class="site-card-stat-val" style="color:var(--accent)">32</div><div class="site-card-stat-lbl">НОС</div></div>
@@ -313,6 +315,12 @@
             <div class="site-card-stat"><div class="site-card-stat-val" style="color:var(--success)">7</div><div class="site-card-stat-lbl">PJSM</div></div>
           </div>
         </div>
+      </div>
+
+      <div style="display:flex;gap:8px;margin-bottom:24px">
+        <button class="btn btn-accent" onclick="openM('mHoc')">+ НОС-КАРТА</button>
+        <button class="btn btn-accent" style="background:var(--danger);box-shadow:3px 3px 0 rgba(239,68,68,.3)" onclick="openM('mInc')">+ ПРОИСШЕСТВИЕ</button>
+        <button class="btn btn-ghost" onclick="openM('mRisk')">+ ОЦЕНКА РИСКОВ</button>
       </div>
 
       <div class="g2">
@@ -366,7 +374,8 @@
 
     <!-- HOC -->
     <div class="page" id="p-hoc">
-      <div class="ph"><div><div class="ph-title">НОС-КАРТЫ</div><div class="ph-sub">Hazard Observation Cards</div></div><button class="btn btn-accent" id="btnNewHoc">+ НОВАЯ</button></div>
+      <div class="breadcrumb">Главная → HSE → НОС-карты</div>
+      <div class="ph"><div><div class="ph-title">НОС-КАРТЫ<span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-dim);margin-left:8px;font-weight:400;">147</span></div><div class="ph-sub">Hazard Observation Cards</div></div><button class="btn btn-accent" id="btnNewHoc">+ НОВАЯ</button></div>
       <div style="display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap">
         <button class="btn btn-ghost" style="padding:5px 12px;font-size:10px" onclick="filterHocSite('')">Все объекты</button>
         <button class="btn btn-ghost" style="padding:5px 12px;font-size:10px" onclick="filterHocSite('Тенгиз')">Тенгиз</button>
@@ -396,7 +405,8 @@
 
     <!-- INCIDENTS -->
     <div class="page" id="p-incidents">
-      <div class="ph"><div><div class="ph-title">ПРОИСШЕСТВИЯ</div><div class="ph-sub">AI Classification</div></div><button class="btn btn-accent" id="btnNewInc">+ ЗАРЕГИСТРИРОВАТЬ</button></div>
+      <div class="breadcrumb">Главная → HSE → Происшествия</div>
+      <div class="ph"><div><div class="ph-title">ПРОИСШЕСТВИЯ<span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-dim);margin-left:8px;font-weight:400;">37</span></div><div class="ph-sub">AI Classification</div></div><button class="btn btn-accent" id="btnNewInc">+ ЗАРЕГИСТРИРОВАТЬ</button></div>
       <div class="stats"><div class="stat yellow"><div class="stat-label">Near Miss</div><div class="stat-val">23</div></div><div class="stat"><div class="stat-label">Incidents</div><div class="stat-val">5</div></div><div class="stat red"><div class="stat-label">Accidents</div><div class="stat-val">1</div></div><div class="stat blue"><div class="stat-label">First Aid</div><div class="stat-val">8</div></div></div>
       <div class="panel"><table class="tbl"><thead><tr><th>ID</th><th>Дата</th><th>Место</th><th>AI класс.</th><th>Описание</th><th>Статус</th></tr></thead><tbody>
         <tr class="detail-row" data-id="INC-037" data-date="27.03.2026" data-site="Тенгиз" data-class="NEAR MISS" data-desc="Падение инструмента с высоты 2м при работе на площадке ГНКТ" data-status="Расслед." data-type="inc"><td class="id">INC-037</td><td>27.03</td><td>Тенгиз</td><td><span class="b b-nm">NEAR MISS</span></td><td style="max-width:220px">Падение инструмента с высоты 2м</td><td><span class="b b-open">Расслед.</span></td></tr>
@@ -416,7 +426,8 @@
 
     <!-- RISK -->
     <div class="page" id="p-risk">
-      <div class="ph"><div><div class="ph-title">ОЦЕНКА РИСКОВ</div><div class="ph-sub">JSA / АБР</div></div><button class="btn btn-accent" id="btnNewRisk">+ НОВАЯ</button></div>
+      <div class="breadcrumb">Главная → HSE → Оценка рисков</div>
+      <div class="ph"><div><div class="ph-title">ОЦЕНКА РИСКОВ<span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-dim);margin-left:8px;font-weight:400;">3</span></div><div class="ph-sub">JSA / АБР</div></div><button class="btn btn-accent" id="btnNewRisk">+ НОВАЯ</button></div>
       <div class="g2"><div class="panel"><div class="panel-h"><span class="panel-t">Матрица 5x5</span></div><div class="panel-body"><div class="rmatrix">
         <div class="rm-cell rm-lbl"></div><div class="rm-cell rm-hdr">1</div><div class="rm-cell rm-hdr">2</div><div class="rm-cell rm-hdr">3</div><div class="rm-cell rm-hdr">4</div><div class="rm-cell rm-hdr">5</div>
         <div class="rm-cell rm-lbl">5</div><div class="rm-cell rm-md">С</div><div class="rm-cell rm-hi">В</div><div class="rm-cell rm-cr">К</div><div class="rm-cell rm-cr">К</div><div class="rm-cell rm-cr">К</div>
@@ -439,7 +450,8 @@
 
     <!-- PROGRAMS -->
     <div class="page" id="p-programs">
-      <div class="ph"><div><div class="ph-title">ПРОГРАММЫ РАБОТ</div><div class="ph-sub">Job Design — Workflow</div></div><div style="display:flex;gap:8px"><button class="btn btn-ghost">MOC</button><button class="btn btn-accent">+ НОВАЯ</button></div></div>
+      <div class="breadcrumb">Главная → Производство → Программы работ</div>
+      <div class="ph"><div><div class="ph-title">ПРОГРАММЫ РАБОТ<span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-dim);margin-left:8px;font-weight:400;">5</span></div><div class="ph-sub">Job Design — Workflow</div></div><div style="display:flex;gap:8px"><button class="btn btn-ghost">MOC</button><button class="btn btn-accent">+ НОВАЯ</button></div></div>
       <div class="panel" style="margin-bottom:20px"><div class="panel-h"><span class="panel-t">ГНКТ-12 Тенгиз</span><span class="b b-review">Согласование</span></div><div class="panel-body">
         <div class="wf"><div class="wf-step done">&#128221; Создание</div><div class="wf-step done">&#128269; Проверка</div><div class="wf-step current">&#9989; Согласование</div><div class="wf-step">&#128203; Утверждение</div><div class="wf-step">&#128640; Выпуск</div></div>
         <div style="display:flex;gap:20px;margin-top:14px;font-size:12px"><div><span style="color:var(--text-dim)">Автор:</span> <strong>Марат Ж.</strong></div><div><span style="color:var(--text-dim)">Согласующий:</span> <strong>Дамир Н.</strong></div><div><span style="color:var(--text-dim)">Файлы:</span> 3</div></div>
@@ -462,7 +474,8 @@
 
     <!-- PJSM -->
     <div class="page" id="p-pjsm">
-      <div class="ph"><div><div class="ph-title">PRE-JOB SAFETY</div><div class="ph-sub">Предсменные совещания</div></div><button class="btn btn-accent">+ НОВОЕ</button></div>
+      <div class="breadcrumb">Главная → Производство → Pre-Job Safety</div>
+      <div class="ph"><div><div class="ph-title">PRE-JOB SAFETY<span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-dim);margin-left:8px;font-weight:400;">5</span></div><div class="ph-sub">Предсменные совещания</div></div><button class="btn btn-accent">+ НОВОЕ</button></div>
       <div class="stats" style="grid-template-columns:repeat(3,1fr)"><div class="stat green"><div class="stat-label">Проведено</div><div class="stat-val">89</div></div><div class="stat blue"><div class="stat-label">Участников</div><div class="stat-val">342</div></div><div class="stat yellow"><div class="stat-label">Stop Work</div><div class="stat-val">3</div></div></div>
       <div class="panel"><table class="tbl"><thead><tr><th>ID</th><th>Дата</th><th>Объект</th><th>Бригада</th><th>Люди</th><th>Риски</th><th>SWA</th></tr></thead><tbody>
         <tr class="detail-row" data-id="PJSM-089" data-date="27.03 Д" data-site="Тенгиз" data-crew="№3" data-people="6" data-risks="4/4" data-swa="НЕТ" data-type="pjsm"><td class="id">PJSM-089</td><td>27.03 Д</td><td>Тенгиз</td><td>&#8470;3</td><td>6</td><td>4/4</td><td><span class="b b-low">НЕТ</span></td></tr>
@@ -475,19 +488,21 @@
 
     <!-- USERS -->
     <div class="page" id="p-users">
-      <div class="ph"><div><div class="ph-title">ПОЛЬЗОВАТЕЛИ</div><div class="ph-sub">Roles &amp; Access</div></div><button class="btn btn-accent">+ ДОБАВИТЬ</button></div>
+      <div class="breadcrumb">Главная → Система → Пользователи</div>
+      <div class="ph"><div><div class="ph-title">ПОЛЬЗОВАТЕЛИ<span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-dim);margin-left:8px;font-weight:400;">6</span></div><div class="ph-sub">Roles &amp; Access</div></div><button class="btn btn-accent">+ ДОБАВИТЬ</button></div>
       <div class="panel"><table class="tbl"><thead><tr><th>Сотрудник</th><th>Роль</th><th>Подразд.</th><th>Объект</th><th>Статус</th></tr></thead><tbody>
-        <tr><td style="color:var(--text);font-weight:600">Дамир Нурланов</td><td><span class="b" style="background:rgba(167,139,250,.1);color:var(--purple);border:1px solid rgba(167,139,250,.2)">ДИРЕКТОР</span></td><td>Рук-во</td><td>Все</td><td><span class="b b-closed">On</span></td></tr>
-        <tr><td style="color:var(--text);font-weight:600">Аскар Калиев</td><td><span class="b b-open">HSE</span></td><td>HSE</td><td>Все</td><td><span class="b b-closed">On</span></td></tr>
-        <tr><td style="color:var(--text);font-weight:600">Марат Жумабаев</td><td><span class="b b-draft">ИНЖЕНЕР</span></td><td>Произв.</td><td>Тенгиз</td><td><span class="b b-closed">On</span></td></tr>
-        <tr><td style="color:var(--text);font-weight:600">Серик Абаев</td><td><span class="b b-review">БРИГАДИР</span></td><td>ГНКТ</td><td>Тенгиз</td><td style="color:var(--text-dim)">Off</td></tr>
-        <tr><td style="color:var(--text);font-weight:600">Алмас Тлеубаев</td><td><span class="b b-draft">ИНЖЕНЕР</span></td><td>Произв.</td><td>Карачаганак</td><td><span class="b b-closed">On</span></td></tr>
-        <tr><td style="color:var(--text);font-weight:600">Нурлан Кенжебаев</td><td><span class="b b-review">БРИГАДИР</span></td><td>Флюид Памп</td><td>Кашаган</td><td><span class="b b-closed">On</span></td></tr>
+        <tr class="detail-row" data-id="Дамир Нурланов" data-name="Дамир Нурланов" data-role="Директор" data-dept="Руководство" data-site="Все объекты" data-userstatus="Активен" data-type="user"><td style="color:var(--text);font-weight:600">Дамир Нурланов</td><td><span class="b" style="background:rgba(167,139,250,.1);color:var(--purple);border:1px solid rgba(167,139,250,.2)">ДИРЕКТОР</span></td><td>Рук-во</td><td>Все</td><td><span class="b b-closed">On</span></td></tr>
+        <tr class="detail-row" data-id="Аскар Калиев" data-name="Аскар Калиев" data-role="HSE Specialist" data-dept="HSE" data-site="Все объекты" data-userstatus="Активен" data-type="user"><td style="color:var(--text);font-weight:600">Аскар Калиев</td><td><span class="b b-open">HSE</span></td><td>HSE</td><td>Все</td><td><span class="b b-closed">On</span></td></tr>
+        <tr class="detail-row" data-id="Марат Жумабаев" data-name="Марат Жумабаев" data-role="Инженер" data-dept="Производство" data-site="Тенгиз" data-userstatus="Активен" data-type="user"><td style="color:var(--text);font-weight:600">Марат Жумабаев</td><td><span class="b b-draft">ИНЖЕНЕР</span></td><td>Произв.</td><td>Тенгиз</td><td><span class="b b-closed">On</span></td></tr>
+        <tr class="detail-row" data-id="Серик Абаев" data-name="Серик Абаев" data-role="Бригадир" data-dept="ГНКТ" data-site="Тенгиз" data-userstatus="Неактивен" data-type="user"><td style="color:var(--text);font-weight:600">Серик Абаев</td><td><span class="b b-review">БРИГАДИР</span></td><td>ГНКТ</td><td>Тенгиз</td><td style="color:var(--text-dim)">Off</td></tr>
+        <tr class="detail-row" data-id="Алмас Тлеубаев" data-name="Алмас Тлеубаев" data-role="Инженер" data-dept="Производство" data-site="Карачаганак" data-userstatus="Активен" data-type="user"><td style="color:var(--text);font-weight:600">Алмас Тлеубаев</td><td><span class="b b-draft">ИНЖЕНЕР</span></td><td>Произв.</td><td>Карачаганак</td><td><span class="b b-closed">On</span></td></tr>
+        <tr class="detail-row" data-id="Нурлан Кенжебаев" data-name="Нурлан Кенжебаев" data-role="Бригадир" data-dept="Флюид Памп" data-site="Кашаган" data-userstatus="Активен" data-type="user"><td style="color:var(--text);font-weight:600">Нурлан Кенжебаев</td><td><span class="b b-review">БРИГАДИР</span></td><td>Флюид Памп</td><td>Кашаган</td><td><span class="b b-closed">On</span></td></tr>
       </tbody></table></div>
     </div>
 
     <!-- JOURNAL -->
     <div class="page" id="p-journal">
+      <div class="breadcrumb">Главная → Система → Журнал</div>
       <div class="ph"><div><div class="ph-title">ЖУРНАЛ</div><div class="ph-sub">Event Log — 5 лет</div></div></div>
       <div class="tabs"><div class="tab active">Все</div><div class="tab">HSE</div><div class="tab">Производство</div><div class="tab">Система</div></div>
       <div class="panel"><div class="panel-body">
@@ -495,11 +510,16 @@
         <div class="act"><div class="act-dot green"></div><div style="flex:1"><div class="act-text"><strong>Аскар К.</strong> закрыл HOC-0145</div><div class="act-time">27.03 13:15 · HSE</div></div><button class="btn btn-ghost" style="padding:4px 10px;font-size:10px" onclick="openM('mHoc')">ПОХОЖЕЕ</button></div>
         <div class="act"><div class="act-dot blue"></div><div style="flex:1"><div class="act-text"><strong>Марат Ж.</strong> согласование ГНКТ-12</div><div class="act-time">27.03 11:40 · Произв.</div></div><button class="btn btn-ghost" style="padding:4px 10px;font-size:10px" onclick="openM('mInc')">ПОХОЖЕЕ</button></div>
         <div class="act"><div class="act-dot orange"></div><div style="flex:1"><div class="act-text"><strong>Дамир Н.</strong> утвердил JSA-089</div><div class="act-time">27.03 10:05 · HSE</div></div><button class="btn btn-ghost" style="padding:4px 10px;font-size:10px" onclick="openM('mInc')">ПОХОЖЕЕ</button></div>
+        <div class="act"><div class="act-dot green"></div><div style="flex:1"><div class="act-text"><strong>Нурлан К.</strong> провёл PJSM-086 — Узень, бригада №2</div><div class="act-time">26.03 18:30 · Произв.</div></div><button class="btn btn-ghost" style="padding:4px 10px;font-size:10px" onclick="openM('mHoc')">ПОХОЖЕЕ</button></div>
+        <div class="act"><div class="act-dot red"></div><div style="flex:1"><div class="act-text"><strong>Кайрат О.</strong> зарегистрировал HOC-0144 — Узень</div><div class="act-time">25.03 16:20 · HSE</div></div><button class="btn btn-ghost" style="padding:4px 10px;font-size:10px" onclick="openM('mHoc')">ПОХОЖЕЕ</button></div>
+        <div class="act"><div class="act-dot blue"></div><div style="flex:1"><div class="act-text"><strong>Алмас Т.</strong> выпустил программу КРС-08</div><div class="act-time">24.03 14:50 · Произв.</div></div><button class="btn btn-ghost" style="padding:4px 10px;font-size:10px" onclick="openM('mInc')">ПОХОЖЕЕ</button></div>
+        <div class="act"><div class="act-dot orange"></div><div style="flex:1"><div class="act-text"><strong>Руслан Ж.</strong> добавил фото к HOC-0141 — Кашаган</div><div class="act-time">22.03 11:15 · HSE</div></div><button class="btn btn-ghost" style="padding:4px 10px;font-size:10px" onclick="openM('mHoc')">ПОХОЖЕЕ</button></div>
       </div></div>
     </div>
 
     <!-- EXPORT -->
     <div class="page" id="p-export">
+      <div class="breadcrumb">Главная → Система → Экспорт</div>
       <div class="ph"><div><div class="ph-title">ЭКСПОРТ</div><div class="ph-sub">Word · Excel · PDF</div></div></div>
       <div class="g3">
         <div class="panel" style="cursor:pointer" onclick="showToast('Экспорт запущен','WORD .docx формируется')"><div class="panel-body" style="text-align:center;padding:40px"><div style="font-size:40px;margin-bottom:12px">&#128196;</div><div style="font-size:15px;font-weight:800">WORD</div><div style="font-size:11px;color:var(--text-dim)">.docx</div></div></div>
@@ -799,6 +819,12 @@ document.querySelectorAll('.detail-row').forEach(function(row){
       body.appendChild(buildDetailField('Участников',d.people));
       body.appendChild(buildDetailField('Риски',d.risks));
       body.appendChild(buildDetailField('Stop Work',d.swa));
+    } else if(d.type==='user'){
+      body.appendChild(buildDetailField('ФИО',d.name));
+      body.appendChild(buildDetailField('Роль',d.role));
+      body.appendChild(buildDetailField('Подразделение',d.dept));
+      body.appendChild(buildDetailField('Объект',d.site));
+      body.appendChild(buildDetailField('Статус',d.userstatus));
     }
 
     panel.classList.add('open');
