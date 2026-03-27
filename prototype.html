@@ -192,6 +192,24 @@
   .status-dot{width:6px;height:6px;background:var(--success);border-radius:50%}
   @media(max-width:768px){.status-bar{left:0}}
 
+  /* Animated counters */
+  .stat-val{animation:countIn .5s ease both}
+  @keyframes countIn{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}
+
+  /* Selected row highlight */
+  .tbl tbody tr.selected td{background:rgba(255,77,0,.08);border-bottom-color:rgba(255,77,0,.15)}
+
+  /* Sidebar collapse */
+  .sidebar.collapsed{width:56px}
+  .sidebar.collapsed .s-logo-text,.sidebar.collapsed .s-logo-sub,.sidebar.collapsed .s-group,.sidebar.collapsed .s-badge,.sidebar.collapsed .s-username,.sidebar.collapsed .s-role{display:none}
+  .sidebar.collapsed .s-item{justify-content:center;padding:9px 0}
+  .sidebar.collapsed .s-item .s-icon{width:auto}
+  .sidebar.collapsed .s-logo{padding:16px;justify-content:center}
+  .sidebar.collapsed .s-user{justify-content:center}
+  .sidebar.collapsed+.sidebar-overlay+.main{margin-left:56px}
+  .sidebar.collapsed+.sidebar-overlay+.main .status-bar{left:56px}
+  .sidebar.collapsed .collapse-text{display:none}
+
   ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border)}
 </style>
 </head>
@@ -212,6 +230,7 @@
     <div class="s-item" data-p="users"><span class="s-icon">◎</span> Пользователи</div>
     <div class="s-item" data-p="journal"><span class="s-icon">▤</span> Журнал событий</div>
     <div class="s-item" data-p="export"><span class="s-icon">▧</span> Экспорт</div>
+    <div class="s-item" id="collapseBtn" style="margin-top:auto;border-top:1px solid var(--border);justify-content:center"><span class="s-icon">◁</span> <span class="collapse-text">Свернуть</span></div>
   </nav>
   <div class="s-user"><div class="s-avatar">АК</div><div><div class="s-username">Аскар Калиев</div><div class="s-role">HSE Specialist</div></div></div>
 </div>
@@ -254,9 +273,9 @@
     <div class="page active" id="p-dashboard">
       <div class="stats">
         <div class="stat" onclick="nav('hoc')" style="cursor:pointer"><div class="stat-label">НОС-карт (месяц)</div><div class="stat-val">147</div><div class="stat-change up">&#8593; 12%</div></div>
-        <div class="stat green" onclick="nav('hoc')" style="cursor:pointer"><div class="stat-label">Закрыто НОС</div><div class="stat-val">135</div><div class="stat-change up">92%</div></div>
-        <div class="stat yellow" onclick="nav('incidents')" style="cursor:pointer"><div class="stat-label">Происшествий</div><div class="stat-val">8</div><div class="stat-change down">&#8595; 23%</div></div>
-        <div class="stat red" onclick="nav('risk')" style="cursor:pointer"><div class="stat-label">Открытые риски</div><div class="stat-val">5</div><div class="stat-change">внимание</div></div>
+        <div class="stat green" onclick="nav('hoc')" style="cursor:pointer"><div class="stat-label">Закрыто НОС</div><div class="stat-val" style="animation-delay:.1s">135</div><div class="stat-change up">92%</div></div>
+        <div class="stat yellow" onclick="nav('incidents')" style="cursor:pointer"><div class="stat-label">Происшествий</div><div class="stat-val" style="animation-delay:.2s">8</div><div class="stat-change down">&#8595; 23%</div></div>
+        <div class="stat red" onclick="nav('risk')" style="cursor:pointer"><div class="stat-label">Открытые риски</div><div class="stat-val" style="animation-delay:.3s">5</div><div class="stat-change">внимание</div></div>
       </div>
 
       <!-- Site cards -->
@@ -348,6 +367,13 @@
     <!-- HOC -->
     <div class="page" id="p-hoc">
       <div class="ph"><div><div class="ph-title">НОС-КАРТЫ</div><div class="ph-sub">Hazard Observation Cards</div></div><button class="btn btn-accent" id="btnNewHoc">+ НОВАЯ</button></div>
+      <div style="display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap">
+        <button class="btn btn-ghost" style="padding:5px 12px;font-size:10px" onclick="filterHocSite('')">Все объекты</button>
+        <button class="btn btn-ghost" style="padding:5px 12px;font-size:10px" onclick="filterHocSite('Тенгиз')">Тенгиз</button>
+        <button class="btn btn-ghost" style="padding:5px 12px;font-size:10px" onclick="filterHocSite('Карачаганак')">Карачаганак</button>
+        <button class="btn btn-ghost" style="padding:5px 12px;font-size:10px" onclick="filterHocSite('Кашаган')">Кашаган</button>
+        <button class="btn btn-ghost" style="padding:5px 12px;font-size:10px" onclick="filterHocSite('Узень')">Узень</button>
+      </div>
       <div class="tabs"><div class="tab active">Все (147)</div><div class="tab">Открытые (12)</div><div class="tab">Проверка (8)</div><div class="tab">Закрытые (127)</div></div>
       <div class="panel"><table class="tbl"><thead><tr><th>ID</th><th>Дата</th><th>Объект</th><th>Подразд.</th><th>Сотрудник</th><th>Тип</th><th>Статус</th><th>Ответств.</th></tr></thead><tbody>
         <tr class="detail-row" data-id="HOC-0147" data-date="27.03.2026" data-site="Карачаганак" data-dept="Бурение" data-employee="Ерлан Сатыбалдиев" data-desc="Незакреплённый шланг высокого давления на буровой площадке, угроза срыва при подаче давления" data-status="Открыта" data-responsible="Аскар Калиев" data-type="hoc"><td class="id">HOC-0147</td><td>27.03</td><td>Карачаганак</td><td>Бурение</td><td style="color:var(--text)">Ерлан С.</td><td><span class="b b-high">Условие</span></td><td><span class="b b-open">Открыта</span></td><td>Аскар К.</td></tr>
@@ -359,6 +385,13 @@
         <tr class="detail-row" data-id="HOC-0141" data-date="22.03.2026" data-site="Кашаган" data-dept="Бурение" data-employee="Руслан Жунусов" data-desc="Работник поднимался по лестнице без страховочного пояса" data-status="Проверка" data-responsible="Марат Жумабаев" data-type="hoc"><td class="id">HOC-0141</td><td>22.03</td><td>Кашаган</td><td>Бурение</td><td style="color:var(--text)">Руслан Ж.</td><td><span class="b b-high">Действие</span></td><td><span class="b b-review">Проверка</span></td><td>Марат Ж.</td></tr>
         <tr class="detail-row" data-id="HOC-0140" data-date="21.03.2026" data-site="Узень" data-dept="ГНКТ" data-employee="Серик Абаев" data-desc="Неправильное складирование труб на площадке, риск скатывания" data-status="Открыта" data-responsible="Аскар Калиев" data-type="hoc"><td class="id">HOC-0140</td><td>21.03</td><td>Узень</td><td>ГНКТ</td><td style="color:var(--text)">Серик А.</td><td><span class="b b-high">Условие</span></td><td><span class="b b-open">Открыта</span></td><td>Аскар К.</td></tr>
       </tbody></table></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-size:11px;color:var(--text-dim);font-family:'JetBrains Mono',monospace">
+        <span>ПОКАЗАНО 1-8 ИЗ 147</span>
+        <div style="display:flex;gap:4px">
+          <button class="btn btn-ghost" style="padding:4px 10px;font-size:10px" disabled>&#8592; ПРЕД</button>
+          <button class="btn btn-ghost" style="padding:4px 10px;font-size:10px">СЛЕД &#8594;</button>
+        </div>
+      </div>
     </div>
 
     <!-- INCIDENTS -->
@@ -372,6 +405,13 @@
         <tr class="detail-row" data-id="INC-034" data-date="19.03.2026" data-site="Узень" data-class="NEAR MISS" data-desc="Незафиксированный груз при подъёме краном, чуть не задел рабочего" data-status="Закрыт" data-type="inc"><td class="id">INC-034</td><td>19.03</td><td>Узень</td><td><span class="b b-nm">NEAR MISS</span></td><td style="max-width:220px">Незафиксированный груз при подъёме</td><td><span class="b b-closed">Закрыт</span></td></tr>
         <tr class="detail-row" data-id="INC-033" data-date="17.03.2026" data-site="Тенгиз" data-class="FIRST AID" data-desc="Ожог руки при контакте с горячей трубой, СИЗ были надеты частично" data-status="Закрыт" data-type="inc"><td class="id">INC-033</td><td>17.03</td><td>Тенгиз</td><td><span class="b b-fa">FIRST AID</span></td><td style="max-width:220px">Ожог руки при контакте с трубой</td><td><span class="b b-closed">Закрыт</span></td></tr>
       </tbody></table></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-size:11px;color:var(--text-dim);font-family:'JetBrains Mono',monospace">
+        <span>ПОКАЗАНО 1-5 ИЗ 37</span>
+        <div style="display:flex;gap:4px">
+          <button class="btn btn-ghost" style="padding:4px 10px;font-size:10px" disabled>&#8592; ПРЕД</button>
+          <button class="btn btn-ghost" style="padding:4px 10px;font-size:10px">СЛЕД &#8594;</button>
+        </div>
+      </div>
     </div>
 
     <!-- RISK -->
@@ -411,6 +451,13 @@
         <tr class="detail-row" data-id="ФП-07" data-site="Узень" data-engineer="Нурлан К." data-status="Выпущена" data-date="21.03.2026" data-type="program"><td class="id">ФП-07</td><td>Узень</td><td>Нурлан К.</td><td><span class="b b-closed">Выпущена</span></td><td>21.03</td></tr>
         <tr class="detail-row" data-id="ГНКТ-11" data-site="Тенгиз" data-engineer="Марат Ж." data-status="Выпущена" data-date="18.03.2026" data-type="program"><td class="id">ГНКТ-11</td><td>Тенгиз</td><td>Марат Ж.</td><td><span class="b b-closed">Выпущена</span></td><td>18.03</td></tr>
       </tbody></table></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-size:11px;color:var(--text-dim);font-family:'JetBrains Mono',monospace">
+        <span>ПОКАЗАНО 1-5 ИЗ 23</span>
+        <div style="display:flex;gap:4px">
+          <button class="btn btn-ghost" style="padding:4px 10px;font-size:10px" disabled>&#8592; ПРЕД</button>
+          <button class="btn btn-ghost" style="padding:4px 10px;font-size:10px">СЛЕД &#8594;</button>
+        </div>
+      </div>
     </div>
 
     <!-- PJSM -->
@@ -459,6 +506,12 @@
         <div class="panel" style="cursor:pointer" onclick="showToast('Экспорт запущен','EXCEL .xlsx формируется')"><div class="panel-body" style="text-align:center;padding:40px"><div style="font-size:40px;margin-bottom:12px">&#128202;</div><div style="font-size:15px;font-weight:800">EXCEL</div><div style="font-size:11px;color:var(--text-dim)">.xlsx</div></div></div>
         <div class="panel" style="cursor:pointer" onclick="showToast('Экспорт запущен','PDF .pdf формируется')"><div class="panel-body" style="text-align:center;padding:40px"><div style="font-size:40px;margin-bottom:12px">&#128213;</div><div style="font-size:15px;font-weight:800">PDF</div><div style="font-size:11px;color:var(--text-dim)">.pdf</div></div></div>
       </div>
+      <div class="panel" style="margin-top:20px"><div class="panel-h"><span class="panel-t">Последние экспорты</span></div>
+      <div class="panel-body">
+        <div class="act"><div class="act-dot green"></div><div style="flex:1"><div class="act-text"><strong>Реестр НОС-карт — Март 2026</strong></div><div class="act-time">Excel · 147 записей · 27.03.2026</div></div><button class="btn btn-ghost" style="padding:4px 10px;font-size:10px">СКАЧАТЬ</button></div>
+        <div class="act"><div class="act-dot green"></div><div style="flex:1"><div class="act-text"><strong>Отчёт по происшествиям Q1 2026</strong></div><div class="act-time">PDF · 37 записей · 25.03.2026</div></div><button class="btn btn-ghost" style="padding:4px 10px;font-size:10px">СКАЧАТЬ</button></div>
+        <div class="act"><div class="act-dot green"></div><div style="flex:1"><div class="act-text"><strong>Реестр программ работ — 2026</strong></div><div class="act-time">Excel · 23 записи · 24.03.2026</div></div><button class="btn btn-ghost" style="padding:4px 10px;font-size:10px">СКАЧАТЬ</button></div>
+      </div></div>
     </div>
   </div>
 </div>
@@ -682,6 +735,10 @@ document.querySelectorAll('.detail-row').forEach(function(row){
     var body=document.getElementById('dpBody');
     var d=row.dataset;
 
+    // Selected row highlight
+    document.querySelectorAll('.tbl tbody tr.selected').forEach(function(r){r.classList.remove('selected')});
+    row.classList.add('selected');
+
     // Clear body
     while(body.firstChild) body.removeChild(body.firstChild);
 
@@ -750,6 +807,7 @@ document.querySelectorAll('.detail-row').forEach(function(row){
 
 function closeDetail(){
   document.getElementById('detailPanel').classList.remove('open');
+  document.querySelectorAll('.tbl tbody tr.selected').forEach(function(r){r.classList.remove('selected')});
 }
 document.getElementById('dpClose').addEventListener('click',closeDetail);
 document.getElementById('dpCloseBtn').addEventListener('click',closeDetail);
@@ -764,6 +822,25 @@ document.addEventListener('keydown',function(e){
     closeMobileSidebar();
   }
 });
+
+// Sidebar collapse toggle
+document.getElementById('collapseBtn').addEventListener('click',function(){
+  var sb=document.getElementById('sidebar');
+  sb.classList.toggle('collapsed');
+  var icon=this.querySelector('.s-icon');
+  icon.textContent=sb.classList.contains('collapsed')?'▷':'◁';
+});
+
+// HOC site filter
+function filterHocSite(site){
+  var rows=document.querySelectorAll('#p-hoc .tbl tbody tr');
+  rows.forEach(function(row){
+    if(!site){row.style.display='';return;}
+    var cells=row.querySelectorAll('td');
+    var siteCell=cells[2]?cells[2].textContent.trim():'';
+    row.style.display=siteCell===site?'':'none';
+  });
+}
 </script>
 </body>
 </html>
