@@ -946,6 +946,160 @@
 
 <div class="section-divider"></div>
 
+<!-- ===== 00 — ЧТО УЖЕ ГОТОВО ===== -->
+<div class="section" style="background:linear-gradient(180deg, rgba(255,77,0,.03), transparent);">
+  <div class="container">
+    <div class="section-label">00 — Текущий статус</div>
+    <h2 class="section-title">Мы уже начали работу</h2>
+    <p class="section-desc">Ещё до подписания договора мы провели полный анализ ТЗ, спроектировали архитектуру и подготовили рабочие артефакты. Вот что уже сделано:</p>
+
+    <!-- PROGRESS BAR -->
+    <div class="gc card-pad-lg" style="margin-bottom:28px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+        <div style="font-size:16px;font-weight:800;">Общий прогресс подготовки</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:800;color:var(--gold);">40%</div>
+      </div>
+      <div style="height:8px;background:var(--surface-2);overflow:hidden;">
+        <div style="width:40%;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-bright));transition:width 1s ease;"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-top:10px;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text-dim);letter-spacing:1px;text-transform:uppercase;">
+        <span>Подготовка</span><span>Разработка</span><span>Тестирование</span><span>Запуск</span>
+      </div>
+    </div>
+
+    <!-- DONE ITEMS -->
+    <div style="margin-bottom:32px;">
+      <div style="font-size:18px;font-weight:800;margin-bottom:20px;display:flex;align-items:center;gap:10px;">
+        <span style="color:var(--success);">✓</span> Уже выполнено
+      </div>
+
+      <div class="grid-2" style="gap:14px;margin-bottom:14px;">
+        <div class="gc card-pad" style="border-left:3px solid var(--success);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <span style="font-size:15px;font-weight:700;">Анализ ТЗ</span>
+            <span class="mono-tag success" style="margin:0;">ГОТОВО</span>
+          </div>
+          <p class="card-text" style="font-size:12px;">Полный разбор обоих документов ТЗ (русская и английская версия). Все 37 пунктов требований задокументированы и подтверждены к реализации.</p>
+        </div>
+        <div class="gc card-pad" style="border-left:3px solid var(--success);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <span style="font-size:15px;font-weight:700;">Архитектура БД</span>
+            <span class="mono-tag success" style="margin:0;">ГОТОВО</span>
+          </div>
+          <p class="card-text" style="font-size:12px;">Спроектированы 14 таблиц, 8 ENUM-типов, 34 RLS-политики безопасности. Миграция протестирована и развёрнута на сервере.</p>
+        </div>
+      </div>
+
+      <div class="grid-2" style="gap:14px;margin-bottom:14px;">
+        <div class="gc card-pad" style="border-left:3px solid var(--success);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <span style="font-size:15px;font-weight:700;">Интерактивный прототип</span>
+            <span class="mono-tag success" style="margin:0;">ГОТОВО</span>
+          </div>
+          <p class="card-text" style="font-size:12px;">9 экранов, 3 модальных формы, все модули из ТЗ визуализированы. Можно потыкать прямо сейчас.</p>
+          <a href="prototype.html" target="_blank" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:7px 16px;background:var(--gold);color:var(--bg);font-size:11px;font-weight:700;text-decoration:none;font-family:'JetBrains Mono',monospace;letter-spacing:.5px;">ОТКРЫТЬ ПРОТОТИП →</a>
+        </div>
+        <div class="gc card-pad" style="border-left:3px solid var(--success);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <span style="font-size:15px;font-weight:700;">Серверная инфраструктура</span>
+            <span class="mono-tag success" style="margin:0;">ГОТОВО</span>
+          </div>
+          <p class="card-text" style="font-size:12px;">Supabase проект создан, база данных развёрнута, 14 таблиц с данными, Storage для файлов, авторизация настроена. Готово к разработке.</p>
+        </div>
+      </div>
+
+      <div class="grid-2" style="gap:14px;">
+        <div class="gc card-pad" style="border-left:3px solid var(--success);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <span style="font-size:15px;font-weight:700;">Справочник рисков</span>
+            <span class="mono-tag success" style="margin:0;">ГОТОВО</span>
+          </div>
+          <p class="card-text" style="font-size:12px;">18 рисков по 5 типам работ (ГНКТ, Азотная, Флюид Памп, КРС, Бурение) уже загружены в БД как «шпаргалка» для модуля JSA.</p>
+        </div>
+        <div class="gc card-pad" style="border-left:3px solid var(--success);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <span style="font-size:15px;font-weight:700;">Seed-данные</span>
+            <span class="mono-tag success" style="margin:0;">ГОТОВО</span>
+          </div>
+          <p class="card-text" style="font-size:12px;">4 месторождения (Тенгиз, Карачаганак, Кашаган, Узень) и 8 подразделений уже в системе. Всё готово для начала разработки интерфейса.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHAT'S NEXT -->
+    <div style="margin-bottom:0;">
+      <div style="font-size:18px;font-weight:800;margin-bottom:20px;display:flex;align-items:center;gap:10px;">
+        <span style="color:var(--gold);">→</span> Следующие шаги после подписания
+      </div>
+
+      <div class="gc card-pad-lg">
+        <div style="display:grid;gap:0;">
+          <div style="display:flex;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid var(--border-light);">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);min-width:80px;">НЕДЕЛЯ 1</div>
+            <div style="font-size:13px;color:var(--text-sec);">Авторизация, регистрация по инвайту, роли — вход в систему для 5 типов пользователей</div>
+            <span class="mono-tag gold" style="margin:0;margin-left:auto;">Фаза 1</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid var(--border-light);">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);min-width:80px;">НЕДЕЛЯ 2-3</div>
+            <div style="font-size:13px;color:var(--text-sec);">Layout платформы, дашборд, модуль НОС-карт (создание, просмотр, статусы, фото)</div>
+            <span class="mono-tag gold" style="margin:0;margin-left:auto;">Фаза 1</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid var(--border-light);">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);min-width:80px;">НЕДЕЛЯ 4-5</div>
+            <div style="font-size:13px;color:var(--text-sec);">Модуль происшествий + AI-классификация (8 категорий) + email-уведомления</div>
+            <span class="mono-tag gold" style="margin:0;margin-left:auto;">Фаза 1</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid var(--border-light);">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);min-width:80px;">НЕДЕЛЯ 6-8</div>
+            <div style="font-size:13px;color:var(--text-sec);">Тестирование, полировка MVP, демо заказчику — первая рабочая версия</div>
+            <span class="mono-tag gold" style="margin:0;margin-left:auto;">Фаза 1</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid var(--border-light);">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:var(--text-dim);min-width:80px;">НЕД. 9-16</div>
+            <div style="font-size:13px;color:var(--text-dim);">Программы работ, workflow согласования, оценка рисков, Pre-Job Safety</div>
+            <span class="mono-tag warning" style="margin:0;margin-left:auto;">Фаза 2</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid var(--border-light);">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:var(--text-dim);min-width:80px;">НЕД. 17-22</div>
+            <div style="font-size:13px;color:var(--text-dim);">PWA, оффлайн-режим для месторождений, push-уведомления</div>
+            <span class="mono-tag success" style="margin:0;margin-left:auto;">Фаза 3</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;padding:14px 0;">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:var(--text-dim);min-width:80px;">НЕД. 23-26</div>
+            <div style="font-size:13px;color:var(--text-dim);">Экспорт Word/Excel/PDF, журнал 5 лет, аналитика, обучение, запуск</div>
+            <span class="mono-tag purple" style="margin:0;margin-left:auto;">Фаза 4</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DB STATS -->
+    <div style="margin-top:28px;">
+      <div class="stat-grid">
+        <div class="gc stat-card">
+          <div class="stat-number">14</div>
+          <div class="stat-label-text">Таблиц в БД</div>
+        </div>
+        <div class="gc stat-card">
+          <div class="stat-number">34</div>
+          <div class="stat-label-text">RLS-политик</div>
+        </div>
+        <div class="gc stat-card">
+          <div class="stat-number">18</div>
+          <div class="stat-label-text">Рисков в справочнике</div>
+        </div>
+        <div class="gc stat-card">
+          <div class="stat-number">9</div>
+          <div class="stat-label-text">Экранов в прототипе</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
 <!-- ===== 01 — О ПРОЕКТЕ ===== -->
 <div class="section">
   <div class="container">
