@@ -1,0 +1,2127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KazGeoTech — HSE Platform | Коммерческое предложение</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Bricolage+Grotesque:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0D0B0E;
+    --surface: #1A1620;
+    --card: #1E1A24;
+    --card-dark: #141117;
+    --gold: #D4A574;
+    --gold-bright: #E8C49A;
+    --gold-dark: #C8956C;
+    --gold-deep: #A07850;
+    --text: #E8DDD3;
+    --text-light: #F0E6DC;
+    --text-sec: #9B8E82;
+    --text-muted: #6B5F55;
+    --border: rgba(212,165,116,.1);
+    --border-light: rgba(212,165,116,.06);
+    --glow: rgba(212,165,116,.35);
+    --glow-soft: rgba(212,165,116,.12);
+    --glow-strong: rgba(212,165,116,.55);
+    --blue: #7EB8DA;
+    --purple: #A78BCA;
+    --danger: #ef4444;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --radius: 16px;
+    --radius-sm: 10px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Outfit', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+
+  /* ===== GLASS CARD ===== */
+  .gc {
+    background: linear-gradient(145deg, rgba(30,26,36,0.85), rgba(20,17,23,0.9));
+    backdrop-filter: blur(20px) saturate(1.8);
+    -webkit-backdrop-filter: blur(20px) saturate(1.8);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  .gc::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 10%; right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dark), transparent);
+    opacity: 0.3;
+    transition: opacity 0.3s;
+  }
+
+  .gc:hover {
+    border-color: rgba(212,165,116,.25);
+    transform: translateY(-4px);
+    box-shadow: 0 0 60px rgba(212,165,116,.06), 0 20px 60px rgba(0,0,0,.35);
+  }
+
+  .gc:hover::before { opacity: 0.6; }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    pointer-events: none;
+    animation: orbFloat 20s ease-in-out infinite;
+  }
+
+  .hero-orb-1 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(212,165,116,.12), transparent 70%);
+    top: -100px; right: -100px;
+    animation-duration: 15s;
+  }
+
+  .hero-orb-2 {
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(167,139,202,.08), transparent 70%);
+    bottom: -50px; left: -50px;
+    animation-duration: 18s;
+    animation-delay: -5s;
+  }
+
+  .hero-orb-3 {
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(212,165,116,.08), transparent 70%);
+    top: 40%; left: 60%;
+    animation-duration: 12s;
+    animation-delay: -8s;
+  }
+
+  @keyframes orbFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(2%, -3%) scale(1.02); }
+    50% { transform: translate(-1%, 2%) scale(0.98); }
+    75% { transform: translate(3%, 1%) scale(1.01); }
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 32px;
+    animation: fadeInDown 0.7s cubic-bezier(0.22,1,0.36,1);
+    position: relative;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 8px; height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--glow);
+    animation: glowPulse 2s ease-in-out infinite;
+  }
+
+  .hero-title {
+    font-family: 'Bricolage Grotesque', 'Outfit', sans-serif;
+    font-size: clamp(42px, 6vw, 80px);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+    margin-bottom: 24px;
+    animation: fadeInUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s both;
+  }
+
+  .hero-title .gold {
+    background: linear-gradient(135deg, var(--gold-bright), var(--gold), var(--gold-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(16px, 2vw, 22px);
+    color: var(--text-sec);
+    font-weight: 300;
+    max-width: 600px;
+    margin-bottom: 48px;
+    animation: fadeInUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.2s both;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.3s both;
+  }
+
+  .hero-meta-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .hero-meta-value {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  /* ===== SECTIONS ===== */
+  .section { padding: 100px 0; position: relative; }
+
+  .section-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 24px; height: 1px;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+
+  .section-title {
+    font-family: 'Bricolage Grotesque', 'Outfit', sans-serif;
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .section-desc {
+    font-size: 17px;
+    color: var(--text-sec);
+    font-weight: 300;
+    max-width: 650px;
+    margin-bottom: 48px;
+  }
+
+  /* ===== GRID ===== */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+
+  /* ===== CARDS ===== */
+  .card-pad { padding: 28px; }
+  .card-pad-lg { padding: 36px; }
+
+  .card-icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .card-title {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+
+  .card-text {
+    font-size: 14px;
+    color: var(--text-sec);
+    line-height: 1.7;
+  }
+
+  .card-full { grid-column: 1 / -1; }
+
+  /* ===== GOLD LINE ACCENT ===== */
+  .gold-line-left { border-left: 2px solid var(--gold-dark); }
+  .danger-line-left { border-left: 2px solid var(--danger); }
+  .success-line-left { border-left: 2px solid var(--success); }
+
+  /* ===== MONO TAG ===== */
+  .mono-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+
+  .mono-tag.gold { background: rgba(212,165,116,.1); color: var(--gold); }
+  .mono-tag.danger { background: rgba(239,68,68,.1); color: var(--danger); }
+  .mono-tag.success { background: rgba(16,185,129,.1); color: var(--success); }
+  .mono-tag.warning { background: rgba(245,158,11,.1); color: var(--warning); }
+  .mono-tag.purple { background: rgba(167,139,202,.1); color: var(--purple); }
+  .mono-tag.blue { background: rgba(126,184,218,.1); color: var(--blue); }
+
+  /* ===== MODULES ===== */
+  .module {
+    display: flex;
+    gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border-light);
+    align-items: flex-start;
+  }
+
+  .module:last-child { border-bottom: none; }
+
+  .module-num {
+    width: 48px; height: 48px; min-width: 48px;
+    background: linear-gradient(135deg, var(--gold-bright), var(--gold-dark));
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--bg);
+    box-shadow: 0 0 20px var(--glow-soft);
+  }
+
+  .module-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  .module-desc { font-size: 14px; color: var(--text-sec); margin-bottom: 12px; }
+
+  .module-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  .module-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    padding: 4px 10px;
+    background: rgba(212,165,116,.06);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-sec);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+
+  /* ===== TIMELINE ===== */
+  .timeline { position: relative; padding-left: 50px; margin: 48px 0; }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--gold), var(--purple), var(--blue));
+    border-radius: 2px;
+    opacity: 0.4;
+  }
+
+  .tl-item {
+    position: relative;
+    margin-bottom: 36px;
+  }
+
+  .tl-item .gc { padding: 28px 32px; }
+
+  .tl-dot {
+    position: absolute;
+    left: -42px; top: 30px;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 4px solid var(--bg);
+    box-shadow: 0 0 12px var(--glow-soft);
+    z-index: 1;
+  }
+
+  .tl-item:nth-child(2) .tl-dot { background: var(--warning); box-shadow: 0 0 12px rgba(245,158,11,.3); }
+  .tl-item:nth-child(3) .tl-dot { background: var(--success); box-shadow: 0 0 12px rgba(16,185,129,.3); }
+  .tl-item:nth-child(4) .tl-dot { background: var(--purple); box-shadow: 0 0 12px rgba(167,139,202,.3); }
+
+  .tl-duration {
+    position: absolute;
+    top: 28px; right: 32px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  .tl-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  .tl-desc { font-size: 14px; color: var(--text-sec); margin-bottom: 14px; }
+
+  .tl-dels { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  /* ===== PRICING ===== */
+  .price-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin: 32px 0;
+  }
+
+  .price-table th {
+    text-align: left;
+    padding: 14px 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .price-table td {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-sec);
+  }
+
+  .price-table tr:last-child td { border-bottom: 1px solid var(--border); }
+
+  .price-table .total-row td {
+    font-weight: 800;
+    font-size: 16px;
+    color: var(--text);
+    background: rgba(212,165,116,.04);
+    border-bottom: none;
+  }
+
+  .price-table .total-row td:last-child {
+    color: var(--gold-bright);
+    font-size: 22px;
+    font-family: 'Bricolage Grotesque', sans-serif;
+  }
+
+  /* ===== COMPARISON CARDS ===== */
+  .compare-winner {
+    box-shadow: 0 0 0 2px var(--gold-dark), 0 0 40px var(--glow-soft);
+  }
+
+  .compare-winner::after {
+    content: 'ЛУЧШЕЕ ПРЕДЛОЖЕНИЕ';
+    position: absolute;
+    top: -12px; left: 50%;
+    transform: translateX(-50%);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    color: var(--bg);
+    background: linear-gradient(135deg, var(--gold-bright), var(--gold-dark));
+    padding: 4px 16px;
+    border-radius: 100px;
+    white-space: nowrap;
+    z-index: 1;
+  }
+
+  /* ===== BAR CHART ===== */
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 14px;
+  }
+
+  .bar-label {
+    min-width: 140px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .bar-track {
+    flex: 1;
+    height: 40px;
+    background: rgba(255,255,255,.03);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    padding-left: 14px;
+    font-size: 13px;
+    font-weight: 800;
+    color: #fff;
+    transition: width 1s cubic-bezier(0.22,1,0.36,1);
+  }
+
+  /* ===== HIGHLIGHT BOX ===== */
+  .hl-box {
+    border-radius: var(--radius);
+    padding: 28px;
+    margin: 32px 0;
+    border: 1px solid;
+  }
+
+  .hl-box.gold {
+    background: rgba(212,165,116,.04);
+    border-color: rgba(212,165,116,.15);
+  }
+
+  .hl-box.success {
+    background: rgba(16,185,129,.04);
+    border-color: rgba(16,185,129,.15);
+  }
+
+  .hl-box.warning {
+    background: rgba(245,158,11,.04);
+    border-color: rgba(245,158,11,.15);
+  }
+
+  .hl-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hl-text {
+    font-size: 14px;
+    color: var(--text-sec);
+    line-height: 1.8;
+  }
+
+  /* ===== STAT ROW ===== */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin: 32px 0;
+  }
+
+  .stat-card { padding: 24px; text-align: center; }
+
+  .stat-number {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+
+  /* ===== ADV ROW ===== */
+  .adv-row {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .adv-row:last-child { border-bottom: none; }
+
+  .adv-icon {
+    width: 46px; height: 46px; min-width: 46px;
+    background: rgba(212,165,116,.06);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+
+  .adv-title { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+  .adv-desc { font-size: 13px; color: var(--text-sec); }
+
+  /* ===== TERMS ===== */
+  .terms-list { list-style: none; counter-reset: terms; }
+
+  .terms-list li {
+    counter-increment: terms;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 14px;
+    color: var(--text-sec);
+    display: flex;
+    gap: 16px;
+    line-height: 1.7;
+  }
+
+  .terms-list li::before {
+    content: counter(terms, decimal-leading-zero);
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    color: var(--gold);
+    min-width: 28px;
+    font-size: 14px;
+  }
+
+  .terms-list li:last-child { border-bottom: none; }
+
+  /* ===== CONTACT ===== */
+  .contact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 40px; }
+
+  .contact-card {
+    padding: 28px;
+    text-align: center;
+  }
+
+  .contact-icon { font-size: 28px; margin-bottom: 12px; }
+  .contact-name { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+  .contact-value { font-size: 13px; color: var(--gold); font-weight: 600; }
+
+  /* ===== GOLD BUTTON ===== */
+  .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--gold-bright), var(--gold), var(--gold-dark));
+    color: var(--bg);
+    padding: 16px 36px;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    box-shadow: 0 0 50px var(--glow), 0 0 100px var(--glow-soft);
+    transition: all 0.3s ease;
+  }
+
+  .btn-gold:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 0 30px var(--glow-strong), 0 0 80px var(--glow), 0 0 140px var(--glow-soft);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,.035);
+    border: 1px solid rgba(255,255,255,.09);
+    color: var(--text-sec);
+    padding: 14px 32px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.3s ease;
+  }
+
+  .btn-ghost:hover {
+    border-color: rgba(212,165,116,.3);
+    color: var(--gold);
+    background: rgba(212,165,116,.06);
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    padding: 60px 0;
+    text-align: center;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .footer-brand {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--gold-bright), var(--gold-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+  }
+
+  .footer-text {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes glowPulse {
+    0%, 100% { box-shadow: 0 0 8px rgba(212,165,116,.15); }
+    50% { box-shadow: 0 0 20px rgba(212,165,116,.4); }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .container { padding: 0 20px; }
+    .hero { padding: 60px 20px; }
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr 1fr; }
+    .stat-grid { grid-template-columns: 1fr 1fr; }
+    .section { padding: 60px 0; }
+    .hero-meta { gap: 24px; }
+    .timeline { padding-left: 36px; }
+    .tl-duration { position: static; margin-bottom: 8px; }
+    .bar-label { min-width: 100px; font-size: 11px; }
+  }
+
+  @media print {
+    .hero { min-height: auto; }
+    .hero-orb { display: none; }
+    .gc { backdrop-filter: none; }
+    body { background: #fff; color: #111; }
+    .section-divider { background: #ddd; }
+  }
+
+  /* ===== SCROLLBAR ===== */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  /* ===== THEME TOGGLE ===== */
+  .theme-toggle {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 999;
+    display: flex;
+    background: rgba(20,17,23,0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 4px;
+    gap: 0;
+    box-shadow: 0 8px 32px rgba(0,0,0,.4);
+    transition: all 0.3s;
+  }
+
+  .theme-btn {
+    padding: 10px 20px;
+    border: none;
+    background: none;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    border-radius: 100px;
+    transition: all 0.25s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .theme-btn.active {
+    background: var(--gold);
+    color: var(--bg);
+  }
+
+  .theme-btn .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  /* ===== BRUTALIST THEME ===== */
+  [data-theme="brutalist"] {
+    --bg: #0A0A0A;
+    --surface: #111111;
+    --card: #141414;
+    --card-dark: #0D0D0D;
+    --gold: #FF4D00;
+    --gold-bright: #FF6B2C;
+    --gold-dark: #E04400;
+    --gold-deep: #C03A00;
+    --text: #FAFAFA;
+    --text-light: #FFFFFF;
+    --text-sec: #999999;
+    --text-muted: #555555;
+    --border: rgba(255,77,0,.12);
+    --border-light: rgba(255,255,255,.06);
+    --glow: rgba(255,77,0,.3);
+    --glow-soft: rgba(255,77,0,.1);
+    --glow-strong: rgba(255,77,0,.5);
+    --radius: 0px;
+    --radius-sm: 0px;
+  }
+
+  [data-theme="brutalist"] .gc {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: var(--card);
+    border-radius: 0;
+  }
+
+  [data-theme="brutalist"] .gc::before { display: none; }
+
+  [data-theme="brutalist"] .gc:hover {
+    border-color: var(--gold);
+    box-shadow: 4px 4px 0 var(--gold);
+    transform: translate(-2px, -2px);
+  }
+
+  [data-theme="brutalist"] .hero-orb { display: none; }
+
+  [data-theme="brutalist"] .hero-badge::before { border-radius: 0; }
+
+  [data-theme="brutalist"] .hero-title .gold {
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: var(--gold);
+    color: var(--gold);
+  }
+
+  [data-theme="brutalist"] .module-num {
+    border-radius: 0;
+    background: var(--gold) !important;
+    box-shadow: none;
+  }
+
+  [data-theme="brutalist"] .mono-tag { border-radius: 0; }
+  [data-theme="brutalist"] .module-tag { border-radius: 0; }
+  [data-theme="brutalist"] .hl-box { border-radius: 0; }
+  [data-theme="brutalist"] .adv-icon { border-radius: 0; }
+  [data-theme="brutalist"] .tl-dot { border-radius: 0; box-shadow: none; }
+  [data-theme="brutalist"] .stat-number { color: var(--gold); }
+  [data-theme="brutalist"] .bar-fill { border-radius: 0; }
+  [data-theme="brutalist"] .bar-track { border-radius: 0; }
+
+  [data-theme="brutalist"] .compare-winner {
+    box-shadow: 0 0 0 2px var(--gold), 4px 4px 0 var(--gold);
+  }
+
+  [data-theme="brutalist"] .compare-winner::after {
+    background: var(--gold);
+    border-radius: 0;
+  }
+
+  [data-theme="brutalist"] .btn-gold {
+    background: var(--gold);
+    border-radius: 0;
+    box-shadow: 4px 4px 0 rgba(255,77,0,.4);
+  }
+
+  [data-theme="brutalist"] .btn-gold:hover {
+    box-shadow: 6px 6px 0 rgba(255,77,0,.5);
+    transform: translate(-2px, -2px);
+  }
+
+  [data-theme="brutalist"] .btn-ghost { border-radius: 0; }
+
+  [data-theme="brutalist"] .footer-brand {
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: var(--gold);
+    color: var(--gold);
+  }
+
+  [data-theme="brutalist"] .section-divider {
+    background: rgba(255,255,255,.06);
+    height: 2px;
+  }
+
+  [data-theme="brutalist"] .timeline::before {
+    background: var(--gold);
+    opacity: 0.3;
+  }
+
+  [data-theme="brutalist"] .price-table .total-row td:last-child {
+    color: var(--gold);
+  }
+
+  [data-theme="brutalist"] .contact-value { color: var(--gold); }
+  [data-theme="brutalist"] .tl-duration { color: var(--gold); }
+  [data-theme="brutalist"] .terms-list li::before { color: var(--gold); }
+  [data-theme="brutalist"] .section-label { color: var(--gold); }
+  [data-theme="brutalist"] .section-label::before { background: var(--gold); }
+
+  [data-theme="brutalist"] .theme-toggle {
+    background: rgba(10,10,10,0.9);
+    border-color: rgba(255,255,255,.1);
+    border-radius: 0;
+  }
+
+  [data-theme="brutalist"] .theme-btn { border-radius: 0; }
+
+  [data-theme="brutalist"] .theme-btn.active {
+    background: var(--gold);
+    color: #000;
+  }
+
+  /* smooth transition between themes */
+  body, .gc, .hero-title .gold, .module-num, .btn-gold, .footer-brand,
+  .section-divider, .compare-winner, .compare-winner::after, .theme-toggle, .theme-btn {
+    transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+
+  <div class="container">
+    <div class="hero-badge">Коммерческое предложение</div>
+    <h1 class="hero-title">
+      <span class="gold">HSE-платформа</span><br>
+      для KazGeoTech
+    </h1>
+    <p class="hero-subtitle">Автоматизация управления безопасностью, учёта происшествий и производственных программ с AI-классификацией и оффлайн-режимом</p>
+
+    <div class="hero-meta">
+      <div>
+        <div class="hero-meta-label">Заказчик</div>
+        <div class="hero-meta-value">ТОО «KazGeoTech»</div>
+      </div>
+      <div>
+        <div class="hero-meta-label">Исполнитель</div>
+        <div class="hero-meta-value">DOS — AI Automation</div>
+      </div>
+      <div>
+        <div class="hero-meta-label">Дата</div>
+        <div class="hero-meta-value">27 марта 2026</div>
+      </div>
+      <div>
+        <div class="hero-meta-label">Срок действия</div>
+        <div class="hero-meta-value">до 27 апреля 2026</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ===== 01 — О ПРОЕКТЕ ===== -->
+<div class="section">
+  <div class="container">
+    <div class="section-label">01 — О проекте</div>
+    <h2 class="section-title">Что мы предлагаем</h2>
+    <p class="section-desc">Единая корпоративная платформа, которая заменяет бумажные журналы, Excel-таблицы и email-переписки по HSE — одной системой с контролем, AI и мобильным доступом.</p>
+
+    <div class="grid-2">
+      <div class="gc card-pad gold-line-left">
+        <div class="card-icon">🎯</div>
+        <h3 class="card-title">Проблема</h3>
+        <p class="card-text">HSE-данные разбросаны по бумажным журналам и Excel. Нет единого учёта, нет контроля workflow, невозможно работать в поле без интернета. Отчётность готовится вручную, информация теряется.</p>
+      </div>
+      <div class="gc card-pad success-line-left">
+        <div class="card-icon">✅</div>
+        <h3 class="card-title">Решение</h3>
+        <p class="card-text">Облачная платформа с мобильным доступом: НОС-карты, происшествия, программы работ и оценки рисков — в одном месте. AI-классификация, workflow согласования, оффлайн-режим для месторождений.</p>
+      </div>
+    </div>
+
+    <div class="stat-grid" style="margin-top:32px;">
+      <div class="gc stat-card">
+        <div class="stat-number">6</div>
+        <div class="stat-label-text">Модулей</div>
+      </div>
+      <div class="gc stat-card">
+        <div class="stat-number">5</div>
+        <div class="stat-label-text">Ролей доступа</div>
+      </div>
+      <div class="gc stat-card">
+        <div class="stat-number">AI</div>
+        <div class="stat-label-text">Классификация</div>
+      </div>
+      <div class="gc stat-card">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label-text">Оффлайн доступ</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ===== 02 — МОДУЛИ ===== -->
+<div class="section">
+  <div class="container">
+    <div class="section-label">02 — Функционал</div>
+    <h2 class="section-title">Модули платформы</h2>
+    <p class="section-desc">6 модулей, покрывающих все HSE-процессы и управление производственными программами.</p>
+
+    <div class="module">
+      <div class="module-num">1</div>
+      <div>
+        <h3 class="module-title">НОС-карты (HOC Cards)</h3>
+        <p class="module-desc">Электронная регистрация опасных условий и действий. Фото, назначение ответственных, статус-трекинг (открыта → закрыта).</p>
+        <div class="module-tags">
+          <span class="module-tag">Электронный реестр</span>
+          <span class="module-tag">Загрузка фото</span>
+          <span class="module-tag">Ответственные</span>
+          <span class="module-tag">Статус-трекинг</span>
+          <span class="module-tag">Оффлайн</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="module">
+      <div class="module-num" style="background:linear-gradient(135deg,var(--warning),#d97706);">2</div>
+      <div>
+        <h3 class="module-title">Учёт происшествий</h3>
+        <p class="module-desc">Регистрация онлайн/оффлайн с AI-классификацией: Near Miss, Incident, Accident, First Aid, Environmental, Motor Vehicle, Stop Work Authority.</p>
+        <div class="module-tags">
+          <span class="module-tag">AI-классификация</span>
+          <span class="module-tag">8 категорий</span>
+          <span class="module-tag">Вложения</span>
+          <span class="module-tag">Корректирующие действия</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="module">
+      <div class="module-num" style="background:linear-gradient(135deg,var(--success),#059669);">3</div>
+      <div>
+        <h3 class="module-title">Программы работ (Job Design)</h3>
+        <p class="module-desc">Workflow: Создание → Проверка → Согласование → Утверждение → Выпуск. MOC-заявки при изменениях.</p>
+        <div class="module-tags">
+          <span class="module-tag">Workflow 5 этапов</span>
+          <span class="module-tag">MOC</span>
+          <span class="module-tag">Вложения PDF/DWG</span>
+          <span class="module-tag">Версионность</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="module">
+      <div class="module-num" style="background:linear-gradient(135deg,var(--danger),#dc2626);">4</div>
+      <div>
+        <h3 class="module-title">Оценка рисков (JSA / АБР)</h3>
+        <p class="module-desc">Предсменные формы с шпаргалкой по типам работ. Матрица 5×5. Stop Work Authority. MOC при паузе > N часов.</p>
+        <div class="module-tags">
+          <span class="module-tag">Матрица 5×5</span>
+          <span class="module-tag">Шпаргалка рисков</span>
+          <span class="module-tag">Stop Work</span>
+          <span class="module-tag">Workflow</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="module">
+      <div class="module-num" style="background:linear-gradient(135deg,var(--purple),#7c3aed);">5</div>
+      <div>
+        <h3 class="module-title">Pre-Job Safety Meeting</h3>
+        <p class="module-desc">Электронные формы предсменных совещаний. Участники, риски, меры контроля, привязка к JSA.</p>
+        <div class="module-tags">
+          <span class="module-tag">Электронная форма</span>
+          <span class="module-tag">Участники</span>
+          <span class="module-tag">Привязка к JSA</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="module">
+      <div class="module-num" style="background:linear-gradient(135deg,var(--blue),#3b82f6);">6</div>
+      <div>
+        <h3 class="module-title">Системные модули</h3>
+        <p class="module-desc">5 ролей, уведомления (email + push), журнал событий (хранение 5 лет), экспорт Word/Excel/PDF.</p>
+        <div class="module-tags">
+          <span class="module-tag">5 ролей</span>
+          <span class="module-tag">Email + Push</span>
+          <span class="module-tag">Журнал 5 лет</span>
+          <span class="module-tag">Export</span>
+          <span class="module-tag">«Создать похожее»</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ===== 02.1 — ТЗ ДЕТАЛИ ===== -->
+<div class="section">
+  <div class="container">
+    <div class="section-label">02.1 — Детализация из ТЗ</div>
+    <h2 class="section-title">Полные требования по модулям</h2>
+    <p class="section-desc">Детальное описание функционала каждого модуля согласно техническому заданию Заказчика.</p>
+
+    <!-- НОС-КАРТЫ ДЕТАЛЬНО -->
+    <div class="gc card-pad-lg" style="margin-bottom:18px;">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;">
+        <div class="module-num">1</div>
+        <div>
+          <h3 style="font-size:20px;font-weight:800;">НОС-карты (HOC Cards)</h3>
+          <p style="font-size:13px;color:var(--text-muted);">Hazard Observation Cards — карты наблюдения за опасностями</p>
+        </div>
+      </div>
+
+      <div style="margin-bottom:20px;">
+        <div style="font-size:13px;font-weight:700;margin-bottom:10px;color:var(--gold);">Функции:</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:13px;color:var(--text-sec);">
+          <div>• Создание НОС-карты</div>
+          <div>• Регистрация опасных условий/действий в электронный реестр</div>
+          <div>• Прикрепление фотографий</div>
+          <div>• Назначение ответственных</div>
+          <div>• Смена статуса (открыта → закрыта)</div>
+          <div>• Работа онлайн и оффлайн</div>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-size:13px;font-weight:700;margin-bottom:10px;color:var(--gold);">Поля формы НОС-карты:</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;">
+          <div class="module-tag">Дата</div>
+          <div class="module-tag">Объект</div>
+          <div class="module-tag">Подразделение</div>
+          <div class="module-tag">ФИО сотрудника</div>
+          <div class="module-tag">Тип наблюдения</div>
+          <div class="module-tag">Описание</div>
+          <div class="module-tag">Предложения / действия</div>
+          <div class="module-tag">Статус (открыт/закрыт)</div>
+          <div class="module-tag">Фотографии</div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;padding:12px;background:rgba(212,165,116,.04);border-radius:var(--radius-sm);border:1px solid var(--border-light);font-size:12px;color:var(--text-sec);">
+        <strong style="color:var(--text);">Логика статусов:</strong> Специалист по ТБ применяет действия по НОС-карте → статус меняется с «Открыт» на «Закрыт»
+      </div>
+    </div>
+
+    <!-- ПРОИСШЕСТВИЯ ДЕТАЛЬНО -->
+    <div class="gc card-pad-lg" style="margin-bottom:18px;">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;">
+        <div class="module-num" style="background:linear-gradient(135deg,var(--warning),#d97706);">2</div>
+        <div>
+          <h3 style="font-size:20px;font-weight:800;">Учёт происшествий</h3>
+          <p style="font-size:13px;color:var(--text-muted);">Регистрация, AI-классификация и анализ</p>
+        </div>
+      </div>
+
+      <div style="margin-bottom:20px;">
+        <div style="font-size:13px;font-weight:700;margin-bottom:10px;color:var(--warning);">AI-классификация (8 категорий):</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+          <span class="mono-tag warning">Near Miss</span>
+          <span class="mono-tag warning">Incident</span>
+          <span class="mono-tag danger">Accident</span>
+          <span class="mono-tag blue">First Aid Case</span>
+          <span class="mono-tag blue">Medical Treatment Case</span>
+          <span class="mono-tag purple">Environmental Incident</span>
+          <span class="mono-tag danger">Motor Vehicle Accident</span>
+          <span class="mono-tag danger">Stop Work Authority</span>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-size:13px;font-weight:700;margin-bottom:10px;color:var(--warning);">Карточка происшествия:</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+          <div class="module-tag">Дата</div>
+          <div class="module-tag">Место</div>
+          <div class="module-tag">Описание</div>
+          <div class="module-tag">Действия (незамедлительные)</div>
+          <div class="module-tag">Действия (корректирующие)</div>
+          <div class="module-tag">Вложения (фото, документы)</div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;padding:12px;background:rgba(245,158,11,.04);border-radius:var(--radius-sm);border:1px solid rgba(245,158,11,.1);font-size:12px;color:var(--text-sec);">
+        <strong style="color:var(--text);">AI-модуль:</strong> При регистрации — описание анализируется ИИ, который предлагает классификацию. Пользователь может подтвердить или изменить.
+      </div>
+    </div>
+
+    <!-- ПРОГРАММЫ РАБОТ ДЕТАЛЬНО -->
+    <div class="gc card-pad-lg" style="margin-bottom:18px;">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;">
+        <div class="module-num" style="background:linear-gradient(135deg,var(--success),#059669);">3</div>
+        <div>
+          <h3 style="font-size:20px;font-weight:800;">Программы работ (дизайн работ)</h3>
+          <p style="font-size:13px;color:var(--text-muted);">Создание, согласование и выпуск в производство</p>
+        </div>
+      </div>
+
+      <div style="margin-bottom:20px;">
+        <div style="font-size:13px;font-weight:700;margin-bottom:10px;color:var(--success);">Функции:</div>
+        <div style="font-size:13px;color:var(--text-sec);line-height:1.8;">
+          • Создание и редактирование программ по единой форме<br>
+          • Прикрепление вложений к программе (PDF, DWG и др.)<br>
+          • MOC — заявка на запрос внесения изменений
+        </div>
+      </div>
+
+      <div>
+        <div style="font-size:13px;font-weight:700;margin-bottom:12px;color:var(--success);">Workflow согласования:</div>
+        <div style="display:flex;gap:0;flex-wrap:wrap;">
+          <div style="flex:1;min-width:120px;padding:12px;text-align:center;font-size:12px;font-weight:600;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.15);color:var(--success);">📝 Создание</div>
+          <div style="display:flex;align-items:center;color:var(--text-muted);padding:0 4px;">→</div>
+          <div style="flex:1;min-width:120px;padding:12px;text-align:center;font-size:12px;font-weight:600;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.15);color:var(--success);">🔍 Проверка</div>
+          <div style="display:flex;align-items:center;color:var(--text-muted);padding:0 4px;">→</div>
+          <div style="flex:1;min-width:120px;padding:12px;text-align:center;font-size:12px;font-weight:600;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.15);color:var(--success);">✅ Согласование</div>
+          <div style="display:flex;align-items:center;color:var(--text-muted);padding:0 4px;">→</div>
+          <div style="flex:1;min-width:120px;padding:12px;text-align:center;font-size:12px;font-weight:600;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.15);color:var(--success);">📋 Утверждение</div>
+          <div style="display:flex;align-items:center;color:var(--text-muted);padding:0 4px;">→</div>
+          <div style="flex:1;min-width:120px;padding:12px;text-align:center;font-size:12px;font-weight:600;background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.2);color:var(--success);">🚀 Выпуск</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ОЦЕНКА РИСКОВ ДЕТАЛЬНО -->
+    <div class="gc card-pad-lg" style="margin-bottom:18px;">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;">
+        <div class="module-num" style="background:linear-gradient(135deg,var(--danger),#dc2626);">4</div>
+        <div>
+          <h3 style="font-size:20px;font-weight:800;">Оценка рисков (JSA / АБР)</h3>
+          <p style="font-size:13px;color:var(--text-muted);">Предсменная форма анализа безопасности работ</p>
+        </div>
+      </div>
+
+      <div style="font-size:13px;color:var(--text-sec);line-height:1.9;margin-bottom:20px;">
+        • Предсменная форма с <strong style="color:var(--text);">«шпаргалкой»</strong> опасных факторов/рисков по типу работ (ГНКТ флот, азотка, флюид памп и т.п.)<br>
+        • Все риски оцениваются по <strong style="color:var(--text);">матрице последствий и вероятности (5×5)</strong><br>
+        • Риски расставляются в итоговом документе по категории опасности<br>
+        • <strong style="color:var(--danger);">Stop Work Authority</strong> — если риск нельзя устранить сразу<br>
+        • <strong style="color:var(--warning);">MOC</strong> — если изменились условия или пауза от работ > «N» часов
+      </div>
+
+      <div>
+        <div style="font-size:13px;font-weight:700;margin-bottom:12px;color:var(--danger);">Workflow оценки рисков:</div>
+        <div style="display:flex;gap:0;flex-wrap:wrap;">
+          <div style="flex:1;min-width:100px;padding:12px;text-align:center;font-size:12px;font-weight:600;background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.12);color:var(--danger);">Создание</div>
+          <div style="display:flex;align-items:center;color:var(--text-muted);padding:0 4px;">→</div>
+          <div style="flex:1;min-width:100px;padding:12px;text-align:center;font-size:12px;font-weight:600;background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.12);color:var(--danger);">Проверка</div>
+          <div style="display:flex;align-items:center;color:var(--text-muted);padding:0 4px;">→</div>
+          <div style="flex:1;min-width:100px;padding:12px;text-align:center;font-size:12px;font-weight:600;background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.12);color:var(--danger);">Согласование</div>
+          <div style="display:flex;align-items:center;color:var(--text-muted);padding:0 4px;">→</div>
+          <div style="flex:1;min-width:100px;padding:12px;text-align:center;font-size:12px;font-weight:600;background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.12);color:var(--danger);">Утверждение</div>
+          <div style="display:flex;align-items:center;color:var(--text-muted);padding:0 4px;">→</div>
+          <div style="flex:1;min-width:100px;padding:12px;text-align:center;font-size:12px;font-weight:600;background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.18);color:var(--danger);">Разрешение</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- РОЛИ -->
+    <div class="gc card-pad-lg" style="margin-bottom:18px;">
+      <h3 style="font-size:18px;font-weight:800;margin-bottom:20px;">👥 Пользователи и роли</h3>
+      <div style="display:grid;gap:0;">
+        <div style="display:grid;grid-template-columns:200px 1fr;border-bottom:1px solid var(--border-light);padding:14px 0;">
+          <div style="font-size:13px;font-weight:700;color:var(--gold);">Админ</div>
+          <div style="font-size:13px;color:var(--text-sec);">Управляет системой, доступами (можно объединить с другой ролью)</div>
+        </div>
+        <div style="display:grid;grid-template-columns:200px 1fr;border-bottom:1px solid var(--border-light);padding:14px 0;">
+          <div style="font-size:13px;font-weight:700;color:var(--gold);">Специалист по ТБ</div>
+          <div style="font-size:13px;color:var(--text-sec);">Управление базой HSE-форм и НОС-картами, анализ происшествий</div>
+        </div>
+        <div style="display:grid;grid-template-columns:200px 1fr;border-bottom:1px solid var(--border-light);padding:14px 0;">
+          <div style="font-size:13px;font-weight:700;color:var(--gold);">Инженер</div>
+          <div style="font-size:13px;color:var(--text-sec);">Создание и редактирование программ работ (дизайн работ)</div>
+        </div>
+        <div style="display:grid;grid-template-columns:200px 1fr;border-bottom:1px solid var(--border-light);padding:14px 0;">
+          <div style="font-size:13px;font-weight:700;color:var(--gold);">Руководитель бригады / ОВР</div>
+          <div style="font-size:13px;color:var(--text-sec);">Заполнение форм, создание заявок на МОС, помощь в заполнении форм сотрудников своей бригады</div>
+        </div>
+        <div style="display:grid;grid-template-columns:200px 1fr;padding:14px 0;">
+          <div style="font-size:13px;font-weight:700;color:var(--gold);">Директор / Гл. инженер</div>
+          <div style="font-size:13px;color:var(--text-sec);">Согласование и утверждение документов</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- УВЕДОМЛЕНИЯ + ЖУРНАЛ + ЭКСПОРТ -->
+    <div class="grid-3">
+      <div class="gc card-pad">
+        <div class="card-icon">🔔</div>
+        <h3 class="card-title">Уведомления</h3>
+        <p class="card-text" style="font-size:12px;">
+          • Email (Outlook-совместимые)<br>
+          • Push на мобильные устройства<br>
+          • Отметка заинтересованных лиц при создании документа<br>
+          • События: создание, согласование, утверждение
+        </p>
+      </div>
+      <div class="gc card-pad">
+        <div class="card-icon">📜</div>
+        <h3 class="card-title">Журнал событий</h3>
+        <p class="card-text" style="font-size:12px;">
+          • Сортировка по департаментам (HSE / Производство)<br>
+          • Хранение событий 3-5 лет<br>
+          • Функция «Создать похожее» для экономии времени
+        </p>
+      </div>
+      <div class="gc card-pad">
+        <div class="card-icon">📤</div>
+        <h3 class="card-title">Экспорт данных</h3>
+        <p class="card-text" style="font-size:12px;">
+          • Word (.docx) — отчёты, акты<br>
+          • Excel (.xlsx) — реестры, аналитика<br>
+          • PDF — подписанные документы
+        </p>
+      </div>
+    </div>
+
+    <!-- ПОЛНАЯ МАТРИЦА ПОКРЫТИЯ ТЗ -->
+    <div style="margin-top:48px;">
+      <h3 style="font-size:22px;font-weight:800;margin-bottom:8px;">Матрица покрытия ТЗ</h3>
+      <p style="font-size:14px;color:var(--text-sec);margin-bottom:24px;">Каждый пункт технического задания — с подтверждением реализации.</p>
+
+      <!-- ОБЩИЕ ТРЕБОВАНИЯ -->
+      <div class="gc card-pad-lg" style="margin-bottom:14px;">
+        <div style="font-size:15px;font-weight:800;margin-bottom:16px;">🖥 Общие требования к системе</div>
+        <div style="display:grid;gap:0;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);">
+            <span style="font-size:13px;color:var(--text-sec);">Web-интерфейс — доступ через браузер</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);">
+            <span style="font-size:13px;color:var(--text-sec);">Мобильный интерфейс — доступ через телефон/смартфон + оффлайн</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);">
+            <span style="font-size:13px;color:var(--text-sec);">Синхронизация с облачным хранилищем</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;">
+            <span style="font-size:13px;color:var(--text-sec);">AI для автоматизированной сортировки документов (HSE-формы, НОС-карты, Программы)</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- НОС-КАРТЫ -->
+      <div class="gc card-pad-lg" style="margin-bottom:14px;">
+        <div style="font-size:15px;font-weight:800;margin-bottom:16px;">🔍 НОС-карты</div>
+        <div style="display:grid;gap:0;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);">
+            <span style="font-size:13px;color:var(--text-sec);">Создание НОС-карты</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);">
+            <span style="font-size:13px;color:var(--text-sec);">Регистрация опасных условий/действий в электронный реестр</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);">
+            <span style="font-size:13px;color:var(--text-sec);">Прикрепление фотографий</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);">
+            <span style="font-size:13px;color:var(--text-sec);">Назначение ответственных</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);">
+            <span style="font-size:13px;color:var(--text-sec);">Форма: дата, объект, подразделение, ФИО, тип наблюдения, описание, предложения, статус</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;">
+            <span style="font-size:13px;color:var(--text-sec);">Статус: открыт → закрыт (специалист ТБ применяет действия)</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ПРОИСШЕСТВИЯ -->
+      <div class="gc card-pad-lg" style="margin-bottom:14px;">
+        <div style="font-size:15px;font-weight:800;margin-bottom:16px;">⚠️ Учёт происшествий</div>
+        <div style="display:grid;gap:0;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);">
+            <span style="font-size:13px;color:var(--text-sec);">Регистрация происшествий (онлайн/оффлайн)</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);">
+            <span style="font-size:13px;color:var(--text-sec);">AI-сортировка: Near Miss, Incident, Accident, First Aid, Medical Treatment, Environmental, Motor Vehicle, Stop Work</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;">
+            <span style="font-size:13px;color:var(--text-sec);">Карточка: дата, место, описание, действия (незамедлительные / корректирующие), вложения</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ПРОГРАММЫ РАБОТ -->
+      <div class="gc card-pad-lg" style="margin-bottom:14px;">
+        <div style="font-size:15px;font-weight:800;margin-bottom:16px;">📐 Программы работ (дизайн работ)</div>
+        <div style="display:grid;gap:0;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);">
+            <span style="font-size:13px;color:var(--text-sec);">Создание и редактирование программ по единой форме</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);">
+            <span style="font-size:13px;color:var(--text-sec);">Вложения к программе</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);">
+            <span style="font-size:13px;color:var(--text-sec);">Workflow: создание → проверка → согласование → утверждение → выпуск в производство</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;">
+            <span style="font-size:13px;color:var(--text-sec);">MOC: заявка на запрос внесения изменений</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ОЦЕНКА РИСКОВ -->
+      <div class="gc card-pad-lg" style="margin-bottom:14px;">
+        <div style="font-size:15px;font-weight:800;margin-bottom:16px;">📋 Оценка рисков (JSA / АБР)</div>
+        <div style="display:grid;gap:0;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);">
+            <span style="font-size:13px;color:var(--text-sec);">Предсменная форма с «шпаргалкой» рисков по типу работ (ГНКТ, азотка, флюид памп)</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);">
+            <span style="font-size:13px;color:var(--text-sec);">Матрица последствий и вероятности — категории опасности</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);">
+            <span style="font-size:13px;color:var(--text-sec);">Stop Work Authority — если риск нельзя устранить сразу</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);">
+            <span style="font-size:13px;color:var(--text-sec);">MOC — при изменении условий или паузе > «N» часов</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;">
+            <span style="font-size:13px;color:var(--text-sec);">Workflow: создание → проверка → согласование → утверждение → разрешение на работы</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ЭКСПОРТ -->
+      <div class="gc card-pad-lg" style="margin-bottom:14px;">
+        <div style="font-size:15px;font-weight:800;margin-bottom:16px;">📤 Экспорт данных</div>
+        <div style="display:grid;gap:0;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);">
+            <span style="font-size:13px;color:var(--text-sec);">Экспорт в Word (.docx)</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);">
+            <span style="font-size:13px;color:var(--text-sec);">Экспорт в Excel (.xlsx)</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;">
+            <span style="font-size:13px;color:var(--text-sec);">Экспорт в PDF</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- РОЛИ -->
+      <div class="gc card-pad-lg" style="margin-bottom:14px;">
+        <div style="font-size:15px;font-weight:800;margin-bottom:16px;">👥 Пользователи и роли</div>
+        <div style="display:grid;gap:0;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);">
+            <span style="font-size:13px;color:var(--text-sec);">Админ — управление системой, доступами</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);">
+            <span style="font-size:13px;color:var(--text-sec);">Специалист по ТБ — HSE-формы, НОС-карты, анализ происшествий</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);">
+            <span style="font-size:13px;color:var(--text-sec);">Инженер — создание и редактирование программ работ</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);">
+            <span style="font-size:13px;color:var(--text-sec);">Руководитель бригады / ОВР — заполнение форм, заявки МОС</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;">
+            <span style="font-size:13px;color:var(--text-sec);">Директор / Главный инженер — согласование и утверждение</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- УВЕДОМЛЕНИЯ -->
+      <div class="gc card-pad-lg" style="margin-bottom:14px;">
+        <div style="font-size:15px;font-weight:800;margin-bottom:16px;">🔔 Уведомления</div>
+        <div style="display:grid;gap:0;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);">
+            <span style="font-size:13px;color:var(--text-sec);">Электронным письмом (Outlook-совместимые)</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);">
+            <span style="font-size:13px;color:var(--text-sec);">На мобильные устройства (push)</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);">
+            <span style="font-size:13px;color:var(--text-sec);">Отметка заинтересованных лиц при создании документа</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;">
+            <span style="font-size:13px;color:var(--text-sec);">События: создание документа, согласование и утверждение</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ЖУРНАЛ -->
+      <div class="gc card-pad-lg">
+        <div style="font-size:15px;font-weight:800;margin-bottom:16px;">📜 Журнал / История событий</div>
+        <div style="display:grid;gap:0;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);">
+            <span style="font-size:13px;color:var(--text-sec);">Сортировка по департаментам (HSE / Производство)</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);">
+            <span style="font-size:13px;color:var(--text-sec);">Хранение событий 3-5 лет</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;">
+            <span style="font-size:13px;color:var(--text-sec);">Функция «Создать похожее» для экономии времени</span>
+            <span class="mono-tag success" style="margin:0;">БУДЕТ</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ИТОГО -->
+      <div style="margin-top:24px;text-align:center;padding:20px;background:rgba(16,185,129,.04);border:1px solid rgba(16,185,129,.15);border-radius:var(--radius);">
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:36px;font-weight:800;color:var(--success);line-height:1;">100%</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:6px;">Покрытие технического задания</div>
+        <div style="font-size:13px;color:var(--text-sec);margin-top:8px;">Все 37 пунктов ТЗ будут реализованы. Ни один пункт не пропущен.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ===== 03 — ТЕХНОЛОГИИ ===== -->
+<div class="section">
+  <div class="container">
+    <div class="section-label">03 — Технологии</div>
+    <h2 class="section-title">Стек разработки</h2>
+    <p class="section-desc">Современные технологии. Надёжность, скорость, масштабируемость.</p>
+
+    <div class="grid-4">
+      <div class="gc card-pad" style="text-align:center;">
+        <div style="font-size:28px;margin-bottom:8px;">⚛️</div>
+        <div style="font-size:13px;font-weight:700;">Next.js</div>
+        <div style="font-size:11px;color:var(--text-muted);">Frontend + SSR</div>
+      </div>
+      <div class="gc card-pad" style="text-align:center;">
+        <div style="font-size:28px;margin-bottom:8px;">🗄️</div>
+        <div style="font-size:13px;font-weight:700;">Supabase</div>
+        <div style="font-size:11px;color:var(--text-muted);">БД + Auth + API</div>
+      </div>
+      <div class="gc card-pad" style="text-align:center;">
+        <div style="font-size:28px;margin-bottom:8px;">📱</div>
+        <div style="font-size:13px;font-weight:700;">PWA</div>
+        <div style="font-size:11px;color:var(--text-muted);">Мобильный + Оффлайн</div>
+      </div>
+      <div class="gc card-pad" style="text-align:center;">
+        <div style="font-size:28px;margin-bottom:8px;">🤖</div>
+        <div style="font-size:13px;font-weight:700;">AI</div>
+        <div style="font-size:11px;color:var(--text-muted);">Классификация</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ===== 04 — СРОКИ ===== -->
+<div class="section">
+  <div class="container">
+    <div class="section-label">04 — Сроки реализации</div>
+    <h2 class="section-title">Этапы и сроки</h2>
+    <p class="section-desc">4 фазы. Каждая — самостоятельный результат, который можно использовать сразу.</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="gc">
+          <div class="tl-duration">6-8 недель</div>
+          <div class="mono-tag gold">Фаза 1 — MVP</div>
+          <h3 class="tl-title">Ядро + НОС-карты + Происшествия</h3>
+          <p class="tl-desc">Инфраструктура, авторизация, 5 ролей, НОС-карты с полным циклом, AI-классификация происшествий, дашборд, email-уведомления.</p>
+          <div class="tl-dels">
+            <span class="module-tag">Auth + роли</span>
+            <span class="module-tag">НОС-карты</span>
+            <span class="module-tag">Происшествия</span>
+            <span class="module-tag">AI</span>
+            <span class="module-tag">Дашборд</span>
+            <span class="module-tag">Email</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="gc">
+          <div class="tl-duration">6-8 недель</div>
+          <div class="mono-tag warning">Фаза 2 — Производство</div>
+          <h3 class="tl-title">Программы работ + Оценка рисков</h3>
+          <p class="tl-desc">Workflow согласования, оценка рисков с матрицей 5×5, Pre-Job Safety Meeting, MOC-заявки.</p>
+          <div class="tl-dels">
+            <span class="module-tag">Программы</span>
+            <span class="module-tag">Workflow</span>
+            <span class="module-tag">JSA</span>
+            <span class="module-tag">PJSM</span>
+            <span class="module-tag">MOC</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="gc">
+          <div class="tl-duration">4-6 недель</div>
+          <div class="mono-tag success">Фаза 3 — Мобильность</div>
+          <h3 class="tl-title">PWA + Оффлайн + Push</h3>
+          <p class="tl-desc">Установка на телефон как приложение, полный оффлайн с синхронизацией, push-уведомления.</p>
+          <div class="tl-dels">
+            <span class="module-tag">PWA</span>
+            <span class="module-tag">Оффлайн</span>
+            <span class="module-tag">Синхронизация</span>
+            <span class="module-tag">Push</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="gc">
+          <div class="tl-duration">3-4 недели</div>
+          <div class="mono-tag purple">Фаза 4 — Аналитика</div>
+          <h3 class="tl-title">Экспорт + Журнал + Полировка</h3>
+          <p class="tl-desc">Word/Excel/PDF, журнал событий (5 лет), аналитические дашборды, обучение, документация.</p>
+          <div class="tl-dels">
+            <span class="module-tag">Export</span>
+            <span class="module-tag">Журнал</span>
+            <span class="module-tag">Аналитика</span>
+            <span class="module-tag">Обучение</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ===== 05 — СТОИМОСТЬ ===== -->
+<div class="section">
+  <div class="container">
+    <div class="section-label">05 — Стоимость</div>
+    <h2 class="section-title">Инвестиция и обоснование</h2>
+    <p class="section-desc">Прозрачное ценообразование. Сравнение с рыночными альтернативами.</p>
+
+    <!-- COMPARISON -->
+    <h3 style="font-size:20px;font-weight:800;margin-bottom:20px;">Три варианта — реальные цены рынка</h3>
+
+    <div class="grid-3" style="margin-bottom:40px;">
+      <div class="gc card-pad-lg" style="border-top:2px solid var(--danger);">
+        <div class="mono-tag danger">Вариант 1</div>
+        <h3 class="card-title">Готовый SaaS</h3>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:16px;">Intelex, Enablon, Cority</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:32px;font-weight:800;color:var(--danger);margin-bottom:4px;">14-120 млн ₸</div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:16px;">в год, каждый год</div>
+        <p class="card-text" style="font-size:12px;margin-bottom:14px;">Intelex: ~$49/пользователь/мес. 50 человек = ~14 млн ₸/год. Enablon Enterprise: от $250,000/год.</p>
+        <div style="padding:10px;background:rgba(239,68,68,.06);border-radius:8px;font-size:11px;color:var(--text-sec);">
+          Ежегодная подписка. Английский. Нет адаптации. За 3 года: <span style="color:var(--danger);font-weight:700;">42-360 млн ₸</span>
+        </div>
+      </div>
+
+      <div class="gc card-pad-lg" style="border-top:2px solid var(--warning);">
+        <div class="mono-tag warning">Вариант 2</div>
+        <h3 class="card-title">IT-студия</h3>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:16px;">Заказная разработка, 5-10 чел</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:32px;font-weight:800;color:var(--warning);margin-bottom:4px;">15-30 млн ₸</div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:16px;">разово</div>
+        <p class="card-text" style="font-size:12px;margin-bottom:14px;">Рынок KZ: 15-30 млн. Международные студии: $200-400K (~95-190 млн ₸). Данные: Clutch, 2026.</p>
+        <div style="padding:10px;background:rgba(245,158,11,.06);border-radius:8px;font-size:11px;color:var(--text-sec);">
+          Долгие согласования. Менеджеры в цепочке. Часто не понимают HSE-специфику нефтегаза.
+        </div>
+      </div>
+
+      <div class="gc card-pad-lg compare-winner" style="border-top:2px solid var(--gold);">
+        <div class="mono-tag gold">Наше предложение</div>
+        <h3 class="card-title" style="color:var(--gold-bright);">DOS — AI Automation</h3>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:16px;">Кастомная платформа</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:32px;font-weight:800;margin-bottom:4px;">
+          <span style="background:linear-gradient(135deg,var(--gold-bright),var(--gold-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">10 млн ₸</span>
+        </div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:16px;">разово, навсегда ваша</div>
+        <p class="card-text" style="font-size:12px;margin-bottom:14px;">6 модулей, AI, оффлайн, PWA. На русском. Под процессы KazGeoTech. Исходный код — ваша собственность.</p>
+        <div style="padding:10px;background:rgba(212,165,116,.06);border-radius:8px;font-size:11px;color:var(--text-sec);">
+          Разовая оплата. Полные права. Опыт с KazGeoTech. <span style="color:var(--gold);font-weight:700;">AI-экспертиза</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TCO BAR CHART -->
+    <div class="gc card-pad-lg" style="margin-bottom:40px;">
+      <div class="hl-title" style="font-size:18px;margin-bottom:20px;">📊 Стоимость владения за 3 года</div>
+
+      <div class="bar-row">
+        <div class="bar-label">SaaS (Intelex)</div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:100%;background:linear-gradient(90deg,var(--danger),#ef4444);">42 000 000 ₸</div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">IT-студия</div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:55%;background:linear-gradient(90deg,var(--warning),#f59e0b);">15-30 млн ₸</div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label" style="color:var(--gold);">DOS (наше КП)</div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:26%;background:linear-gradient(90deg,var(--gold),var(--gold-bright));">10.9 млн ₸</div>
+        </div>
+      </div>
+
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-muted);margin-top:14px;">
+        * DOS TCO = 10 млн (разработка) + ~900 тыс (инфраструктура 3 года). SaaS Intelex = 14 млн/год × 3 (50 users, Capterra 2026).
+      </div>
+    </div>
+
+    <!-- SAVINGS BLOCK -->
+    <div class="gc card-pad-lg card-full" style="background:linear-gradient(145deg,rgba(16,185,129,.04),rgba(212,165,116,.04));border-color:rgba(16,185,129,.15);">
+      <div style="display:flex;align-items:center;gap:32px;flex-wrap:wrap;">
+        <div style="text-align:center;min-width:140px;">
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:56px;font-weight:800;line-height:1;">
+            <span style="background:linear-gradient(135deg,var(--gold-bright),var(--success));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">×4</span>
+          </div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;margin-top:4px;">экономия vs SaaS</div>
+        </div>
+        <div style="flex:1;min-width:300px;">
+          <h3 style="font-size:20px;font-weight:800;margin-bottom:8px;">Экономия от 31 млн ₸ за 3 года</h3>
+          <p style="font-size:14px;color:var(--text-sec);line-height:1.8;">
+            Разовая инвестиция вместо бесконечной подписки. Исходный код — ваша собственность. Нет зависимости от вендора. Любой разработчик может дорабатывать систему.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRICE TABLE -->
+    <h3 style="font-size:20px;font-weight:800;margin:48px 0 8px;">Стоимость по фазам</h3>
+    <p style="font-size:14px;color:var(--text-sec);margin-bottom:8px;">Фиксированная цена. Оплата поэтапно.</p>
+
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th>Фаза</th>
+          <th>Что входит</th>
+          <th>Срок</th>
+          <th style="text-align:right;">Стоимость</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-weight:700;color:var(--gold);">Фаза 1 — MVP</td>
+          <td>Ядро, авторизация, 5 ролей, НОС-карты, происшествия, AI, дашборд, email</td>
+          <td>6-8 нед.</td>
+          <td style="text-align:right;font-weight:700;font-size:16px;color:var(--text-light);">3 500 000 ₸</td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;color:var(--warning);">Фаза 2</td>
+          <td>Программы работ, workflow 5 этапов, оценка рисков, PJSM, MOC</td>
+          <td>6-8 нед.</td>
+          <td style="text-align:right;font-weight:700;font-size:16px;color:var(--text-light);">3 000 000 ₸</td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;color:var(--success);">Фаза 3</td>
+          <td>PWA-приложение, оффлайн-режим, синхронизация, push-уведомления</td>
+          <td>4-6 нед.</td>
+          <td style="text-align:right;font-weight:700;font-size:16px;color:var(--text-light);">2 000 000 ₸</td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;color:var(--purple);">Фаза 4</td>
+          <td>Экспорт Word/Excel/PDF, журнал 5 лет, аналитика, обучение</td>
+          <td>3-4 нед.</td>
+          <td style="text-align:right;font-weight:700;font-size:16px;color:var(--text-light);">1 500 000 ₸</td>
+        </tr>
+      </tbody>
+      <tr class="total-row">
+        <td colspan="2"><strong>ИТОГО</strong></td>
+        <td><strong>5-6.5 мес.</strong></td>
+        <td style="text-align:right;"><strong>10 000 000 ₸</strong></td>
+      </tr>
+    </table>
+
+    <!-- INCLUDED + PAYMENT -->
+    <div class="grid-2" style="margin-top:32px;">
+      <div class="gc card-pad gold-line-left">
+        <h3 class="card-title">💰 Порядок оплаты</h3>
+        <p class="card-text">
+          <strong style="color:var(--text);">50%</strong> — предоплата при старте фазы<br>
+          <strong style="color:var(--text);">50%</strong> — при сдаче и приёмке<br><br>
+          Вы видите результат перед тем, как платить вторую половину. Каждая фаза — отдельная оплата.
+        </p>
+      </div>
+      <div class="gc card-pad">
+        <h3 class="card-title">📦 Что входит в стоимость</h3>
+        <p class="card-text">
+          Дизайн UI/UX · Разработка frontend + backend · Тестирование · Деплой и настройка · Обучение (2 сессии + видео) · Техподдержка 3 мес. после каждой фазы
+        </p>
+      </div>
+    </div>
+
+    <!-- INFRA COSTS DETAILED -->
+    <div class="gc card-pad-lg" style="margin-top:24px;">
+      <div style="font-size:18px;font-weight:800;margin-bottom:6px;">🖥 Ежемесячные расходы на инфраструктуру</div>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:20px;">Оплачиваются Заказчиком отдельно от разработки. Детализация по каждому сервису:</p>
+
+      <div style="display:grid;gap:0;">
+        <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;padding:10px 0;border-bottom:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;">
+          <div>Сервис</div><div>Тариф</div><div style="text-align:right;">Цена/мес</div><div style="text-align:right;">Зачем нужен</div>
+        </div>
+        <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;padding:14px 0;border-bottom:1px solid var(--border-light);font-size:13px;">
+          <div style="font-weight:600;color:var(--text);">Supabase</div>
+          <div style="color:var(--text-sec);">Pro</div>
+          <div style="text-align:right;font-weight:700;color:var(--gold);">$25 (~12 000 ₸)</div>
+          <div style="text-align:right;color:var(--text-sec);font-size:12px;">База данных, авторизация, хранение файлов</div>
+        </div>
+        <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;padding:14px 0;border-bottom:1px solid var(--border-light);font-size:13px;">
+          <div style="font-weight:600;color:var(--text);">Vercel</div>
+          <div style="color:var(--text-sec);">Pro</div>
+          <div style="text-align:right;font-weight:700;color:var(--gold);">$20 (~9 500 ₸)</div>
+          <div style="text-align:right;color:var(--text-sec);font-size:12px;">Хостинг приложения, CDN, SSL</div>
+        </div>
+        <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;padding:14px 0;border-bottom:1px solid var(--border-light);font-size:13px;">
+          <div style="font-weight:600;color:var(--text);">OpenAI API</div>
+          <div style="color:var(--text-sec);">Pay-as-you-go</div>
+          <div style="text-align:right;font-weight:700;color:var(--gold);">$5-15 (~2-7 000 ₸)</div>
+          <div style="text-align:right;color:var(--text-sec);font-size:12px;">AI-классификация происшествий и документов</div>
+        </div>
+        <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;padding:14px 0;border-bottom:1px solid var(--border-light);font-size:13px;">
+          <div style="font-weight:600;color:var(--text);">Resend (email)</div>
+          <div style="color:var(--text-sec);">Free / Pro</div>
+          <div style="text-align:right;font-weight:700;color:var(--success);">$0-20 (0-9 500 ₸)</div>
+          <div style="text-align:right;color:var(--text-sec);font-size:12px;">Email-уведомления (до 3000/мес бесплатно)</div>
+        </div>
+        <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;padding:14px 0;border-bottom:1px solid var(--border-light);font-size:13px;">
+          <div style="font-weight:600;color:var(--text);">Домен</div>
+          <div style="color:var(--text-sec);">Годовая</div>
+          <div style="text-align:right;font-weight:700;color:var(--gold);">~$10/год (~400 ₸/мес)</div>
+          <div style="text-align:right;color:var(--text-sec);font-size:12px;">hse.kazgeotech.kz или аналогичный</div>
+        </div>
+        <div style="display:grid;grid-template-columns:2fr 1fr 1fr 2fr;padding:14px 0;font-size:13px;background:rgba(212,165,116,.04);">
+          <div style="font-weight:800;color:var(--text);">ИТОГО в месяц</div>
+          <div></div>
+          <div style="text-align:right;font-family:'Bricolage Grotesque',sans-serif;font-size:20px;font-weight:800;color:var(--success);">~25 000 ₸</div>
+          <div style="text-align:right;color:var(--text-sec);font-size:12px;">~$52/мес за всю инфраструктуру</div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;padding:14px;background:rgba(16,185,129,.04);border:1px solid rgba(16,185,129,.12);border-radius:var(--radius-sm);font-size:12px;color:var(--text-sec);text-align:center;">
+        <strong style="color:var(--success);">Для сравнения:</strong> лицензия Intelex на 50 пользователей — <strong style="color:var(--danger);">~1 170 000 ₸/мес</strong>. Наша инфраструктура дешевле <strong style="color:var(--success);">в 47 раз</strong>.
+        Годовые расходы: ~300 000 ₸ vs ~14 000 000 ₸ у SaaS.
+      </div>
+    </div>
+
+    <div class="hl-box warning" style="margin-top:24px;">
+      <div class="hl-title" style="color:var(--warning);">⚡ Можно начать с MVP</div>
+      <div class="hl-text">Не обязательно все 4 фазы сразу. Начните с <strong style="color:var(--text);">Фазы 1 за 3 500 000 ₸</strong> — рабочая платформа с НОС-картами, происшествиями и AI. Оцените на практике, затем решите.</div>
+    </div>
+
+    <!-- WHY FAIR PRICE -->
+    <h3 style="font-size:20px;font-weight:800;margin:48px 0 20px;">Почему 10 млн — справедливая цена</h3>
+
+    <div class="adv-row">
+      <div class="adv-icon">📈</div>
+      <div>
+        <div class="adv-title">Рынок KZ: 15-30 млн за аналогичные проекты</div>
+        <div class="adv-desc">Наша цена на 33-67% ниже рынка казахстанских IT-студий при том же объёме работ.</div>
+      </div>
+    </div>
+    <div class="adv-row">
+      <div class="adv-icon">🌍</div>
+      <div>
+        <div class="adv-title">Мировой бенчмарк: $132K-$400K (Clutch, 2026)</div>
+        <div class="adv-desc">Средний enterprise-проект — $132,480 (~63 млн ₸). Наше: $21,000 за тот же функционал.</div>
+      </div>
+    </div>
+    <div class="adv-row">
+      <div class="adv-icon">♻️</div>
+      <div>
+        <div class="adv-title">Разовая оплата vs подписка навсегда</div>
+        <div class="adv-desc">SaaS-решения стоят 14-120 млн ₸/год. Наше решение окупается за первый год эксплуатации.</div>
+      </div>
+    </div>
+    <div class="adv-row">
+      <div class="adv-icon">🎁</div>
+      <div>
+        <div class="adv-title">Обучение + поддержка + миграция = в цене</div>
+        <div class="adv-desc">2 сессии обучения, видеоинструкции, 3 мес. техподдержки, миграция данных. В студиях это +15-20%.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ===== 05.1 — СОБСТВЕННОСТЬ И НЕЗАВИСИМОСТЬ ===== -->
+<div class="section">
+  <div class="container">
+    <div class="section-label">05.1 — Ваша собственность</div>
+    <h2 class="section-title">Платформа принадлежит только KazGeoTech</h2>
+    <p class="section-desc">Это не аренда, не подписка, не лицензия. Это ваш продукт, созданный под ваши процессы.</p>
+
+    <div class="grid-2" style="margin-bottom:24px;">
+      <div class="gc card-pad-lg gold-line-left">
+        <div class="card-icon">🔑</div>
+        <h3 class="card-title" style="font-size:18px;">Полные права на код</h3>
+        <p class="card-text" style="line-height:1.9;">
+          Весь исходный код передаётся KazGeoTech после сдачи каждой фазы. Вы получаете:<br><br>
+          <strong style="color:var(--text);">• Исходный код</strong> — полный доступ к репозиторию<br>
+          <strong style="color:var(--text);">• Право модификации</strong> — меняйте что угодно, когда угодно<br>
+          <strong style="color:var(--text);">• Право распространения</strong> — используйте для дочерних компаний<br>
+          <strong style="color:var(--text);">• Нет лицензионных ограничений</strong> — никаких роялти, никаких периодических платежей за код
+        </p>
+      </div>
+      <div class="gc card-pad-lg success-line-left">
+        <div class="card-icon">🏗️</div>
+        <h3 class="card-title" style="font-size:18px;">Полная независимость</h3>
+        <p class="card-text" style="line-height:1.9;">
+          После сдачи проекта вы не зависите от нас:<br><br>
+          <strong style="color:var(--text);">• Любой разработчик</strong> может продолжить работу над платформой<br>
+          <strong style="color:var(--text);">• Нет vendor lock-in</strong> — не привязаны к конкретному подрядчику<br>
+          <strong style="color:var(--text);">• Документация</strong> — полная техническая документация кода<br>
+          <strong style="color:var(--text);">• Ваши данные на ваших аккаунтах</strong> — Supabase и Vercel регистрируются на KazGeoTech
+        </p>
+      </div>
+    </div>
+
+    <div class="gc card-pad-lg card-full" style="background:linear-gradient(145deg,rgba(212,165,116,.04),rgba(212,165,116,.02));border-color:rgba(212,165,116,.15);">
+      <div style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;">
+        <div style="min-width:80px;text-align:center;">
+          <div style="font-size:48px;">🏢</div>
+        </div>
+        <div style="flex:1;min-width:300px;">
+          <h3 style="font-size:18px;font-weight:800;margin-bottom:8px;">Сделано индивидуально для KazGeoTech</h3>
+          <p style="font-size:14px;color:var(--text-sec);line-height:1.8;">
+            Это не шаблонное решение и не коробочный продукт. Каждый модуль проектируется под реальные процессы KazGeoTech: ваши объекты (Тенгиз, Карачаганак, Кашаган, Узень), ваши подразделения, ваша оргструктура, ваши формы документов. Интерфейс на <strong style="color:var(--text);">русском языке</strong>, адаптированный под специфику <strong style="color:var(--text);">нефтегазовой отрасли Казахстана</strong>. Ни один другой продукт на рынке не даёт такого уровня кастомизации за эту цену.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SaaS vs Own comparison -->
+    <div style="margin-top:24px;">
+      <div style="font-size:16px;font-weight:800;margin-bottom:16px;">SaaS-подписка vs Собственная платформа</div>
+      <div class="grid-2">
+        <div class="gc card-pad" style="border-top:2px solid var(--danger);">
+          <div style="font-size:14px;font-weight:700;color:var(--danger);margin-bottom:12px;">SaaS (Intelex, Enablon)</div>
+          <div style="font-size:13px;color:var(--text-sec);line-height:1.9;">
+            ❌ Ежегодная подписка — платите вечно<br>
+            ❌ Код закрыт — нельзя менять<br>
+            ❌ Данные на чужих серверах<br>
+            ❌ Интерфейс на английском<br>
+            ❌ Общий шаблон для всех компаний<br>
+            ❌ Привязка к вендору навсегда<br>
+            ❌ Прекратили платить = потеряли доступ
+          </div>
+        </div>
+        <div class="gc card-pad" style="border-top:2px solid var(--success);">
+          <div style="font-size:14px;font-weight:700;color:var(--success);margin-bottom:12px;">Наше решение для KazGeoTech</div>
+          <div style="font-size:13px;color:var(--text-sec);line-height:1.9;">
+            ✅ Разовая оплата — платформа ваша навсегда<br>
+            ✅ Открытый код — меняйте сами или с любым разработчиком<br>
+            ✅ Данные на ваших аккаунтах<br>
+            ✅ Интерфейс на русском, под KZ<br>
+            ✅ Кастомизировано под KazGeoTech<br>
+            ✅ Нет зависимости от подрядчика<br>
+            ✅ Перестали платить хостинг = перенесли на свой сервер
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ===== 06 — УСЛОВИЯ ===== -->
+<div class="section">
+  <div class="container">
+    <div class="section-label">06 — Условия</div>
+    <h2 class="section-title">Условия сотрудничества</h2>
+
+    <ol class="terms-list">
+      <li><strong style="color:var(--text);">Фиксированная цена.</strong> Стоимость каждой фазы фиксирована. Дополнительные требования за рамками ТЗ — отдельная оценка.</li>
+      <li><strong style="color:var(--text);">Поэтапная оплата.</strong> 50% предоплата + 50% по факту приёмки. Снижает риски для обеих сторон.</li>
+      <li><strong style="color:var(--text);">Приёмка.</strong> Демонстрация + 5 рабочих дней на тестирование. Замечания в рамках ТЗ — бесплатно.</li>
+      <li><strong style="color:var(--text);">Права на код.</strong> Весь исходный код передаётся Заказчику. Полные права без ограничений.</li>
+      <li><strong style="color:var(--text);">Техподдержка.</strong> 3 месяца бесплатно после каждой фазы: баги, консультации, мелкие доработки.</li>
+      <li><strong style="color:var(--text);">Инфраструктура.</strong> Хостинг и AI-сервисы (~25 000 ₸/мес) — отдельно.</li>
+      <li><strong style="color:var(--text);">Конфиденциальность.</strong> Готовы подписать NDA. Данные строго конфиденциальны.</li>
+      <li><strong style="color:var(--text);">Коммуникация.</strong> Еженедельные отчёты. Демо каждые 2 недели. Ответ до 2 часов.</li>
+      <li><strong style="color:var(--text);">Обучение.</strong> 2 сессии + видеоинструкции по каждому модулю.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ===== 07 — ПОЧЕМУ МЫ ===== -->
+<div class="section">
+  <div class="container">
+    <div class="section-label">07 — Почему мы</div>
+    <h2 class="section-title">Преимущества</h2>
+
+    <div class="adv-row">
+      <div class="adv-icon">🤝</div>
+      <div>
+        <div class="adv-title">Опыт работы с KazGeoTech</div>
+        <div class="adv-desc">Уже разработали HR-бота. Знаем специфику, процессы и людей. Не нужно время на погружение.</div>
+      </div>
+    </div>
+    <div class="adv-row">
+      <div class="adv-icon">🤖</div>
+      <div>
+        <div class="adv-title">AI-экспертиза</div>
+        <div class="adv-desc">Специализация на AI-автоматизации. Не просто формы — интеллектуальная система с классификацией.</div>
+      </div>
+    </div>
+    <div class="adv-row">
+      <div class="adv-icon">📱</div>
+      <div>
+        <div class="adv-title">Оффлайн для месторождений</div>
+        <div class="adv-desc">PWA работает без интернета. Данные синхронизируются при появлении связи.</div>
+      </div>
+    </div>
+    <div class="adv-row">
+      <div class="adv-icon">⚡</div>
+      <div>
+        <div class="adv-title">MVP за 6-8 недель</div>
+        <div class="adv-desc">Быстрый старт. Не нужно ждать полгода — начинаете использовать через 2 месяца.</div>
+      </div>
+    </div>
+    <div class="adv-row">
+      <div class="adv-icon">🔒</div>
+      <div>
+        <div class="adv-title">Корпоративная безопасность</div>
+        <div class="adv-desc">Шифрование, Row Level Security, аудит-лог 5 лет. Ваши данные — только ваши.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ===== 08 — КОНТАКТЫ ===== -->
+<div class="section">
+  <div class="container">
+    <div class="section-label">08 — Контакты</div>
+    <h2 class="section-title">Свяжитесь с нами</h2>
+    <p class="section-desc">Готов обсудить детали и начать работу.</p>
+
+    <div class="contact-grid">
+      <div class="gc contact-card">
+        <div class="contact-icon">👤</div>
+        <div class="contact-name">Ернар Досмагамбетов</div>
+        <div class="contact-value">AI Automation Engineer</div>
+      </div>
+      <div class="gc contact-card">
+        <div class="contact-icon">📱</div>
+        <div class="contact-name">WhatsApp</div>
+        <div class="contact-value">+7 705 205 1992</div>
+      </div>
+      <div class="gc contact-card">
+        <div class="contact-icon">✈️</div>
+        <div class="contact-name">Telegram</div>
+        <div class="contact-value">@yernardoss</div>
+      </div>
+      <div class="gc contact-card">
+        <div class="contact-icon">📧</div>
+        <div class="contact-name">Email</div>
+        <div class="contact-value">adsytd1@gmail.com</div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:48px;">
+      <div class="btn-gold" style="display:inline-flex;">🚀 Обсудить проект</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<div class="footer">
+  <div class="container">
+    <div class="footer-brand">DOS — AI Automation</div>
+    <p class="footer-text">Коммерческое предложение для ТОО «KazGeoTech» · Действительно до 27.04.2026</p>
+    <p class="footer-text" style="margin-top:4px;">Астана, Казахстан</p>
+  </div>
+</div>
+
+<!-- ===== THEME TOGGLE ===== -->
+<div class="theme-toggle" id="themeToggle">
+  <button class="theme-btn active" data-theme="luxury" onclick="setTheme('luxury')">
+    <span class="dot" style="background:#D4A574;"></span> Luxury
+  </button>
+  <button class="theme-btn" data-theme="brutalist" onclick="setTheme('brutalist')">
+    <span class="dot" style="background:#FF4D00;"></span> Brutalist
+  </button>
+</div>
+
+<script>
+  function setTheme(theme) {
+    if (theme === 'brutalist') {
+      document.documentElement.setAttribute('data-theme', 'brutalist');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+
+    document.querySelectorAll('.theme-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.theme === theme);
+    });
+
+    localStorage.setItem('kgt-theme', theme);
+  }
+
+  // restore saved theme
+  const saved = localStorage.getItem('kgt-theme');
+  if (saved) setTheme(saved);
+</script>
+
+</body>
+</html>
