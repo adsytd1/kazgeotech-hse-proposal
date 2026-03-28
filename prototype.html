@@ -891,18 +891,88 @@ body {
 
 /* ═══ LIGHT THEME ═══ */
 [data-theme="light"] {
-  --bg: #F5F5F0;
-  --fg: #111;
-  --accent: #FF4D00;
-  --muted: rgba(0,0,0,.4);
-  --muted-more: rgba(0,0,0,.08);
-  --border: rgba(0,0,0,.08);
-  --card-bg: rgba(0,0,0,.02);
-  --green: #00AA44;
-  --red: #CC0033;
-  --yellow: #CC9900;
-  --blue: #3377CC;
-  --purple: #7755BB;
+  --bg: #F7F7F5;
+  --fg: #111111;
+  --accent: #E04400;
+  --muted: rgba(0,0,0,.5);
+  --muted-more: rgba(0,0,0,.06);
+  --border: rgba(0,0,0,.1);
+  --card-bg: rgba(0,0,0,.025);
+  --green: #16803C;
+  --red: #CC2244;
+  --yellow: #B8860B;
+  --blue: #2563EB;
+  --purple: #6D28D9;
+}
+[data-theme="light"] .sidebar { background: #FFFFFF; }
+[data-theme="light"] .header { background: #F7F7F5; }
+[data-theme="light"] .modal { background: #FFFFFF; border-color: rgba(0,0,0,.12); }
+[data-theme="light"] .detail-panel { background: #FFFFFF; }
+[data-theme="light"] .toast { background: #FFFFFF; }
+[data-theme="light"] .status-bar { background: #FFFFFF; }
+[data-theme="light"] .notif-dropdown { background: #FFFFFF; }
+[data-theme="light"] .settings-dropdown { background: #FFFFFF; }
+[data-theme="light"] .shortcuts-box { background: #FFFFFF; }
+[data-theme="light"] .fi,
+[data-theme="light"] .fs,
+[data-theme="light"] .ft { background: #F0F0EE; border-color: rgba(0,0,0,.12); color: #111; }
+[data-theme="light"] .fi:focus,
+[data-theme="light"] .fs:focus,
+[data-theme="light"] .ft:focus { border-color: #E04400; }
+[data-theme="light"] .h-search { background: #FFFFFF; border-color: rgba(0,0,0,.1); color: #111; }
+[data-theme="light"] .h-btn { background: #FFFFFF; border-color: rgba(0,0,0,.1); color: rgba(0,0,0,.5); }
+[data-theme="light"] .h-btn:hover { border-color: #E04400; color: #E04400; }
+[data-theme="light"] .s-logo-mark { color: #FFFFFF; }
+[data-theme="light"] .s-avatar { color: #FFFFFF; }
+[data-theme="light"] .s-badge { color: #FFFFFF; }
+[data-theme="light"] .btn-accent { color: #FFFFFF; }
+[data-theme="light"] .btn-accent:hover { background: #FF6A2A; }
+[data-theme="light"] .m-close { background: #F0F0EE; border-color: rgba(0,0,0,.1); color: rgba(0,0,0,.5); }
+[data-theme="light"] .dp-close { background: #F0F0EE; border-color: rgba(0,0,0,.1); color: rgba(0,0,0,.5); }
+[data-theme="light"] .f-upload { border-color: rgba(0,0,0,.15); color: rgba(0,0,0,.4); }
+[data-theme="light"] .f-upload:hover { border-color: #E04400; color: #E04400; }
+[data-theme="light"] .burger { background: #FFFFFF; border-color: rgba(0,0,0,.1); color: rgba(0,0,0,.5); }
+[data-theme="light"] .sc-key { background: #F0F0EE; border-color: rgba(0,0,0,.12); color: #111; }
+[data-theme="light"] ::-webkit-scrollbar-thumb { background: rgba(0,0,0,.15); }
+
+/* ═══ THEME TOGGLE (fixed bottom-right) ═══ */
+.theme-toggle {
+  position: fixed;
+  bottom: 36px;
+  right: 20px;
+  z-index: 200;
+  display: flex;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 2px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .5px;
+}
+.theme-toggle button {
+  padding: 7px 14px;
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  transition: all .15s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.theme-toggle button.active {
+  background: var(--accent);
+  color: #fff;
+}
+.theme-toggle .dot {
+  width: 8px;
+  height: 8px;
+  display: inline-block;
 }
 
 /* ═══ RESPONSIVE ═══ */
@@ -1568,6 +1638,12 @@ body {
   </div><!-- /content -->
 </div><!-- /main -->
 
+<!-- ═══════════════════════════════════════ THEME TOGGLE ═══════════════════════════════════════ -->
+<div class="theme-toggle" id="themeToggle">
+  <button class="active" id="themeDark" onclick="setThemeMode('dark')"><span class="dot" style="background:#0A0A0A;border:1px solid rgba(255,255,255,.2)"></span> Тёмная</button>
+  <button id="themeLight" onclick="setThemeMode('light')"><span class="dot" style="background:#F7F7F5;border:1px solid rgba(0,0,0,.15)"></span> Светлая</button>
+</div>
+
 <!-- ═══════════════════════════════════════ STATUS BAR ═══════════════════════════════════════ -->
 <div class="status-bar">
   <div class="status-bar-left">
@@ -1962,27 +2038,39 @@ function filterHocSite(site) {
   });
 }
 
-// Theme toggle
-function updateThemeBtn() {
-  var btn = document.getElementById('themeToggleBtn');
-  var isLight = document.documentElement.getAttribute('data-theme') === 'light';
-  btn.innerHTML = isLight ? '&#9679; Тёмная' : '&#9728; Светлая';
+// Theme toggle — bottom-right switcher + settings menu item
+function setThemeMode(mode) {
+  if (mode === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    localStorage.setItem('kgt-theme', 'light');
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+    localStorage.setItem('kgt-theme', 'dark');
+  }
+  updateThemeUI();
 }
+
+function updateThemeUI() {
+  var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+  var darkBtn = document.getElementById('themeDark');
+  var lightBtn = document.getElementById('themeLight');
+  var settingsBtn = document.getElementById('themeToggleBtn');
+  if (darkBtn) { darkBtn.classList.toggle('active', !isLight); }
+  if (lightBtn) { lightBtn.classList.toggle('active', isLight); }
+  if (settingsBtn) { settingsBtn.innerHTML = isLight ? '&#9679; Тёмная' : '&#9728; Светлая'; }
+}
+
+// Restore saved theme
 (function() {
   var saved = localStorage.getItem('kgt-theme');
   if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
-  updateThemeBtn();
+  updateThemeUI();
 })();
+
+// Settings menu theme toggle (keep working)
 document.getElementById('themeToggleBtn').addEventListener('click', function() {
   var isLight = document.documentElement.getAttribute('data-theme') === 'light';
-  if (isLight) {
-    document.documentElement.removeAttribute('data-theme');
-    localStorage.removeItem('kgt-theme');
-  } else {
-    document.documentElement.setAttribute('data-theme', 'light');
-    localStorage.setItem('kgt-theme', 'light');
-  }
-  updateThemeBtn();
+  setThemeMode(isLight ? 'dark' : 'light');
 });
 
 // HOC fullscreen toggle
