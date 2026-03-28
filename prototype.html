@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KazGeoTech HSE — Platform MVP</title>
+<title>KazGeoTech HSE — Платформа HSE</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -930,30 +930,30 @@ body {
   <div class="s-logo">
     <div>
       <div class="s-logo-mark">KGT_HSE</div>
-      <div class="s-logo-sub">Platform v1.0</div>
+      <div class="s-logo-sub">Платформа v1.0</div>
     </div>
   </div>
   <nav class="s-nav">
-    <div class="s-group">Main</div>
-    <div class="s-item active" data-p="dashboard"><span class="s-icon">&#9632;</span> Dashboard</div>
-    <div class="s-group">HSE Modules</div>
-    <div class="s-item" data-p="hoc"><span class="s-icon">&#9670;</span> HOC Cards <span class="s-badge">12</span></div>
-    <div class="s-item" data-p="incidents"><span class="s-icon">&#9650;</span> Incidents <span class="s-badge">3</span></div>
-    <div class="s-item" data-p="risk"><span class="s-icon">&#9632;</span> Risk Assessment</div>
-    <div class="s-group">Production</div>
-    <div class="s-item" data-p="programs"><span class="s-icon">&#9644;</span> Job Programs</div>
+    <div class="s-group">Главная</div>
+    <div class="s-item active" data-p="dashboard"><span class="s-icon">&#9632;</span> Дашборд</div>
+    <div class="s-group">HSE модули</div>
+    <div class="s-item" data-p="hoc"><span class="s-icon">&#9670;</span> НОС-карты <span class="s-badge">12</span></div>
+    <div class="s-item" data-p="incidents"><span class="s-icon">&#9650;</span> Происшествия <span class="s-badge">3</span></div>
+    <div class="s-item" data-p="risk"><span class="s-icon">&#9632;</span> Оценка рисков</div>
+    <div class="s-group">Производство</div>
+    <div class="s-item" data-p="programs"><span class="s-icon">&#9644;</span> Программы работ</div>
     <div class="s-item" data-p="pjsm"><span class="s-icon">&#9679;</span> Pre-Job Safety</div>
-    <div class="s-group">System</div>
-    <div class="s-item" data-p="users"><span class="s-icon">&#9678;</span> Users</div>
-    <div class="s-item" data-p="journal"><span class="s-icon">&#9636;</span> Event Log</div>
-    <div class="s-item" data-p="export"><span class="s-icon">&#9639;</span> Export</div>
-    <div class="s-item" id="collapseBtn" style="margin-top:auto;border-top:1px solid var(--border);justify-content:center"><span class="s-icon">&#9665;</span> <span class="collapse-text">Collapse</span></div>
+    <div class="s-group">Система</div>
+    <div class="s-item" data-p="users"><span class="s-icon">&#9678;</span> Пользователи</div>
+    <div class="s-item" data-p="journal"><span class="s-icon">&#9636;</span> Журнал событий</div>
+    <div class="s-item" data-p="export"><span class="s-icon">&#9639;</span> Экспорт</div>
+    <div class="s-item" id="collapseBtn" style="margin-top:auto;border-top:1px solid var(--border);justify-content:center"><span class="s-icon">&#9665;</span> <span class="collapse-text">Свернуть</span></div>
   </nav>
   <div class="s-user">
     <div class="s-avatar">AK</div>
     <div>
-      <div class="s-username">Askar Kaliev</div>
-      <div class="s-role">HSE Specialist</div>
+      <div class="s-username">Аскар Калиев</div>
+      <div class="s-role">HSE Специалист</div>
     </div>
   </div>
 </div>
@@ -964,34 +964,34 @@ body {
 <div class="main">
   <div class="header">
     <button class="burger" id="burgerBtn">&#9776;</button>
-    <div class="h-title" id="hTitle">DASHBOARD</div>
+    <div class="h-title" id="hTitle">ДАШБОРД</div>
     <span id="greeting" style="font-size:11px;color:var(--muted);margin-left:8px;font-weight:400;font-family:var(--sans)"></span>
-    <input class="h-search" placeholder="Search... ( / )">
+    <input class="h-search" placeholder="Поиск... ( / )">
     <div style="position:relative">
       <button class="h-btn" id="bellBtn">&#128276;<span class="h-dot">4</span></button>
       <div class="notif-dropdown" id="notifDropdown">
-        <div class="notif-head">Notifications <span id="notifClose">Close</span></div>
+        <div class="notif-head">Уведомления <span id="notifClose">Закрыть</span></div>
         <div class="notif-item" onclick="nav('incidents');document.getElementById('notifDropdown').classList.remove('show')">
-          <div style="display:flex;gap:8px"><div class="notif-dot" style="background:var(--red)"></div><div><div class="notif-item-title">Near Miss — Tengiz</div><div class="notif-item-desc">Serik A. registered incident INC-037</div><div class="notif-item-time">15 min ago</div></div></div>
+          <div style="display:flex;gap:8px"><div class="notif-dot" style="background:var(--red)"></div><div><div class="notif-item-title">Near Miss — Тенгиз</div><div class="notif-item-desc">Серик А. зарегистрировал инцидент INC-037</div><div class="notif-item-time">15 мин назад</div></div></div>
         </div>
         <div class="notif-item" onclick="nav('programs');document.getElementById('notifDropdown').classList.remove('show')">
-          <div style="display:flex;gap:8px"><div class="notif-dot" style="background:var(--yellow)"></div><div><div class="notif-item-title">Approval GNKT-12</div><div class="notif-item-desc">Program awaits your approval</div><div class="notif-item-time">1 hour ago</div></div></div>
+          <div style="display:flex;gap:8px"><div class="notif-dot" style="background:var(--yellow)"></div><div><div class="notif-item-title">Согласование ГНКТ-12</div><div class="notif-item-desc">Программа ожидает вашего утверждения</div><div class="notif-item-time">1 час назад</div></div></div>
         </div>
         <div class="notif-item" onclick="nav('hoc');document.getElementById('notifDropdown').classList.remove('show')">
-          <div style="display:flex;gap:8px"><div class="notif-dot" style="background:var(--green)"></div><div><div class="notif-item-title">HOC-0145 closed</div><div class="notif-item-desc">Askar K. closed observation card</div><div class="notif-item-time">2 hours ago</div></div></div>
+          <div style="display:flex;gap:8px"><div class="notif-dot" style="background:var(--green)"></div><div><div class="notif-item-title">HOC-0145 закрыта</div><div class="notif-item-desc">Аскар К. закрыл карту наблюдения</div><div class="notif-item-time">2 часа назад</div></div></div>
         </div>
         <div class="notif-item" onclick="nav('risk');document.getElementById('notifDropdown').classList.remove('show')">
-          <div style="display:flex;gap:8px"><div class="notif-dot" style="background:var(--blue)"></div><div><div class="notif-item-title">JSA-089 approved</div><div class="notif-item-desc">Damir N. approved risk assessment</div><div class="notif-item-time">3 hours ago</div></div></div>
+          <div style="display:flex;gap:8px"><div class="notif-dot" style="background:var(--blue)"></div><div><div class="notif-item-title">JSA-089 утверждён</div><div class="notif-item-desc">Дамир Н. утвердил оценку рисков</div><div class="notif-item-time">3 часа назад</div></div></div>
         </div>
       </div>
     </div>
     <div style="position:relative">
       <button class="h-btn" id="settingsBtn">&#9881;</button>
       <div class="settings-dropdown" id="settingsDropdown">
-        <div class="settings-item">&#128100; Profile</div>
-        <div class="settings-item">&#9881; Settings</div>
-        <div class="settings-item" id="themeToggleBtn">&#9728; Light</div>
-        <div class="settings-item">&#128682; Logout</div>
+        <div class="settings-item">&#128100; Профиль</div>
+        <div class="settings-item">&#9881; Настройки</div>
+        <div class="settings-item" id="themeToggleBtn">&#9728; Светлая</div>
+        <div class="settings-item">&#128682; Выйти</div>
       </div>
     </div>
   </div>
@@ -1000,34 +1000,34 @@ body {
 
     <!-- ═══════════════════════════════════ PAGE: DASHBOARD ═══════════════════════════════════ -->
     <div class="page active" id="p-dashboard">
-      <div class="breadcrumb">Main</div>
+      <div class="breadcrumb">Главная</div>
 
       <!-- Hero banner -->
       <div style="border:1px solid var(--border);padding:24px;margin-bottom:28px;display:flex;align-items:center;justify-content:space-between">
         <div>
-          <div style="font-size:clamp(18px,2.5vw,24px);font-weight:900;letter-spacing:-2px;text-transform:uppercase;margin-bottom:4px">HSE Platform — KazGeoTech</div>
-          <div style="font-size:12px;color:var(--muted)">Safety management at Western Kazakhstan oilfields</div>
+          <div style="font-size:clamp(18px,2.5vw,24px);font-weight:900;letter-spacing:-2px;text-transform:uppercase;margin-bottom:4px">Платформа HSE — KazGeoTech</div>
+          <div style="font-size:12px;color:var(--muted)">Управление безопасностью на месторождениях Западного Казахстана</div>
         </div>
         <div style="font-family:var(--mono);font-size:9px;color:var(--muted);text-align:right;letter-spacing:1px;text-transform:uppercase">
-          <div>27.03.2026 · Astana UTC+5</div>
-          <div style="margin-top:4px;color:var(--green)">&#9679; All systems operational</div>
+          <div>27.03.2026 · Астана UTC+5</div>
+          <div style="margin-top:4px;color:var(--green)">&#9679; ВСЕ СИСТЕМЫ РАБОТАЮТ</div>
         </div>
       </div>
 
       <!-- Stats bar -->
-      <div class="sec-label"><span class="sec-label-num">01</span><div class="sec-label-line"></div><span class="sec-label-text">Overview</span></div>
+      <div class="sec-label"><span class="sec-label-num">01</span><div class="sec-label-line"></div><span class="sec-label-text">Обзор</span></div>
       <div class="stats-bar">
-        <div class="stat-col" onclick="nav('hoc')"><div class="stat-label">HOC Cards (month)</div><div class="stat-val">147</div><div class="stat-change up">&#8593; 12%</div></div>
-        <div class="stat-col" onclick="nav('hoc')"><div class="stat-label">Closed HOC</div><div class="stat-val green" style="animation-delay:.1s">135</div><div class="stat-change up">92%</div></div>
-        <div class="stat-col" onclick="nav('incidents')"><div class="stat-label">Incidents</div><div class="stat-val yellow" style="animation-delay:.2s">8</div><div class="stat-change down">&#8595; 23%</div></div>
-        <div class="stat-col" onclick="nav('risk')"><div class="stat-label">Open Risks</div><div class="stat-val red" style="animation-delay:.3s">5</div><div class="stat-change">Attention</div></div>
+        <div class="stat-col" onclick="nav('hoc')"><div class="stat-label">НОС-карт (месяц)</div><div class="stat-val">147</div><div class="stat-change up">&#8593; 12%</div></div>
+        <div class="stat-col" onclick="nav('hoc')"><div class="stat-label">Закрыто НОС</div><div class="stat-val green" style="animation-delay:.1s">135</div><div class="stat-change up">92%</div></div>
+        <div class="stat-col" onclick="nav('incidents')"><div class="stat-label">Происшествий</div><div class="stat-val yellow" style="animation-delay:.2s">8</div><div class="stat-change down">&#8595; 23%</div></div>
+        <div class="stat-col" onclick="nav('risk')"><div class="stat-label">Открытые риски</div><div class="stat-val red" style="animation-delay:.3s">5</div><div class="stat-change">Внимание</div></div>
       </div>
 
       <!-- Site cards -->
-      <div class="sec-label"><span class="sec-label-num">02</span><div class="sec-label-line"></div><span class="sec-label-text">Sites</span></div>
+      <div class="sec-label"><span class="sec-label-num">02</span><div class="sec-label-line"></div><span class="sec-label-text">Объекты</span></div>
       <div class="site-grid">
         <div class="site-cell" onclick="nav('hoc');setTimeout(function(){filterHocSite('Тенгиз')},100)">
-          <div class="site-cell-name">Tengiz</div>
+          <div class="site-cell-name">Тенгиз</div>
           <div class="site-cell-stats">
             <div><div class="site-cell-stat-val" style="color:var(--accent)">42</div><div class="site-cell-stat-lbl">HOC</div></div>
             <div><div class="site-cell-stat-val" style="color:var(--red)">3</div><div class="site-cell-stat-lbl">Inc.</div></div>
@@ -1035,7 +1035,7 @@ body {
           </div>
         </div>
         <div class="site-cell" onclick="nav('hoc');setTimeout(function(){filterHocSite('Карачаганак')},100)">
-          <div class="site-cell-name">Karachaganak</div>
+          <div class="site-cell-name">Карачаганак</div>
           <div class="site-cell-stats">
             <div><div class="site-cell-stat-val" style="color:var(--accent)">38</div><div class="site-cell-stat-lbl">HOC</div></div>
             <div><div class="site-cell-stat-val" style="color:var(--red)">2</div><div class="site-cell-stat-lbl">Inc.</div></div>
@@ -1043,7 +1043,7 @@ body {
           </div>
         </div>
         <div class="site-cell" onclick="nav('hoc');setTimeout(function(){filterHocSite('Кашаган')},100)">
-          <div class="site-cell-name">Kashagan</div>
+          <div class="site-cell-name">Кашаган</div>
           <div class="site-cell-stats">
             <div><div class="site-cell-stat-val" style="color:var(--accent)">35</div><div class="site-cell-stat-lbl">HOC</div></div>
             <div><div class="site-cell-stat-val" style="color:var(--red)">2</div><div class="site-cell-stat-lbl">Inc.</div></div>
@@ -1051,7 +1051,7 @@ body {
           </div>
         </div>
         <div class="site-cell" onclick="nav('hoc');setTimeout(function(){filterHocSite('Узень')},100)">
-          <div class="site-cell-name">Uzen</div>
+          <div class="site-cell-name">Узень</div>
           <div class="site-cell-stats">
             <div><div class="site-cell-stat-val" style="color:var(--accent)">32</div><div class="site-cell-stat-lbl">HOC</div></div>
             <div><div class="site-cell-stat-val" style="color:var(--red)">1</div><div class="site-cell-stat-lbl">Inc.</div></div>
@@ -1062,53 +1062,53 @@ body {
 
       <!-- Action buttons -->
       <div style="display:flex;gap:8px;margin-bottom:28px">
-        <button class="btn btn-accent" onclick="openM('mHoc')">+ HOC Card</button>
-        <button class="btn btn-danger" onclick="openM('mInc')">+ Incident</button>
-        <button class="btn btn-ghost" onclick="openM('mRisk')">+ Risk Assessment</button>
+        <button class="btn btn-accent" onclick="openM('mHoc')">+ НОС-карта</button>
+        <button class="btn btn-danger" onclick="openM('mInc')">+ Происшествие</button>
+        <button class="btn btn-ghost" onclick="openM('mRisk')">+ Оценка рисков</button>
       </div>
 
       <!-- Two columns: HOC table + Activity -->
-      <div class="sec-label"><span class="sec-label-num">03</span><div class="sec-label-line"></div><span class="sec-label-text">Recent Activity</span></div>
+      <div class="sec-label"><span class="sec-label-num">03</span><div class="sec-label-line"></div><span class="sec-label-text">Активность</span></div>
       <div class="g2">
         <div class="panel">
-          <div class="panel-h"><span class="panel-t">Latest HOC Cards</span><span class="panel-action" id="dashHocLink">All &#8594;</span></div>
-          <table class="tbl"><thead><tr><th>ID</th><th>Site</th><th>Type</th><th>Status</th><th>Date</th></tr></thead><tbody>
-            <tr><td class="id">HOC-0147</td><td>Карачаганак</td><td><span class="b b-high">Condition</span></td><td><span class="b b-open">Open</span></td><td>27.03</td></tr>
-            <tr><td class="id">HOC-0146</td><td>Тенгиз</td><td><span class="b b-medium">Action</span></td><td><span class="b b-review">Review</span></td><td>26.03</td></tr>
-            <tr><td class="id">HOC-0145</td><td>Кашаган</td><td><span class="b b-high">Condition</span></td><td><span class="b b-closed">Closed</span></td><td>25.03</td></tr>
-            <tr><td class="id">HOC-0144</td><td>Узень</td><td><span class="b b-low">Action</span></td><td><span class="b b-closed">Closed</span></td><td>25.03</td></tr>
+          <div class="panel-h"><span class="panel-t">Последние НОС-карты</span><span class="panel-action" id="dashHocLink">Все &#8594;</span></div>
+          <table class="tbl"><thead><tr><th>ID</th><th>Объект</th><th>Тип</th><th>Статус</th><th>Дата</th></tr></thead><tbody>
+            <tr><td class="id">HOC-0147</td><td>Карачаганак</td><td><span class="b b-high">Условие</span></td><td><span class="b b-open">Открыта</span></td><td>27.03</td></tr>
+            <tr><td class="id">HOC-0146</td><td>Тенгиз</td><td><span class="b b-medium">Действие</span></td><td><span class="b b-review">Проверка</span></td><td>26.03</td></tr>
+            <tr><td class="id">HOC-0145</td><td>Кашаган</td><td><span class="b b-high">Условие</span></td><td><span class="b b-closed">Закрыта</span></td><td>25.03</td></tr>
+            <tr><td class="id">HOC-0144</td><td>Узень</td><td><span class="b b-low">Действие</span></td><td><span class="b b-closed">Закрыта</span></td><td>25.03</td></tr>
           </tbody></table>
         </div>
         <div class="panel">
-          <div class="panel-h"><span class="panel-t">Activity Feed</span></div>
+          <div class="panel-h"><span class="panel-t">Лента активности</span></div>
           <div class="panel-body">
-            <div class="act"><div class="act-dot red pulse"></div><div><div class="act-text"><strong>Серик А.</strong> — Near Miss, Тенгиз</div><div class="act-time">15 min</div></div></div>
-            <div class="act"><div class="act-dot green"></div><div><div class="act-text"><strong>Аскар К.</strong> closed HOC-0143</div><div class="act-time">1 hour</div></div></div>
-            <div class="act"><div class="act-dot blue"></div><div><div class="act-text"><strong>Марат Ж.</strong> created GNKT-12</div><div class="act-time">2 hours</div></div></div>
-            <div class="act"><div class="act-dot orange"></div><div><div class="act-text"><strong>Дамир Н.</strong> approved JSA-089</div><div class="act-time">3 hours</div></div></div>
+            <div class="act"><div class="act-dot red pulse"></div><div><div class="act-text"><strong>Серик А.</strong> — Near Miss, Тенгиз</div><div class="act-time">15 мин</div></div></div>
+            <div class="act"><div class="act-dot green"></div><div><div class="act-text"><strong>Аскар К.</strong> закрыл HOC-0143</div><div class="act-time">1 час</div></div></div>
+            <div class="act"><div class="act-dot blue"></div><div><div class="act-text"><strong>Марат Ж.</strong> создал ГНКТ-12</div><div class="act-time">2 часа</div></div></div>
+            <div class="act"><div class="act-dot orange"></div><div><div class="act-text"><strong>Дамир Н.</strong> утвердил JSA-089</div><div class="act-time">3 часа</div></div></div>
           </div>
         </div>
       </div>
 
       <!-- Charts row -->
-      <div class="sec-label" style="margin-top:28px"><span class="sec-label-num">04</span><div class="sec-label-line"></div><span class="sec-label-text">Analytics</span></div>
+      <div class="sec-label" style="margin-top:28px"><span class="sec-label-num">04</span><div class="sec-label-line"></div><span class="sec-label-text">Аналитика</span></div>
       <div class="g2">
         <div class="panel">
-          <div class="panel-h"><span class="panel-t">Incidents — 6 Months</span></div>
+          <div class="panel-h"><span class="panel-t">Происшествия — 6 мес</span></div>
           <div class="panel-body">
             <div class="chart-bars">
-              <div class="c-bar" style="height:80px;background:var(--accent);animation-delay:0s"><span class="c-val" style="color:var(--accent)">12</span><span class="c-lbl">Oct</span></div>
-              <div class="c-bar" style="height:60px;background:var(--accent);animation-delay:.1s"><span class="c-val" style="color:var(--accent)">9</span><span class="c-lbl">Nov</span></div>
-              <div class="c-bar" style="height:100px;background:var(--yellow);animation-delay:.2s"><span class="c-val" style="color:var(--yellow)">15</span><span class="c-lbl">Dec</span></div>
-              <div class="c-bar" style="height:70px;background:var(--accent);animation-delay:.3s"><span class="c-val" style="color:var(--accent)">10</span><span class="c-lbl">Jan</span></div>
-              <div class="c-bar" style="height:55px;background:var(--green);animation-delay:.4s"><span class="c-val" style="color:var(--green)">8</span><span class="c-lbl">Feb</span></div>
-              <div class="c-bar" style="height:35px;background:var(--green);animation-delay:.5s"><span class="c-val" style="color:var(--green)">5</span><span class="c-lbl">Mar</span></div>
+              <div class="c-bar" style="height:80px;background:var(--accent);animation-delay:0s"><span class="c-val" style="color:var(--accent)">12</span><span class="c-lbl">Окт</span></div>
+              <div class="c-bar" style="height:60px;background:var(--accent);animation-delay:.1s"><span class="c-val" style="color:var(--accent)">9</span><span class="c-lbl">Ноя</span></div>
+              <div class="c-bar" style="height:100px;background:var(--yellow);animation-delay:.2s"><span class="c-val" style="color:var(--yellow)">15</span><span class="c-lbl">Дек</span></div>
+              <div class="c-bar" style="height:70px;background:var(--accent);animation-delay:.3s"><span class="c-val" style="color:var(--accent)">10</span><span class="c-lbl">Янв</span></div>
+              <div class="c-bar" style="height:55px;background:var(--green);animation-delay:.4s"><span class="c-val" style="color:var(--green)">8</span><span class="c-lbl">Фев</span></div>
+              <div class="c-bar" style="height:35px;background:var(--green);animation-delay:.5s"><span class="c-val" style="color:var(--green)">5</span><span class="c-lbl">Мар</span></div>
             </div>
           </div>
         </div>
 
         <div class="panel">
-          <div class="panel-h"><span class="panel-t">Incident Distribution</span></div>
+          <div class="panel-h"><span class="panel-t">По типу инцидентов</span></div>
           <div class="panel-body">
             <div class="donut-wrap">
               <div class="donut">
@@ -1118,12 +1118,12 @@ body {
                   <circle cx="18" cy="18" r="15.9" fill="none" stroke="var(--red)" stroke-width="3" stroke-dasharray="3 97" stroke-dashoffset="-76" style="animation-delay:.4s"/>
                   <circle cx="18" cy="18" r="15.9" fill="none" stroke="var(--blue)" stroke-width="3" stroke-dasharray="21 79" stroke-dashoffset="-79" style="animation-delay:.6s"/>
                 </svg>
-                <div class="donut-center"><div class="donut-center-val">37</div><div class="donut-center-lbl">Total</div></div>
+                <div class="donut-center"><div class="donut-center-val">37</div><div class="donut-center-lbl">Всего</div></div>
               </div>
               <div class="donut-legend">
                 <div class="donut-legend-item"><div class="donut-legend-dot" style="background:var(--yellow)"></div>Near Miss<span class="donut-legend-val">23</span></div>
-                <div class="donut-legend-item"><div class="donut-legend-dot" style="background:var(--accent)"></div>Incident<span class="donut-legend-val">5</span></div>
-                <div class="donut-legend-item"><div class="donut-legend-dot" style="background:var(--red)"></div>Accident<span class="donut-legend-val">1</span></div>
+                <div class="donut-legend-item"><div class="donut-legend-dot" style="background:var(--accent)"></div>Инцидент<span class="donut-legend-val">5</span></div>
+                <div class="donut-legend-item"><div class="donut-legend-dot" style="background:var(--red)"></div>Авария<span class="donut-legend-val">1</span></div>
                 <div class="donut-legend-item"><div class="donut-legend-dot" style="background:var(--blue)"></div>First Aid<span class="donut-legend-val">8</span></div>
               </div>
             </div>
@@ -1134,90 +1134,90 @@ body {
 
     <!-- ═══════════════════════════════════ PAGE: HOC ═══════════════════════════════════ -->
     <div class="page" id="p-hoc">
-      <div class="breadcrumb">Main &#8594; HSE &#8594; HOC Cards</div>
+      <div class="breadcrumb">Главная &#8594; HSE &#8594; НОС-карты</div>
       <div class="ph">
         <div>
-          <div class="ph-title">HOC Cards<span class="ph-count">147</span></div>
-          <div class="ph-sub">Hazard Observation Cards</div>
+          <div class="ph-title">НОС-карты<span class="ph-count">147</span></div>
+          <div class="ph-sub">Карты наблюдения за опасностями</div>
         </div>
-        <button class="btn btn-accent" id="btnNewHoc">+ New</button>
+        <button class="btn btn-accent" id="btnNewHoc">+ Новая</button>
       </div>
 
       <!-- Site filter buttons -->
       <div style="display:flex;gap:4px;margin-bottom:12px;flex-wrap:wrap">
-        <button class="btn btn-ghost" style="padding:4px 12px;font-size:9px" onclick="filterHocSite('')">All Sites</button>
-        <button class="btn btn-ghost" style="padding:4px 12px;font-size:9px" onclick="filterHocSite('Тенгиз')">Tengiz</button>
-        <button class="btn btn-ghost" style="padding:4px 12px;font-size:9px" onclick="filterHocSite('Карачаганак')">Karachaganak</button>
-        <button class="btn btn-ghost" style="padding:4px 12px;font-size:9px" onclick="filterHocSite('Кашаган')">Kashagan</button>
-        <button class="btn btn-ghost" style="padding:4px 12px;font-size:9px" onclick="filterHocSite('Узень')">Uzen</button>
+        <button class="btn btn-ghost" style="padding:4px 12px;font-size:9px" onclick="filterHocSite('')">Все объекты</button>
+        <button class="btn btn-ghost" style="padding:4px 12px;font-size:9px" onclick="filterHocSite('Тенгиз')">Тенгиз</button>
+        <button class="btn btn-ghost" style="padding:4px 12px;font-size:9px" onclick="filterHocSite('Карачаганак')">Карачаганак</button>
+        <button class="btn btn-ghost" style="padding:4px 12px;font-size:9px" onclick="filterHocSite('Кашаган')">Кашаган</button>
+        <button class="btn btn-ghost" style="padding:4px 12px;font-size:9px" onclick="filterHocSite('Узень')">Узень</button>
       </div>
 
       <div class="tabs">
-        <div class="tab active">All (147)</div>
-        <div class="tab">Open (12)</div>
-        <div class="tab">Review (8)</div>
-        <div class="tab">Closed (127)</div>
+        <div class="tab active">Все (147)</div>
+        <div class="tab">Открытые (12)</div>
+        <div class="tab">Проверка (8)</div>
+        <div class="tab">Закрытые (127)</div>
       </div>
 
       <!-- Quick stats -->
       <div style="display:flex;gap:20px;margin-bottom:16px;padding:0 2px">
-        <div style="font-family:var(--mono);font-size:10px;letter-spacing:.5px"><span style="color:var(--red);font-weight:800">12</span> <span style="color:var(--muted)">OPEN</span></div>
-        <div style="font-family:var(--mono);font-size:10px;letter-spacing:.5px"><span style="color:var(--yellow);font-weight:800">8</span> <span style="color:var(--muted)">REVIEW</span></div>
-        <div style="font-family:var(--mono);font-size:10px;letter-spacing:.5px"><span style="color:var(--green);font-weight:800">127</span> <span style="color:var(--muted)">CLOSED</span></div>
-        <div style="font-family:var(--mono);font-size:10px;letter-spacing:.5px;margin-left:auto"><span style="color:var(--accent);font-weight:800">92%</span> <span style="color:var(--muted)">CLOSURE RATE</span></div>
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:.5px"><span style="color:var(--red);font-weight:800">12</span> <span style="color:var(--muted)">ОТКРЫТО</span></div>
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:.5px"><span style="color:var(--yellow);font-weight:800">8</span> <span style="color:var(--muted)">ПРОВЕРКА</span></div>
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:.5px"><span style="color:var(--green);font-weight:800">127</span> <span style="color:var(--muted)">ЗАКРЫТО</span></div>
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:.5px;margin-left:auto"><span style="color:var(--accent);font-weight:800">92%</span> <span style="color:var(--muted)">ЗАКРЫТИЕ</span></div>
       </div>
 
       <div class="panel" id="hocTablePanel">
         <div class="panel-h" style="padding:10px 20px">
-          <span class="panel-t" style="font-size:10px">HOC Registry</span>
-          <button class="btn btn-ghost" id="hocFullscreenBtn" style="padding:3px 8px;font-size:9px;margin-left:auto" title="Fullscreen">&#x26F6; Expand</button>
+          <span class="panel-t" style="font-size:10px">Реестр НОС</span>
+          <button class="btn btn-ghost" id="hocFullscreenBtn" style="padding:3px 8px;font-size:9px;margin-left:auto" title="Полный экран">&#x26F6; Развернуть</button>
         </div>
-        <table class="tbl"><thead><tr><th class="sorted">ID</th><th>Date</th><th>Site</th><th>Dept.</th><th>Employee</th><th>Type</th><th>Status</th><th>Responsible</th></tr></thead><tbody>
-          <tr class="detail-row" data-id="HOC-0147" data-date="27.03.2026" data-site="Карачаганак" data-dept="Бурение" data-employee="Ерлан Сатыбалдиев" data-desc="Незакреплённый шланг высокого давления на буровой площадке, угроза срыва при подаче давления" data-status="Открыта" data-responsible="Аскар Калиев" data-type="hoc"><td class="id">HOC-0147</td><td>27.03</td><td>Карачаганак</td><td>Бурение</td><td style="color:var(--fg)">Ерлан С.</td><td><span class="b b-high">Condition</span></td><td><span class="b b-open">Open</span></td><td>Аскар К.</td></tr>
-          <tr class="detail-row" data-id="HOC-0146" data-date="26.03.2026" data-site="Тенгиз" data-dept="ГНКТ" data-employee="Бауржан Муратов" data-desc="Работник без защитных очков при работе с гидравликой" data-status="Проверка" data-responsible="Аскар Калиев" data-type="hoc"><td class="id">HOC-0146</td><td>26.03</td><td>Тенгиз</td><td>ГНКТ</td><td style="color:var(--fg)">Бауржан М.</td><td><span class="b b-medium">Action</span></td><td><span class="b b-review">Review</span></td><td>Аскар К.</td></tr>
-          <tr class="detail-row" data-id="HOC-0145" data-date="25.03.2026" data-site="Кашаган" data-dept="КРС" data-employee="Дамир Нурланов" data-desc="Скользкая поверхность возле насосного блока, отсутствие противоскользящего покрытия" data-status="Закрыта" data-responsible="Серик Абаев" data-type="hoc"><td class="id">HOC-0145</td><td>25.03</td><td>Кашаган</td><td>КРС</td><td style="color:var(--fg)">Дамир Н.</td><td><span class="b b-high">Condition</span></td><td><span class="b b-closed">Closed</span></td><td>Серик А.</td></tr>
-          <tr class="detail-row" data-id="HOC-0144" data-date="25.03.2026" data-site="Узень" data-dept="Насосная" data-employee="Кайрат Оспанов" data-desc="Оператор использовал неисправный ключ при затяжке фитинга" data-status="Закрыта" data-responsible="Марат Жумабаев" data-type="hoc"><td class="id">HOC-0144</td><td>25.03</td><td>Узень</td><td>Насосная</td><td style="color:var(--fg)">Кайрат О.</td><td><span class="b b-low">Action</span></td><td><span class="b b-closed">Closed</span></td><td>Марат Ж.</td></tr>
-          <tr class="detail-row" data-id="HOC-0143" data-date="24.03.2026" data-site="Тенгиз" data-dept="Азотная" data-employee="Алмас Тлеубаев" data-desc="Отсутствие маркировки на криогенных линиях азотного оборудования" data-status="Закрыта" data-responsible="Аскар Калиев" data-type="hoc"><td class="id">HOC-0143</td><td>24.03</td><td>Тенгиз</td><td>Азотная</td><td style="color:var(--fg)">Алмас Т.</td><td><span class="b b-medium">Condition</span></td><td><span class="b b-closed">Closed</span></td><td>Аскар К.</td></tr>
-          <tr class="detail-row" data-id="HOC-0142" data-date="23.03.2026" data-site="Карачаганак" data-dept="Флюид Памп" data-employee="Нурлан Кенжебаев" data-desc="Разлив рабочей жидкости вблизи электрооборудования, не огорожено" data-status="Закрыта" data-responsible="Серик Абаев" data-type="hoc"><td class="id">HOC-0142</td><td>23.03</td><td>Карачаганак</td><td>Флюид Памп</td><td style="color:var(--fg)">Нурлан К.</td><td><span class="b b-high">Condition</span></td><td><span class="b b-closed">Closed</span></td><td>Серик А.</td></tr>
-          <tr class="detail-row" data-id="HOC-0141" data-date="22.03.2026" data-site="Кашаган" data-dept="Бурение" data-employee="Руслан Жунусов" data-desc="Работник поднимался по лестнице без страховочного пояса" data-status="Проверка" data-responsible="Марат Жумабаев" data-type="hoc"><td class="id">HOC-0141</td><td>22.03</td><td>Кашаган</td><td>Бурение</td><td style="color:var(--fg)">Руслан Ж.</td><td><span class="b b-high">Action</span></td><td><span class="b b-review">Review</span></td><td>Марат Ж.</td></tr>
-          <tr class="detail-row" data-id="HOC-0140" data-date="21.03.2026" data-site="Узень" data-dept="ГНКТ" data-employee="Серик Абаев" data-desc="Неправильное складирование труб на площадке, риск скатывания" data-status="Открыта" data-responsible="Аскар Калиев" data-type="hoc"><td class="id">HOC-0140</td><td>21.03</td><td>Узень</td><td>ГНКТ</td><td style="color:var(--fg)">Серик А.</td><td><span class="b b-high">Condition</span></td><td><span class="b b-open">Open</span></td><td>Аскар К.</td></tr>
+        <table class="tbl"><thead><tr><th class="sorted">ID</th><th>Дата</th><th>Объект</th><th>Подразд.</th><th>Сотрудник</th><th>Тип</th><th>Статус</th><th>Ответств.</th></tr></thead><tbody>
+          <tr class="detail-row" data-id="HOC-0147" data-date="27.03.2026" data-site="Карачаганак" data-dept="Бурение" data-employee="Ерлан Сатыбалдиев" data-desc="Незакреплённый шланг высокого давления на буровой площадке, угроза срыва при подаче давления" data-status="Открыта" data-responsible="Аскар Калиев" data-type="hoc"><td class="id">HOC-0147</td><td>27.03</td><td>Карачаганак</td><td>Бурение</td><td style="color:var(--fg)">Ерлан С.</td><td><span class="b b-high">Условие</span></td><td><span class="b b-open">Открыта</span></td><td>Аскар К.</td></tr>
+          <tr class="detail-row" data-id="HOC-0146" data-date="26.03.2026" data-site="Тенгиз" data-dept="ГНКТ" data-employee="Бауржан Муратов" data-desc="Работник без защитных очков при работе с гидравликой" data-status="Проверка" data-responsible="Аскар Калиев" data-type="hoc"><td class="id">HOC-0146</td><td>26.03</td><td>Тенгиз</td><td>ГНКТ</td><td style="color:var(--fg)">Бауржан М.</td><td><span class="b b-medium">Действие</span></td><td><span class="b b-review">Проверка</span></td><td>Аскар К.</td></tr>
+          <tr class="detail-row" data-id="HOC-0145" data-date="25.03.2026" data-site="Кашаган" data-dept="КРС" data-employee="Дамир Нурланов" data-desc="Скользкая поверхность возле насосного блока, отсутствие противоскользящего покрытия" data-status="Закрыта" data-responsible="Серик Абаев" data-type="hoc"><td class="id">HOC-0145</td><td>25.03</td><td>Кашаган</td><td>КРС</td><td style="color:var(--fg)">Дамир Н.</td><td><span class="b b-high">Условие</span></td><td><span class="b b-closed">Закрыта</span></td><td>Серик А.</td></tr>
+          <tr class="detail-row" data-id="HOC-0144" data-date="25.03.2026" data-site="Узень" data-dept="Насосная" data-employee="Кайрат Оспанов" data-desc="Оператор использовал неисправный ключ при затяжке фитинга" data-status="Закрыта" data-responsible="Марат Жумабаев" data-type="hoc"><td class="id">HOC-0144</td><td>25.03</td><td>Узень</td><td>Насосная</td><td style="color:var(--fg)">Кайрат О.</td><td><span class="b b-low">Действие</span></td><td><span class="b b-closed">Закрыта</span></td><td>Марат Ж.</td></tr>
+          <tr class="detail-row" data-id="HOC-0143" data-date="24.03.2026" data-site="Тенгиз" data-dept="Азотная" data-employee="Алмас Тлеубаев" data-desc="Отсутствие маркировки на криогенных линиях азотного оборудования" data-status="Закрыта" data-responsible="Аскар Калиев" data-type="hoc"><td class="id">HOC-0143</td><td>24.03</td><td>Тенгиз</td><td>Азотная</td><td style="color:var(--fg)">Алмас Т.</td><td><span class="b b-medium">Условие</span></td><td><span class="b b-closed">Закрыта</span></td><td>Аскар К.</td></tr>
+          <tr class="detail-row" data-id="HOC-0142" data-date="23.03.2026" data-site="Карачаганак" data-dept="Флюид Памп" data-employee="Нурлан Кенжебаев" data-desc="Разлив рабочей жидкости вблизи электрооборудования, не огорожено" data-status="Закрыта" data-responsible="Серик Абаев" data-type="hoc"><td class="id">HOC-0142</td><td>23.03</td><td>Карачаганак</td><td>Флюид Памп</td><td style="color:var(--fg)">Нурлан К.</td><td><span class="b b-high">Условие</span></td><td><span class="b b-closed">Закрыта</span></td><td>Серик А.</td></tr>
+          <tr class="detail-row" data-id="HOC-0141" data-date="22.03.2026" data-site="Кашаган" data-dept="Бурение" data-employee="Руслан Жунусов" data-desc="Работник поднимался по лестнице без страховочного пояса" data-status="Проверка" data-responsible="Марат Жумабаев" data-type="hoc"><td class="id">HOC-0141</td><td>22.03</td><td>Кашаган</td><td>Бурение</td><td style="color:var(--fg)">Руслан Ж.</td><td><span class="b b-high">Действие</span></td><td><span class="b b-review">Проверка</span></td><td>Марат Ж.</td></tr>
+          <tr class="detail-row" data-id="HOC-0140" data-date="21.03.2026" data-site="Узень" data-dept="ГНКТ" data-employee="Серик Абаев" data-desc="Неправильное складирование труб на площадке, риск скатывания" data-status="Открыта" data-responsible="Аскар Калиев" data-type="hoc"><td class="id">HOC-0140</td><td>21.03</td><td>Узень</td><td>ГНКТ</td><td style="color:var(--fg)">Серик А.</td><td><span class="b b-high">Условие</span></td><td><span class="b b-open">Открыта</span></td><td>Аскар К.</td></tr>
         </tbody></table>
       </div>
 
       <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:1px;text-transform:uppercase">
-        <span>Showing 1-8 of 147</span>
+        <span>Показано 1-8 из 147</span>
         <div style="display:flex;gap:4px">
-          <button class="btn btn-ghost" style="padding:3px 10px;font-size:9px" disabled>&#8592; Prev</button>
-          <button class="btn btn-ghost" style="padding:3px 10px;font-size:9px">Next &#8594;</button>
+          <button class="btn btn-ghost" style="padding:3px 10px;font-size:9px" disabled>&#8592; Пред</button>
+          <button class="btn btn-ghost" style="padding:3px 10px;font-size:9px">След &#8594;</button>
         </div>
       </div>
     </div>
 
     <!-- ═══════════════════════════════════ PAGE: INCIDENTS ═══════════════════════════════════ -->
     <div class="page" id="p-incidents">
-      <div class="breadcrumb">Main &#8594; HSE &#8594; Incidents</div>
+      <div class="breadcrumb">Главная &#8594; HSE &#8594; Происшествия</div>
       <div class="ph">
         <div>
-          <div class="ph-title">Incidents<span class="ph-count">37</span></div>
-          <div class="ph-sub">AI Classification</div>
+          <div class="ph-title">Происшествия<span class="ph-count">37</span></div>
+          <div class="ph-sub">AI-классификация</div>
         </div>
-        <button class="btn btn-accent" id="btnNewInc">+ Register</button>
+        <button class="btn btn-accent" id="btnNewInc">+ Зарегистрировать</button>
       </div>
 
       <div class="stats-bar">
         <div class="stat-col"><div class="stat-label">Near Miss</div><div class="stat-val yellow">23</div></div>
-        <div class="stat-col"><div class="stat-label">Incidents</div><div class="stat-val">5</div></div>
-        <div class="stat-col"><div class="stat-label">Accidents</div><div class="stat-val red">1</div></div>
+        <div class="stat-col"><div class="stat-label">Инциденты</div><div class="stat-val">5</div></div>
+        <div class="stat-col"><div class="stat-label">Аварии</div><div class="stat-val red">1</div></div>
         <div class="stat-col"><div class="stat-label">First Aid</div><div class="stat-val blue">8</div></div>
       </div>
 
       <!-- AI accuracy bar -->
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;padding:10px 14px;border:1px solid var(--border);font-size:11px">
         <span style="font-family:var(--mono);color:var(--accent);font-weight:800;font-size:10px;letter-spacing:1px">AI</span>
-        <span style="color:var(--muted)">Classification accuracy:</span>
+        <span style="color:var(--muted)">Точность классификации:</span>
         <span style="font-family:var(--mono);color:var(--green);font-weight:800">94.2%</span>
         <span style="color:var(--border)">|</span>
-        <span style="color:var(--muted)">Processed in March:</span>
+        <span style="color:var(--muted)">Обработано за март:</span>
         <span style="font-family:var(--mono);color:var(--fg);font-weight:800">37</span>
       </div>
 
@@ -1250,46 +1250,46 @@ body {
         </div>
       </div>
 
-      <div class="panel"><table class="tbl"><thead><tr><th>ID</th><th>Date</th><th>Site</th><th>AI Class.</th><th>Description</th><th>Status</th></tr></thead><tbody>
-        <tr class="detail-row" data-id="INC-037" data-date="27.03.2026" data-site="Тенгиз" data-class="NEAR MISS" data-desc="Падение инструмента с высоты 2м при работе на площадке ГНКТ" data-status="Расслед." data-type="inc"><td class="id">INC-037</td><td>27.03</td><td>Тенгиз</td><td><span class="b b-nm">Near Miss</span></td><td style="max-width:220px">Падение инструмента с высоты 2м</td><td><span class="b b-open">Invest.</span></td></tr>
-        <tr class="detail-row" data-id="INC-036" data-date="25.03.2026" data-site="Карачаганак" data-class="FIRST AID" data-desc="Порез при работе с трубами, оказана первая помощь на месте" data-status="Закрыт" data-type="inc"><td class="id">INC-036</td><td>25.03</td><td>Карачаганак</td><td><span class="b b-fa">First Aid</span></td><td style="max-width:220px">Порез при работе с трубами</td><td><span class="b b-closed">Closed</span></td></tr>
-        <tr class="detail-row" data-id="INC-035" data-date="22.03.2026" data-site="Кашаган" data-class="INCIDENT" data-desc="Утечка гидравлического контура на насосном агрегате, объём ~5л" data-status="Рассмотр." data-type="inc"><td class="id">INC-035</td><td>22.03</td><td>Кашаган</td><td><span class="b b-inc">Incident</span></td><td style="max-width:220px">Утечка гидравлического контура</td><td><span class="b b-review">Under Review</span></td></tr>
-        <tr class="detail-row" data-id="INC-034" data-date="19.03.2026" data-site="Узень" data-class="NEAR MISS" data-desc="Незафиксированный груз при подъёме краном, чуть не задел рабочего" data-status="Закрыт" data-type="inc"><td class="id">INC-034</td><td>19.03</td><td>Узень</td><td><span class="b b-nm">Near Miss</span></td><td style="max-width:220px">Незафиксированный груз при подъёме</td><td><span class="b b-closed">Closed</span></td></tr>
-        <tr class="detail-row" data-id="INC-033" data-date="17.03.2026" data-site="Тенгиз" data-class="FIRST AID" data-desc="Ожог руки при контакте с горячей трубой, СИЗ были надеты частично" data-status="Закрыт" data-type="inc"><td class="id">INC-033</td><td>17.03</td><td>Тенгиз</td><td><span class="b b-fa">First Aid</span></td><td style="max-width:220px">Ожог руки при контакте с трубой</td><td><span class="b b-closed">Closed</span></td></tr>
+      <div class="panel"><table class="tbl"><thead><tr><th>ID</th><th>Дата</th><th>Объект</th><th>AI Класс.</th><th>Описание</th><th>Статус</th></tr></thead><tbody>
+        <tr class="detail-row" data-id="INC-037" data-date="27.03.2026" data-site="Тенгиз" data-class="NEAR MISS" data-desc="Падение инструмента с высоты 2м при работе на площадке ГНКТ" data-status="Расслед." data-type="inc"><td class="id">INC-037</td><td>27.03</td><td>Тенгиз</td><td><span class="b b-nm">Near Miss</span></td><td style="max-width:220px">Падение инструмента с высоты 2м</td><td><span class="b b-open">Расслед.</span></td></tr>
+        <tr class="detail-row" data-id="INC-036" data-date="25.03.2026" data-site="Карачаганак" data-class="FIRST AID" data-desc="Порез при работе с трубами, оказана первая помощь на месте" data-status="Закрыт" data-type="inc"><td class="id">INC-036</td><td>25.03</td><td>Карачаганак</td><td><span class="b b-fa">First Aid</span></td><td style="max-width:220px">Порез при работе с трубами</td><td><span class="b b-closed">Закрыт</span></td></tr>
+        <tr class="detail-row" data-id="INC-035" data-date="22.03.2026" data-site="Кашаган" data-class="INCIDENT" data-desc="Утечка гидравлического контура на насосном агрегате, объём ~5л" data-status="Рассмотр." data-type="inc"><td class="id">INC-035</td><td>22.03</td><td>Кашаган</td><td><span class="b b-inc">Incident</span></td><td style="max-width:220px">Утечка гидравлического контура</td><td><span class="b b-review">Проверка</span></td></tr>
+        <tr class="detail-row" data-id="INC-034" data-date="19.03.2026" data-site="Узень" data-class="NEAR MISS" data-desc="Незафиксированный груз при подъёме краном, чуть не задел рабочего" data-status="Закрыт" data-type="inc"><td class="id">INC-034</td><td>19.03</td><td>Узень</td><td><span class="b b-nm">Near Miss</span></td><td style="max-width:220px">Незафиксированный груз при подъёме</td><td><span class="b b-closed">Закрыт</span></td></tr>
+        <tr class="detail-row" data-id="INC-033" data-date="17.03.2026" data-site="Тенгиз" data-class="FIRST AID" data-desc="Ожог руки при контакте с горячей трубой, СИЗ были надеты частично" data-status="Закрыт" data-type="inc"><td class="id">INC-033</td><td>17.03</td><td>Тенгиз</td><td><span class="b b-fa">First Aid</span></td><td style="max-width:220px">Ожог руки при контакте с трубой</td><td><span class="b b-closed">Закрыт</span></td></tr>
       </tbody></table></div>
 
       <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:1px;text-transform:uppercase">
-        <span>Showing 1-5 of 37</span>
+        <span>Показано 1-5 из 37</span>
         <div style="display:flex;gap:4px">
-          <button class="btn btn-ghost" style="padding:3px 10px;font-size:9px" disabled>&#8592; Prev</button>
-          <button class="btn btn-ghost" style="padding:3px 10px;font-size:9px">Next &#8594;</button>
+          <button class="btn btn-ghost" style="padding:3px 10px;font-size:9px" disabled>&#8592; Пред</button>
+          <button class="btn btn-ghost" style="padding:3px 10px;font-size:9px">След &#8594;</button>
         </div>
       </div>
     </div>
 
     <!-- ═══════════════════════════════════ PAGE: RISK ═══════════════════════════════════ -->
     <div class="page" id="p-risk">
-      <div class="breadcrumb">Main &#8594; HSE &#8594; Risk Assessment</div>
+      <div class="breadcrumb">Главная &#8594; HSE &#8594; Оценка рисков</div>
       <div class="ph">
         <div>
-          <div class="ph-title">Risk Assessment<span class="ph-count">3</span></div>
-          <div class="ph-sub">JSA / Risk Register</div>
+          <div class="ph-title">Оценка рисков<span class="ph-count">3</span></div>
+          <div class="ph-sub">JSA / Анализ безопасности работ</div>
         </div>
-        <button class="btn btn-accent" id="btnNewRisk">+ New</button>
+        <button class="btn btn-accent" id="btnNewRisk">+ Новая оценка</button>
       </div>
 
       <!-- SWA Alert -->
       <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid rgba(255,0,68,.15);background:rgba(255,0,68,.03);margin-bottom:16px;font-size:11px">
         <span style="font-family:var(--mono);color:var(--red);font-weight:800;font-size:10px;letter-spacing:1px">SWA</span>
-        <span style="color:var(--muted)">Active Stop Work Authority:</span>
+        <span style="color:var(--muted)">Активные Stop Work Authority:</span>
         <span style="font-family:var(--mono);color:var(--red);font-weight:800">2</span>
         <span style="color:var(--border)">|</span>
-        <span style="color:var(--muted)">Tengiz (1), Karachaganak (1)</span>
+        <span style="color:var(--muted)">Тенгиз (1), Карачаганак (1)</span>
       </div>
 
       <div class="g2">
         <div class="panel">
-          <div class="panel-h"><span class="panel-t">5x5 Matrix</span></div>
+          <div class="panel-h"><span class="panel-t">Матрица 5x5</span></div>
           <div class="panel-body">
             <div class="rmatrix">
               <div class="rm-cell rm-lbl"></div><div class="rm-cell rm-hdr">1</div><div class="rm-cell rm-hdr">2</div><div class="rm-cell rm-hdr">3</div><div class="rm-cell rm-hdr">4</div><div class="rm-cell rm-hdr">5</div>
@@ -1302,21 +1302,21 @@ body {
           </div>
         </div>
         <div class="panel">
-          <div class="panel-h"><span class="panel-t">Quick Reference</span></div>
+          <div class="panel-h"><span class="panel-t">Справочник</span></div>
           <div class="panel-body" style="font-size:12px">
-            <div style="font-family:var(--mono);font-weight:700;color:var(--yellow);margin-bottom:6px;font-size:11px;text-transform:uppercase;letter-spacing:1px">GNKT</div>
-            <div style="color:var(--muted);margin-bottom:14px;font-size:11px">&#8226; High pressure &#8226; H&#8322;S &#8226; Tubing rupture &#8226; Heights</div>
-            <div style="font-family:var(--mono);font-weight:700;color:var(--accent);margin-bottom:6px;font-size:11px;text-transform:uppercase;letter-spacing:1px">Nitrogen</div>
-            <div style="color:var(--muted);margin-bottom:14px;font-size:11px">&#8226; Cryogenic burns &#8226; N&#8322; asphyxiation &#8226; Pressure</div>
-            <div style="font-family:var(--mono);font-weight:700;color:var(--blue);margin-bottom:6px;font-size:11px;text-transform:uppercase;letter-spacing:1px">Fluid Pump</div>
-            <div style="color:var(--muted);font-size:11px">&#8226; Spill &#8226; Noise &#8226; Vibration</div>
+            <div style="font-family:var(--mono);font-weight:700;color:var(--yellow);margin-bottom:6px;font-size:11px;text-transform:uppercase;letter-spacing:1px">ГНКТ</div>
+            <div style="color:var(--muted);margin-bottom:14px;font-size:11px">&#8226; Высокое давление &#8226; H&#8322;S &#8226; Разрыв НКТ &#8226; Работа на высоте</div>
+            <div style="font-family:var(--mono);font-weight:700;color:var(--accent);margin-bottom:6px;font-size:11px;text-transform:uppercase;letter-spacing:1px">Азотная</div>
+            <div style="color:var(--muted);margin-bottom:14px;font-size:11px">&#8226; Криогенные ожоги &#8226; Удушье N&#8322; &#8226; Давление</div>
+            <div style="font-family:var(--mono);font-weight:700;color:var(--blue);margin-bottom:6px;font-size:11px;text-transform:uppercase;letter-spacing:1px">Флюид Памп</div>
+            <div style="color:var(--muted);font-size:11px">&#8226; Разлив &#8226; Шум &#8226; Вибрация</div>
           </div>
         </div>
       </div>
 
       <!-- Risk distribution bar -->
       <div style="margin-bottom:20px;margin-top:20px">
-        <div style="font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:8px">Risk Distribution</div>
+        <div style="font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:8px">Распределение рисков</div>
         <div style="display:flex;height:24px;overflow:hidden;border:1px solid var(--border)">
           <div style="width:15%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:#fff;font-family:var(--mono)">C:2</div>
           <div style="width:25%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:#fff;font-family:var(--mono)">H:4</div>
@@ -1325,42 +1325,42 @@ body {
         </div>
       </div>
 
-      <div class="panel"><table class="tbl"><thead><tr><th>ID</th><th>Site</th><th>Work Type</th><th>Level</th><th>Status</th><th>Workflow</th></tr></thead><tbody>
-        <tr class="detail-row" data-id="JSA-091" data-site="Тенгиз" data-work="ГНКТ" data-level="Критический" data-status="Черновик" data-workflow="Создание" data-type="risk"><td class="id">JSA-091</td><td>Тенгиз</td><td>ГНКТ</td><td><span class="b b-critical">Critical</span></td><td><span class="b b-draft">Draft</span></td><td style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.5px">Created &#8594;</td></tr>
-        <tr class="detail-row" data-id="JSA-090" data-site="Карачаганак" data-work="Азотная" data-level="Высокий" data-status="Согласование" data-workflow="Согласование" data-type="risk"><td class="id">JSA-090</td><td>Карачаганак</td><td>Азотная</td><td><span class="b b-high">High</span></td><td><span class="b b-review">Approval</span></td><td style="font-family:var(--mono);font-size:10px;color:var(--yellow);letter-spacing:.5px">&#8594; <strong>Approval</strong></td></tr>
-        <tr class="detail-row" data-id="JSA-089" data-site="Кашаган" data-work="Ремонт" data-level="Средний" data-status="Утверждён" data-workflow="Пройден" data-type="risk"><td class="id">JSA-089</td><td>Кашаган</td><td>Ремонт</td><td><span class="b b-medium">Medium</span></td><td><span class="b b-closed">Approved</span></td><td style="font-family:var(--mono);font-size:10px;color:var(--green);letter-spacing:.5px">&#10003; Complete</td></tr>
+      <div class="panel"><table class="tbl"><thead><tr><th>ID</th><th>Объект</th><th>Тип работ</th><th>Уровень</th><th>Статус</th><th>Workflow</th></tr></thead><tbody>
+        <tr class="detail-row" data-id="JSA-091" data-site="Тенгиз" data-work="ГНКТ" data-level="Критический" data-status="Черновик" data-workflow="Создание" data-type="risk"><td class="id">JSA-091</td><td>Тенгиз</td><td>ГНКТ</td><td><span class="b b-critical">Крит.</span></td><td><span class="b b-draft">Черновик</span></td><td style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.5px">Создан &#8594;</td></tr>
+        <tr class="detail-row" data-id="JSA-090" data-site="Карачаганак" data-work="Азотная" data-level="Высокий" data-status="Согласование" data-workflow="Согласование" data-type="risk"><td class="id">JSA-090</td><td>Карачаганак</td><td>Азотная</td><td><span class="b b-high">Высокий</span></td><td><span class="b b-review">Согласов.</span></td><td style="font-family:var(--mono);font-size:10px;color:var(--yellow);letter-spacing:.5px">&#8594; <strong>Согласов.</strong></td></tr>
+        <tr class="detail-row" data-id="JSA-089" data-site="Кашаган" data-work="Ремонт" data-level="Средний" data-status="Утверждён" data-workflow="Пройден" data-type="risk"><td class="id">JSA-089</td><td>Кашаган</td><td>Ремонт</td><td><span class="b b-medium">Средний</span></td><td><span class="b b-closed">Утверждён</span></td><td style="font-family:var(--mono);font-size:10px;color:var(--green);letter-spacing:.5px">&#10003; Завершён</td></tr>
       </tbody></table></div>
     </div>
 
     <!-- ═══════════════════════════════════ PAGE: PROGRAMS ═══════════════════════════════════ -->
     <div class="page" id="p-programs">
-      <div class="breadcrumb">Main &#8594; Production &#8594; Job Programs</div>
+      <div class="breadcrumb">Главная &#8594; Производство &#8594; Программы работ</div>
       <div class="ph">
         <div>
-          <div class="ph-title">Job Programs<span class="ph-count">5</span></div>
-          <div class="ph-sub">Job Design — Workflow</div>
+          <div class="ph-title">Программы работ<span class="ph-count">5</span></div>
+          <div class="ph-sub">Управление согласованием</div>
         </div>
         <div style="display:flex;gap:8px">
-          <button class="btn btn-ghost" onclick="showToast('MOC Request','Change request form will be available in next version')">MOC</button>
-          <button class="btn btn-accent">+ New</button>
+          <button class="btn btn-ghost" onclick="showToast('MOC заявка','Форма заявки на изменения будет доступна в следующей версии')">MOC</button>
+          <button class="btn btn-accent">+ Новая</button>
         </div>
       </div>
 
       <!-- Active program with workflow -->
       <div class="panel" style="margin-bottom:20px">
-        <div class="panel-h"><span class="panel-t">GNKT-12 Tengiz</span><span class="b b-review">Approval</span></div>
+        <div class="panel-h"><span class="panel-t">ГНКТ-12 Тенгиз</span><span class="b b-review">Согласов.</span></div>
         <div class="panel-body">
           <div class="wf">
-            <div class="wf-step done" title="Completed">&#128221; Created</div>
-            <div class="wf-step done" title="Completed">&#128269; Review</div>
-            <div class="wf-step current" title="Current">&#9989; Approval</div>
-            <div class="wf-step" title="Pending">&#128203; Confirm</div>
-            <div class="wf-step" title="Pending">&#128640; Release</div>
+            <div class="wf-step done" title="Завершено">&#128221; Создан</div>
+            <div class="wf-step done" title="Завершено">&#128269; Проверка</div>
+            <div class="wf-step current" title="Текущий">&#9989; Согласов.</div>
+            <div class="wf-step" title="Ожидание">&#128203; Утвержд.</div>
+            <div class="wf-step" title="Ожидание">&#128640; Выпуск</div>
           </div>
           <div style="display:flex;gap:20px;margin-top:14px;font-size:12px">
-            <div><span style="color:var(--muted)">Author:</span> <strong>Марат Ж.</strong></div>
-            <div><span style="color:var(--muted)">Approver:</span> <strong>Дамир Н.</strong></div>
-            <div><span style="color:var(--muted)">Files:</span> <strong>3</strong></div>
+            <div><span style="color:var(--muted)">Автор:</span> <strong>Марат Ж.</strong></div>
+            <div><span style="color:var(--muted)">Утверждает:</span> <strong>Дамир Н.</strong></div>
+            <div><span style="color:var(--muted)">Файлы:</span> <strong>3</strong></div>
           </div>
         </div>
       </div>
@@ -1390,165 +1390,165 @@ body {
         </div>
       </div>
 
-      <div class="panel"><table class="tbl"><thead><tr><th>Program</th><th>Site</th><th>Engineer</th><th>Status</th><th>Date</th></tr></thead><tbody>
-        <tr class="detail-row" data-id="ГНКТ-12" data-site="Тенгиз" data-engineer="Марат Ж." data-status="Согласование" data-date="27.03.2026" data-type="program"><td class="id">ГНКТ-12</td><td>Тенгиз</td><td>Марат Ж.</td><td><span class="b b-review">Approval</span></td><td>27.03</td></tr>
-        <tr class="detail-row" data-id="КРС-08" data-site="Карачаганак" data-engineer="Алмас Т." data-status="Выпущена" data-date="24.03.2026" data-type="program"><td class="id">КРС-08</td><td>Карачаганак</td><td>Алмас Т.</td><td><span class="b b-closed">Released</span></td><td>24.03</td></tr>
-        <tr class="detail-row" data-id="Азотка-03" data-site="Кашаган" data-engineer="Марат Ж." data-status="Черновик" data-date="23.03.2026" data-type="program"><td class="id">Азотка-03</td><td>Кашаган</td><td>Марат Ж.</td><td><span class="b b-draft">Draft</span></td><td>23.03</td></tr>
-        <tr class="detail-row" data-id="ФП-07" data-site="Узень" data-engineer="Нурлан К." data-status="Выпущена" data-date="21.03.2026" data-type="program"><td class="id">ФП-07</td><td>Узень</td><td>Нурлан К.</td><td><span class="b b-closed">Released</span></td><td>21.03</td></tr>
-        <tr class="detail-row" data-id="ГНКТ-11" data-site="Тенгиз" data-engineer="Марат Ж." data-status="Выпущена" data-date="18.03.2026" data-type="program"><td class="id">ГНКТ-11</td><td>Тенгиз</td><td>Марат Ж.</td><td><span class="b b-closed">Released</span></td><td>18.03</td></tr>
+      <div class="panel"><table class="tbl"><thead><tr><th>Программа</th><th>Объект</th><th>Инженер</th><th>Статус</th><th>Дата</th></tr></thead><tbody>
+        <tr class="detail-row" data-id="ГНКТ-12" data-site="Тенгиз" data-engineer="Марат Ж." data-status="Согласование" data-date="27.03.2026" data-type="program"><td class="id">ГНКТ-12</td><td>Тенгиз</td><td>Марат Ж.</td><td><span class="b b-review">Согласов.</span></td><td>27.03</td></tr>
+        <tr class="detail-row" data-id="КРС-08" data-site="Карачаганак" data-engineer="Алмас Т." data-status="Выпущена" data-date="24.03.2026" data-type="program"><td class="id">КРС-08</td><td>Карачаганак</td><td>Алмас Т.</td><td><span class="b b-closed">Выпущена</span></td><td>24.03</td></tr>
+        <tr class="detail-row" data-id="Азотка-03" data-site="Кашаган" data-engineer="Марат Ж." data-status="Черновик" data-date="23.03.2026" data-type="program"><td class="id">Азотка-03</td><td>Кашаган</td><td>Марат Ж.</td><td><span class="b b-draft">Черновик</span></td><td>23.03</td></tr>
+        <tr class="detail-row" data-id="ФП-07" data-site="Узень" data-engineer="Нурлан К." data-status="Выпущена" data-date="21.03.2026" data-type="program"><td class="id">ФП-07</td><td>Узень</td><td>Нурлан К.</td><td><span class="b b-closed">Выпущена</span></td><td>21.03</td></tr>
+        <tr class="detail-row" data-id="ГНКТ-11" data-site="Тенгиз" data-engineer="Марат Ж." data-status="Выпущена" data-date="18.03.2026" data-type="program"><td class="id">ГНКТ-11</td><td>Тенгиз</td><td>Марат Ж.</td><td><span class="b b-closed">Выпущена</span></td><td>18.03</td></tr>
       </tbody></table></div>
 
       <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:1px;text-transform:uppercase">
-        <span>Showing 1-5 of 23</span>
+        <span>Показано 1-5 из 23</span>
         <div style="display:flex;gap:4px">
-          <button class="btn btn-ghost" style="padding:3px 10px;font-size:9px" disabled>&#8592; Prev</button>
-          <button class="btn btn-ghost" style="padding:3px 10px;font-size:9px">Next &#8594;</button>
+          <button class="btn btn-ghost" style="padding:3px 10px;font-size:9px" disabled>&#8592; Пред</button>
+          <button class="btn btn-ghost" style="padding:3px 10px;font-size:9px">След &#8594;</button>
         </div>
       </div>
     </div>
 
     <!-- ═══════════════════════════════════ PAGE: PJSM ═══════════════════════════════════ -->
     <div class="page" id="p-pjsm">
-      <div class="breadcrumb">Main &#8594; Production &#8594; Pre-Job Safety</div>
+      <div class="breadcrumb">Главная &#8594; Производство &#8594; Pre-Job Safety</div>
       <div class="ph">
         <div>
           <div class="ph-title">Pre-Job Safety<span class="ph-count">5</span></div>
-          <div class="ph-sub">Pre-Shift Safety Meetings</div>
+          <div class="ph-sub">Предсменные совещания</div>
         </div>
-        <button class="btn btn-accent">+ New</button>
+        <button class="btn btn-accent">+ Новое</button>
       </div>
 
       <div class="stats-bar cols-3">
-        <div class="stat-col"><div class="stat-label">Conducted</div><div class="stat-val green">89</div></div>
-        <div class="stat-col"><div class="stat-label">Participants</div><div class="stat-val blue">342</div></div>
+        <div class="stat-col"><div class="stat-label">Проведено</div><div class="stat-val green">89</div></div>
+        <div class="stat-col"><div class="stat-label">Участников</div><div class="stat-val blue">342</div></div>
         <div class="stat-col"><div class="stat-label">Stop Work</div><div class="stat-val yellow">3</div></div>
       </div>
 
       <!-- Shift legend -->
       <div style="display:flex;gap:16px;margin-bottom:16px">
-        <div style="display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:9px;letter-spacing:1px;text-transform:uppercase"><span style="width:6px;height:6px;background:var(--yellow);display:inline-block"></span> <span style="color:var(--muted)">D = Day Shift</span></div>
-        <div style="display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:9px;letter-spacing:1px;text-transform:uppercase"><span style="width:6px;height:6px;background:var(--blue);display:inline-block"></span> <span style="color:var(--muted)">N = Night Shift</span></div>
+        <div style="display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:9px;letter-spacing:1px;text-transform:uppercase"><span style="width:6px;height:6px;background:var(--yellow);display:inline-block"></span> <span style="color:var(--muted)">D = Дневная смена</span></div>
+        <div style="display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:9px;letter-spacing:1px;text-transform:uppercase"><span style="width:6px;height:6px;background:var(--blue);display:inline-block"></span> <span style="color:var(--muted)">N = Ночная смена</span></div>
       </div>
 
-      <div class="panel"><table class="tbl"><thead><tr><th>ID</th><th>Date</th><th>Site</th><th>Crew</th><th>People</th><th>Risks</th><th>SWA</th></tr></thead><tbody>
-        <tr class="detail-row" data-id="PJSM-089" data-date="27.03 D" data-site="Тенгиз" data-crew="&#8470;3" data-people="6" data-risks="4/4" data-swa="NO" data-type="pjsm"><td class="id">PJSM-089</td><td>27.03 D</td><td>Тенгиз</td><td>&#8470;3</td><td>6</td><td>4/4</td><td><span class="b b-low">No</span></td></tr>
-        <tr class="detail-row" data-id="PJSM-088" data-date="27.03 N" data-site="Карачаганак" data-crew="&#8470;1" data-people="8" data-risks="6/5" data-swa="YES" data-type="pjsm"><td class="id">PJSM-088</td><td>27.03 N</td><td>Карачаганак</td><td>&#8470;1</td><td>8</td><td>6/5</td><td><span class="b b-open">Yes</span></td></tr>
-        <tr class="detail-row" data-id="PJSM-087" data-date="26.03 D" data-site="Кашаган" data-crew="&#8470;5" data-people="5" data-risks="3/3" data-swa="NO" data-type="pjsm"><td class="id">PJSM-087</td><td>26.03 D</td><td>Кашаган</td><td>&#8470;5</td><td>5</td><td>3/3</td><td><span class="b b-low">No</span></td></tr>
-        <tr class="detail-row" data-id="PJSM-086" data-date="26.03 N" data-site="Узень" data-crew="&#8470;2" data-people="7" data-risks="5/5" data-swa="NO" data-type="pjsm"><td class="id">PJSM-086</td><td>26.03 N</td><td>Узень</td><td>&#8470;2</td><td>7</td><td>5/5</td><td><span class="b b-low">No</span></td></tr>
-        <tr class="detail-row" data-id="PJSM-085" data-date="25.03 D" data-site="Тенгиз" data-crew="&#8470;3" data-people="6" data-risks="4/4" data-swa="YES" data-type="pjsm"><td class="id">PJSM-085</td><td>25.03 D</td><td>Тенгиз</td><td>&#8470;3</td><td>6</td><td>4/4</td><td><span class="b b-open">Yes</span></td></tr>
+      <div class="panel"><table class="tbl"><thead><tr><th>ID</th><th>Дата</th><th>Объект</th><th>Бригада</th><th>Люди</th><th>Риски</th><th>SWA</th></tr></thead><tbody>
+        <tr class="detail-row" data-id="PJSM-089" data-date="27.03 D" data-site="Тенгиз" data-crew="&#8470;3" data-people="6" data-risks="4/4" data-swa="НЕТ" data-type="pjsm"><td class="id">PJSM-089</td><td>27.03 D</td><td>Тенгиз</td><td>&#8470;3</td><td>6</td><td>4/4</td><td><span class="b b-low">Нет</span></td></tr>
+        <tr class="detail-row" data-id="PJSM-088" data-date="27.03 N" data-site="Карачаганак" data-crew="&#8470;1" data-people="8" data-risks="6/5" data-swa="ДА" data-type="pjsm"><td class="id">PJSM-088</td><td>27.03 N</td><td>Карачаганак</td><td>&#8470;1</td><td>8</td><td>6/5</td><td><span class="b b-open">Да</span></td></tr>
+        <tr class="detail-row" data-id="PJSM-087" data-date="26.03 D" data-site="Кашаган" data-crew="&#8470;5" data-people="5" data-risks="3/3" data-swa="НЕТ" data-type="pjsm"><td class="id">PJSM-087</td><td>26.03 D</td><td>Кашаган</td><td>&#8470;5</td><td>5</td><td>3/3</td><td><span class="b b-low">Нет</span></td></tr>
+        <tr class="detail-row" data-id="PJSM-086" data-date="26.03 N" data-site="Узень" data-crew="&#8470;2" data-people="7" data-risks="5/5" data-swa="НЕТ" data-type="pjsm"><td class="id">PJSM-086</td><td>26.03 N</td><td>Узень</td><td>&#8470;2</td><td>7</td><td>5/5</td><td><span class="b b-low">Нет</span></td></tr>
+        <tr class="detail-row" data-id="PJSM-085" data-date="25.03 D" data-site="Тенгиз" data-crew="&#8470;3" data-people="6" data-risks="4/4" data-swa="ДА" data-type="pjsm"><td class="id">PJSM-085</td><td>25.03 D</td><td>Тенгиз</td><td>&#8470;3</td><td>6</td><td>4/4</td><td><span class="b b-open">Да</span></td></tr>
       </tbody></table></div>
     </div>
 
     <!-- ═══════════════════════════════════ PAGE: USERS ═══════════════════════════════════ -->
     <div class="page" id="p-users">
-      <div class="breadcrumb">Main &#8594; System &#8594; Users</div>
+      <div class="breadcrumb">Главная &#8594; Система &#8594; Пользователи</div>
       <div class="ph">
         <div>
-          <div class="ph-title">Users<span class="ph-count">6</span></div>
-          <div class="ph-sub">Roles &amp; Access</div>
+          <div class="ph-title">Пользователи<span class="ph-count">6</span></div>
+          <div class="ph-sub">Роли и доступ</div>
         </div>
-        <button class="btn btn-accent">+ Add User</button>
+        <button class="btn btn-accent">+ Добавить</button>
       </div>
 
-      <div class="panel"><table class="tbl"><thead><tr><th>Employee</th><th>Role</th><th>Dept.</th><th>Site</th><th>Status</th></tr></thead><tbody>
-        <tr class="detail-row" data-id="Дамир Нурланов" data-name="Дамир Нурланов" data-role="Директор" data-dept="Руководство" data-site="Все объекты" data-userstatus="Активен" data-type="user"><td style="color:var(--fg);font-weight:600">Дамир Нурланов</td><td><span class="b" style="background:rgba(167,139,250,.08);color:var(--purple)">Director</span></td><td>Management</td><td>All</td><td><span class="b b-closed">On</span></td></tr>
-        <tr class="detail-row" data-id="Аскар Калиев" data-name="Аскар Калиев" data-role="HSE Specialist" data-dept="HSE" data-site="Все объекты" data-userstatus="Активен" data-type="user"><td style="color:var(--fg);font-weight:600">Аскар Калиев</td><td><span class="b b-open">HSE</span></td><td>HSE</td><td>All</td><td><span class="b b-closed">On</span></td></tr>
-        <tr class="detail-row" data-id="Марат Жумабаев" data-name="Марат Жумабаев" data-role="Инженер" data-dept="Производство" data-site="Тенгиз" data-userstatus="Активен" data-type="user"><td style="color:var(--fg);font-weight:600">Марат Жумабаев</td><td><span class="b b-draft">Engineer</span></td><td>Production</td><td>Тенгиз</td><td><span class="b b-closed">On</span></td></tr>
-        <tr class="detail-row" data-id="Серик Абаев" data-name="Серик Абаев" data-role="Бригадир" data-dept="ГНКТ" data-site="Тенгиз" data-userstatus="Неактивен" data-type="user"><td style="color:var(--fg);font-weight:600">Серик Абаев</td><td><span class="b b-review">Foreman</span></td><td>ГНКТ</td><td>Тенгиз</td><td style="color:var(--muted);font-family:var(--mono);font-size:9px;letter-spacing:1px">OFF</td></tr>
-        <tr class="detail-row" data-id="Алмас Тлеубаев" data-name="Алмас Тлеубаев" data-role="Инженер" data-dept="Производство" data-site="Карачаганак" data-userstatus="Активен" data-type="user"><td style="color:var(--fg);font-weight:600">Алмас Тлеубаев</td><td><span class="b b-draft">Engineer</span></td><td>Production</td><td>Карачаганак</td><td><span class="b b-closed">On</span></td></tr>
-        <tr class="detail-row" data-id="Нурлан Кенжебаев" data-name="Нурлан Кенжебаев" data-role="Бригадир" data-dept="Флюид Памп" data-site="Кашаган" data-userstatus="Активен" data-type="user"><td style="color:var(--fg);font-weight:600">Нурлан Кенжебаев</td><td><span class="b b-review">Foreman</span></td><td>Fluid Pump</td><td>Кашаган</td><td><span class="b b-closed">On</span></td></tr>
+      <div class="panel"><table class="tbl"><thead><tr><th>Сотрудник</th><th>Роль</th><th>Подразд.</th><th>Объект</th><th>Статус</th></tr></thead><tbody>
+        <tr class="detail-row" data-id="Дамир Нурланов" data-name="Дамир Нурланов" data-role="Директор" data-dept="Руководство" data-site="Все объекты" data-userstatus="Активен" data-type="user"><td style="color:var(--fg);font-weight:600">Дамир Нурланов</td><td><span class="b" style="background:rgba(167,139,250,.08);color:var(--purple)">Директор</span></td><td>Руководство</td><td>Все</td><td><span class="b b-closed">Вкл</span></td></tr>
+        <tr class="detail-row" data-id="Аскар Калиев" data-name="Аскар Калиев" data-role="HSE Specialist" data-dept="HSE" data-site="Все объекты" data-userstatus="Активен" data-type="user"><td style="color:var(--fg);font-weight:600">Аскар Калиев</td><td><span class="b b-open">HSE</span></td><td>HSE</td><td>Все</td><td><span class="b b-closed">Вкл</span></td></tr>
+        <tr class="detail-row" data-id="Марат Жумабаев" data-name="Марат Жумабаев" data-role="Инженер" data-dept="Производство" data-site="Тенгиз" data-userstatus="Активен" data-type="user"><td style="color:var(--fg);font-weight:600">Марат Жумабаев</td><td><span class="b b-draft">Инженер</span></td><td>Производство</td><td>Тенгиз</td><td><span class="b b-closed">Вкл</span></td></tr>
+        <tr class="detail-row" data-id="Серик Абаев" data-name="Серик Абаев" data-role="Бригадир" data-dept="ГНКТ" data-site="Тенгиз" data-userstatus="Неактивен" data-type="user"><td style="color:var(--fg);font-weight:600">Серик Абаев</td><td><span class="b b-review">Бригадир</span></td><td>ГНКТ</td><td>Тенгиз</td><td style="color:var(--muted);font-family:var(--mono);font-size:9px;letter-spacing:1px">ВЫКЛ</td></tr>
+        <tr class="detail-row" data-id="Алмас Тлеубаев" data-name="Алмас Тлеубаев" data-role="Инженер" data-dept="Производство" data-site="Карачаганак" data-userstatus="Активен" data-type="user"><td style="color:var(--fg);font-weight:600">Алмас Тлеубаев</td><td><span class="b b-draft">Инженер</span></td><td>Производство</td><td>Карачаганак</td><td><span class="b b-closed">Вкл</span></td></tr>
+        <tr class="detail-row" data-id="Нурлан Кенжебаев" data-name="Нурлан Кенжебаев" data-role="Бригадир" data-dept="Флюид Памп" data-site="Кашаган" data-userstatus="Активен" data-type="user"><td style="color:var(--fg);font-weight:600">Нурлан Кенжебаев</td><td><span class="b b-review">Бригадир</span></td><td>Флюид Памп</td><td>Кашаган</td><td><span class="b b-closed">Вкл</span></td></tr>
       </tbody></table></div>
 
       <!-- Role legend -->
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);margin-top:12px">
         <div style="padding:10px 14px;border-right:1px solid var(--border)">
-          <span class="b" style="background:rgba(167,139,250,.08);color:var(--purple);font-size:8px;margin-bottom:4px">Director</span>
-          <div style="font-size:10px;color:var(--muted);margin-top:4px">Approval, confirmation</div>
+          <span class="b" style="background:rgba(167,139,250,.08);color:var(--purple);font-size:8px;margin-bottom:4px">Директор</span>
+          <div style="font-size:10px;color:var(--muted);margin-top:4px">Утверждение, подтверждение</div>
         </div>
         <div style="padding:10px 14px;border-right:1px solid var(--border)">
           <span class="b b-open" style="font-size:8px;margin-bottom:4px">HSE</span>
-          <div style="font-size:10px;color:var(--muted);margin-top:4px">HOC cards, incidents</div>
+          <div style="font-size:10px;color:var(--muted);margin-top:4px">НОС-карты, происшествия</div>
         </div>
         <div style="padding:10px 14px;border-right:1px solid var(--border)">
-          <span class="b b-draft" style="font-size:8px;margin-bottom:4px">Engineer</span>
-          <div style="font-size:10px;color:var(--muted);margin-top:4px">Job programs</div>
+          <span class="b b-draft" style="font-size:8px;margin-bottom:4px">Инженер</span>
+          <div style="font-size:10px;color:var(--muted);margin-top:4px">Программы работ</div>
         </div>
         <div style="padding:10px 14px">
-          <span class="b b-review" style="font-size:8px;margin-bottom:4px">Foreman</span>
-          <div style="font-size:10px;color:var(--muted);margin-top:4px">Forms, requests</div>
+          <span class="b b-review" style="font-size:8px;margin-bottom:4px">Бригадир</span>
+          <div style="font-size:10px;color:var(--muted);margin-top:4px">Формы, заявки</div>
         </div>
       </div>
     </div>
 
     <!-- ═══════════════════════════════════ PAGE: JOURNAL ═══════════════════════════════════ -->
     <div class="page" id="p-journal">
-      <div class="breadcrumb">Main &#8594; System &#8594; Event Log</div>
+      <div class="breadcrumb">Главная &#8594; Система &#8594; Журнал событий</div>
       <div class="ph">
         <div>
-          <div class="ph-title">Event Log</div>
-          <div class="ph-sub">Retention — 5 Years</div>
+          <div class="ph-title">Журнал событий</div>
+          <div class="ph-sub">Аудит — хранение 5 лет</div>
         </div>
       </div>
 
       <div style="display:flex;gap:8px;align-items:center;margin-bottom:12px">
         <input type="date" class="fi" style="width:auto;padding:5px 10px;font-size:10px;font-family:var(--mono)" value="2026-03-27">
-        <span style="font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:1px;text-transform:uppercase">Today</span>
+        <span style="font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:1px;text-transform:uppercase">Сегодня</span>
         <div style="margin-left:auto;display:flex;gap:4px">
-          <button class="btn btn-ghost" style="padding:4px 10px;font-size:9px">Today</button>
-          <button class="btn btn-ghost" style="padding:4px 10px;font-size:9px">Week</button>
-          <button class="btn btn-ghost" style="padding:4px 10px;font-size:9px;border-color:var(--accent);color:var(--accent)">Month</button>
+          <button class="btn btn-ghost" style="padding:4px 10px;font-size:9px">Сегодня</button>
+          <button class="btn btn-ghost" style="padding:4px 10px;font-size:9px">Неделя</button>
+          <button class="btn btn-ghost" style="padding:4px 10px;font-size:9px;border-color:var(--accent);color:var(--accent)">Месяц</button>
         </div>
       </div>
 
       <div class="tabs">
-        <div class="tab active">All</div>
+        <div class="tab active">Все</div>
         <div class="tab">HSE</div>
-        <div class="tab">Production</div>
-        <div class="tab">System</div>
+        <div class="tab">Производство</div>
+        <div class="tab">Система</div>
       </div>
 
       <div class="panel"><div class="panel-body">
-        <div class="act"><div class="act-dot red"></div><div style="flex:1"><div class="act-text"><strong>Серик А.</strong> Near Miss INC-037 — Тенгиз</div><div class="act-time">27.03 14:32 &#183; HSE</div></div><button class="btn btn-ghost" style="padding:3px 10px;font-size:9px" onclick="openM('mHoc')">Similar</button></div>
-        <div class="act"><div class="act-dot green"></div><div style="flex:1"><div class="act-text"><strong>Аскар К.</strong> closed HOC-0145</div><div class="act-time">27.03 13:15 &#183; HSE</div></div><button class="btn btn-ghost" style="padding:3px 10px;font-size:9px" onclick="openM('mHoc')">Similar</button></div>
-        <div class="act"><div class="act-dot blue"></div><div style="flex:1"><div class="act-text"><strong>Марат Ж.</strong> approval GNKT-12</div><div class="act-time">27.03 11:40 &#183; Production</div></div><button class="btn btn-ghost" style="padding:3px 10px;font-size:9px" onclick="openM('mInc')">Similar</button></div>
-        <div class="act"><div class="act-dot orange"></div><div style="flex:1"><div class="act-text"><strong>Дамир Н.</strong> approved JSA-089</div><div class="act-time">27.03 10:05 &#183; HSE</div></div><button class="btn btn-ghost" style="padding:3px 10px;font-size:9px" onclick="openM('mInc')">Similar</button></div>
-        <div class="act"><div class="act-dot green"></div><div style="flex:1"><div class="act-text"><strong>Нурлан К.</strong> conducted PJSM-086 — Узень, crew &#8470;2</div><div class="act-time">26.03 18:30 &#183; Production</div></div><button class="btn btn-ghost" style="padding:3px 10px;font-size:9px" onclick="openM('mHoc')">Similar</button></div>
-        <div class="act"><div class="act-dot red"></div><div style="flex:1"><div class="act-text"><strong>Кайрат О.</strong> registered HOC-0144 — Узень</div><div class="act-time">25.03 16:20 &#183; HSE</div></div><button class="btn btn-ghost" style="padding:3px 10px;font-size:9px" onclick="openM('mHoc')">Similar</button></div>
-        <div class="act"><div class="act-dot blue"></div><div style="flex:1"><div class="act-text"><strong>Алмас Т.</strong> released program KRS-08</div><div class="act-time">24.03 14:50 &#183; Production</div></div><button class="btn btn-ghost" style="padding:3px 10px;font-size:9px" onclick="openM('mInc')">Similar</button></div>
-        <div class="act"><div class="act-dot orange"></div><div style="flex:1"><div class="act-text"><strong>Руслан Ж.</strong> added photos to HOC-0141 — Кашаган</div><div class="act-time">22.03 11:15 &#183; HSE</div></div><button class="btn btn-ghost" style="padding:3px 10px;font-size:9px" onclick="openM('mHoc')">Similar</button></div>
+        <div class="act"><div class="act-dot red"></div><div style="flex:1"><div class="act-text"><strong>Серик А.</strong> Near Miss INC-037 — Тенгиз</div><div class="act-time">27.03 14:32 &#183; HSE</div></div><button class="btn btn-ghost" style="padding:3px 10px;font-size:9px" onclick="openM('mHoc')">Похожее</button></div>
+        <div class="act"><div class="act-dot green"></div><div style="flex:1"><div class="act-text"><strong>Аскар К.</strong> закрыл HOC-0145</div><div class="act-time">27.03 13:15 &#183; HSE</div></div><button class="btn btn-ghost" style="padding:3px 10px;font-size:9px" onclick="openM('mHoc')">Похожее</button></div>
+        <div class="act"><div class="act-dot blue"></div><div style="flex:1"><div class="act-text"><strong>Марат Ж.</strong> согласование ГНКТ-12</div><div class="act-time">27.03 11:40 &#183; Производство</div></div><button class="btn btn-ghost" style="padding:3px 10px;font-size:9px" onclick="openM('mInc')">Похожее</button></div>
+        <div class="act"><div class="act-dot orange"></div><div style="flex:1"><div class="act-text"><strong>Дамир Н.</strong> утвердил JSA-089</div><div class="act-time">27.03 10:05 &#183; HSE</div></div><button class="btn btn-ghost" style="padding:3px 10px;font-size:9px" onclick="openM('mInc')">Похожее</button></div>
+        <div class="act"><div class="act-dot green"></div><div style="flex:1"><div class="act-text"><strong>Нурлан К.</strong> провёл PJSM-086 — Узень, бригада &#8470;2</div><div class="act-time">26.03 18:30 &#183; Производство</div></div><button class="btn btn-ghost" style="padding:3px 10px;font-size:9px" onclick="openM('mHoc')">Похожее</button></div>
+        <div class="act"><div class="act-dot red"></div><div style="flex:1"><div class="act-text"><strong>Кайрат О.</strong> зарегистрировал HOC-0144 — Узень</div><div class="act-time">25.03 16:20 &#183; HSE</div></div><button class="btn btn-ghost" style="padding:3px 10px;font-size:9px" onclick="openM('mHoc')">Похожее</button></div>
+        <div class="act"><div class="act-dot blue"></div><div style="flex:1"><div class="act-text"><strong>Алмас Т.</strong> выпустил программу КРС-08</div><div class="act-time">24.03 14:50 &#183; Производство</div></div><button class="btn btn-ghost" style="padding:3px 10px;font-size:9px" onclick="openM('mInc')">Похожее</button></div>
+        <div class="act"><div class="act-dot orange"></div><div style="flex:1"><div class="act-text"><strong>Руслан Ж.</strong> добавил фото к HOC-0141 — Кашаган</div><div class="act-time">22.03 11:15 &#183; HSE</div></div><button class="btn btn-ghost" style="padding:3px 10px;font-size:9px" onclick="openM('mHoc')">Похожее</button></div>
       </div></div>
     </div>
 
     <!-- ═══════════════════════════════════ PAGE: EXPORT ═══════════════════════════════════ -->
     <div class="page" id="p-export">
-      <div class="breadcrumb">Main &#8594; System &#8594; Export</div>
+      <div class="breadcrumb">Главная &#8594; Система &#8594; Экспорт</div>
       <div class="ph">
         <div>
-          <div class="ph-title">Export</div>
+          <div class="ph-title">Экспорт</div>
           <div class="ph-sub">Word &#183; Excel &#183; PDF</div>
         </div>
       </div>
 
       <div style="display:flex;gap:12px;align-items:center;margin-bottom:20px">
-        <label class="fl" style="margin:0;min-width:fit-content">Period</label>
+        <label class="fl" style="margin:0;min-width:fit-content">Период</label>
         <input type="date" class="fi" style="width:auto;font-family:var(--mono)" value="2026-03-01">
         <span style="color:var(--muted)">&#8212;</span>
         <input type="date" class="fi" style="width:auto;font-family:var(--mono)" value="2026-03-27">
-        <button class="btn btn-ghost" style="padding:6px 14px;font-size:9px">Apply</button>
+        <button class="btn btn-ghost" style="padding:6px 14px;font-size:9px">Применить</button>
       </div>
 
       <div class="g3">
-        <div style="cursor:pointer;padding:40px;text-align:center;transition:background .15s" onclick="showToast('Export started','WORD .docx generating')" onmouseover="this.style.background='rgba(255,255,255,.03)'" onmouseout="this.style.background=''">
+        <div style="cursor:pointer;padding:40px;text-align:center;transition:background .15s" onclick="showToast('Экспорт запущен','WORD .docx формируется')" onmouseover="this.style.background='rgba(255,255,255,.03)'" onmouseout="this.style.background=''">
           <div style="font-size:40px;margin-bottom:12px">&#128196;</div>
           <div style="font-family:var(--mono);font-size:14px;font-weight:900;letter-spacing:2px">WORD</div>
           <div style="font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:1px;margin-top:4px">.DOCX</div>
         </div>
-        <div style="cursor:pointer;padding:40px;text-align:center;transition:background .15s" onclick="showToast('Export started','EXCEL .xlsx generating')" onmouseover="this.style.background='rgba(255,255,255,.03)'" onmouseout="this.style.background=''">
+        <div style="cursor:pointer;padding:40px;text-align:center;transition:background .15s" onclick="showToast('Экспорт запущен','EXCEL .xlsx формируется')" onmouseover="this.style.background='rgba(255,255,255,.03)'" onmouseout="this.style.background=''">
           <div style="font-size:40px;margin-bottom:12px">&#128202;</div>
           <div style="font-family:var(--mono);font-size:14px;font-weight:900;letter-spacing:2px">EXCEL</div>
           <div style="font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:1px;margin-top:4px">.XLSX</div>
         </div>
-        <div style="cursor:pointer;padding:40px;text-align:center;transition:background .15s" onclick="showToast('Export started','PDF .pdf generating')" onmouseover="this.style.background='rgba(255,255,255,.03)'" onmouseout="this.style.background=''">
+        <div style="cursor:pointer;padding:40px;text-align:center;transition:background .15s" onclick="showToast('Экспорт запущен','PDF формируется')" onmouseover="this.style.background='rgba(255,255,255,.03)'" onmouseout="this.style.background=''">
           <div style="font-size:40px;margin-bottom:12px">&#128213;</div>
           <div style="font-family:var(--mono);font-size:14px;font-weight:900;letter-spacing:2px">PDF</div>
           <div style="font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:1px;margin-top:4px">.PDF</div>
@@ -1556,11 +1556,11 @@ body {
       </div>
 
       <div class="panel" style="margin-top:20px">
-        <div class="panel-h"><span class="panel-t">Recent Exports</span></div>
+        <div class="panel-h"><span class="panel-t">Последние экспорты</span></div>
         <div class="panel-body">
-          <div class="act"><div class="act-dot green"></div><div style="flex:1"><div class="act-text"><strong>HOC Registry — March 2026</strong></div><div class="act-time">Excel &#183; 147 records &#183; 27.03.2026</div></div><button class="btn btn-ghost" style="padding:3px 10px;font-size:9px">Download</button></div>
-          <div class="act"><div class="act-dot green"></div><div style="flex:1"><div class="act-text"><strong>Incident Report Q1 2026</strong></div><div class="act-time">PDF &#183; 37 records &#183; 25.03.2026</div></div><button class="btn btn-ghost" style="padding:3px 10px;font-size:9px">Download</button></div>
-          <div class="act"><div class="act-dot green"></div><div style="flex:1"><div class="act-text"><strong>Job Programs Registry — 2026</strong></div><div class="act-time">Excel &#183; 23 records &#183; 24.03.2026</div></div><button class="btn btn-ghost" style="padding:3px 10px;font-size:9px">Download</button></div>
+          <div class="act"><div class="act-dot green"></div><div style="flex:1"><div class="act-text"><strong>Реестр НОС — март 2026</strong></div><div class="act-time">Excel &#183; 147 записей &#183; 27.03.2026</div></div><button class="btn btn-ghost" style="padding:3px 10px;font-size:9px">Скачать</button></div>
+          <div class="act"><div class="act-dot green"></div><div style="flex:1"><div class="act-text"><strong>Отчёт по инцидентам Q1 2026</strong></div><div class="act-time">PDF &#183; 37 записей &#183; 25.03.2026</div></div><button class="btn btn-ghost" style="padding:3px 10px;font-size:9px">Скачать</button></div>
+          <div class="act"><div class="act-dot green"></div><div style="flex:1"><div class="act-text"><strong>Реестр программ работ — 2026</strong></div><div class="act-time">Excel &#183; 23 записи &#183; 24.03.2026</div></div><button class="btn btn-ghost" style="padding:3px 10px;font-size:9px">Скачать</button></div>
         </div>
       </div>
     </div>
@@ -1571,9 +1571,9 @@ body {
 <!-- ═══════════════════════════════════════ STATUS BAR ═══════════════════════════════════════ -->
 <div class="status-bar">
   <div class="status-bar-left">
-    <div class="status-dot"></div> Connected
+    <div class="status-dot"></div> Подключено
     <span style="margin:0 8px;color:var(--border)">|</span>
-    <a href="index.html" style="color:var(--accent);text-decoration:none;font-weight:600">Proposal</a>
+    <a href="index.html" style="color:var(--accent);text-decoration:none;font-weight:600">Коммерческое предложение</a>
   </div>
   <div>KGT_HSE v1.0</div>
   <div id="statusTime"></div>
@@ -1587,8 +1587,8 @@ body {
   </div>
   <div class="dp-body" id="dpBody"></div>
   <div class="dp-actions">
-    <button class="btn btn-ghost" id="dpCloseBtn">Close</button>
-    <button class="btn btn-accent">Edit</button>
+    <button class="btn btn-ghost" id="dpCloseBtn">Закрыть</button>
+    <button class="btn btn-accent">Редактировать</button>
   </div>
 </div>
 
@@ -1596,62 +1596,62 @@ body {
 <div class="toast" id="toast">
   <div class="toast-icon">&#10003;</div>
   <div>
-    <div class="toast-text" id="toastText">Success</div>
-    <div class="toast-sub" id="toastSub">Record added</div>
+    <div class="toast-text" id="toastText">Готово</div>
+    <div class="toast-sub" id="toastSub">Запись добавлена</div>
   </div>
 </div>
 
 <!-- ═══════════════════════════════════════ MODALS ═══════════════════════════════════════ -->
 
 <!-- New HOC -->
-<div class="modal-bg" id="mHoc"><div class="modal"><div class="m-head"><div class="m-title">New HOC Card</div><button class="m-close" id="mHocClose">&#10005;</button></div><div class="m-body">
-  <div class="f-row"><div class="fg"><label class="fl">Date</label><input type="date" class="fi" value="2026-03-27"></div><div class="fg"><label class="fl">Site</label><select class="fs"><option>Тенгиз</option><option>Карачаганак</option><option>Кашаган</option><option>Узень</option></select></div></div>
-  <div class="f-row"><div class="fg"><label class="fl">Department</label><select class="fs"><option>Бурение</option><option>ГНКТ</option><option>КРС</option><option>Насосная</option><option>Азотная</option><option>Флюид Памп</option></select></div><div class="fg"><label class="fl">Employee</label><input class="fi" placeholder="Full name"></div></div>
-  <div class="fg"><label class="fl">Type</label><select class="fs"><option>Hazardous Condition</option><option>Hazardous Action</option></select></div>
-  <div class="fg"><label class="fl">Description</label><textarea class="ft" placeholder="Describe observation..."></textarea></div>
-  <div class="fg"><label class="fl">Actions</label><textarea class="ft" placeholder="Recommended actions..."></textarea></div>
-  <div class="fg"><label class="fl">Photo</label><div class="f-upload">&#128247; Upload</div></div>
-  <div class="f-row"><div class="fg"><label class="fl">Responsible</label><select class="fs"><option>Аскар Калиев</option><option>Серик Абаев</option></select></div><div class="fg"><label class="fl">Notify</label><input class="fi" placeholder="People to notify..."></div></div>
-</div><div class="m-foot"><button class="btn btn-ghost" id="mHocCancel">Cancel</button><button class="btn btn-accent" id="mHocCreate">Create</button></div></div></div>
+<div class="modal-bg" id="mHoc"><div class="modal"><div class="m-head"><div class="m-title">Новая НОС-карта</div><button class="m-close" id="mHocClose">&#10005;</button></div><div class="m-body">
+  <div class="f-row"><div class="fg"><label class="fl">Дата</label><input type="date" class="fi" value="2026-03-27"></div><div class="fg"><label class="fl">Объект</label><select class="fs"><option>Тенгиз</option><option>Карачаганак</option><option>Кашаган</option><option>Узень</option></select></div></div>
+  <div class="f-row"><div class="fg"><label class="fl">Подразделение</label><select class="fs"><option>Бурение</option><option>ГНКТ</option><option>КРС</option><option>Насосная</option><option>Азотная</option><option>Флюид Памп</option></select></div><div class="fg"><label class="fl">ФИО</label><input class="fi" placeholder="ФИО сотрудника"></div></div>
+  <div class="fg"><label class="fl">Тип наблюдения</label><select class="fs"><option>Опасное условие</option><option>Опасное действие</option></select></div>
+  <div class="fg"><label class="fl">Описание</label><textarea class="ft" placeholder="Опишите наблюдение..."></textarea></div>
+  <div class="fg"><label class="fl">Действия</label><textarea class="ft" placeholder="Рекомендуемые действия..."></textarea></div>
+  <div class="fg"><label class="fl">Фото</label><div class="f-upload">&#128247; Загрузить</div></div>
+  <div class="f-row"><div class="fg"><label class="fl">Ответственный</label><select class="fs"><option>Аскар Калиев</option><option>Серик Абаев</option></select></div><div class="fg"><label class="fl">Уведомить</label><input class="fi" placeholder="Кого уведомить..."></div></div>
+</div><div class="m-foot"><button class="btn btn-ghost" id="mHocCancel">Отмена</button><button class="btn btn-accent" id="mHocCreate">Создать</button></div></div></div>
 
 <!-- New Incident -->
-<div class="modal-bg" id="mInc"><div class="modal"><div class="m-head"><div class="m-title">Register Incident</div><button class="m-close" id="mIncClose">&#10005;</button></div><div class="m-body">
-  <div class="f-row"><div class="fg"><label class="fl">Date &amp; Time</label><input type="datetime-local" class="fi" value="2026-03-27T14:00"></div><div class="fg"><label class="fl">Location</label><select class="fs"><option>Тенгиз</option><option>Карачаганак</option><option>Кашаган</option><option>Узень</option></select></div></div>
-  <div class="fg"><label class="fl">AI Classification</label><select class="fs"><option>Near Miss</option><option>Incident</option><option>Accident</option><option>First Aid</option><option>Medical Treatment</option><option>Environmental</option><option>Motor Vehicle</option><option>Stop Work Authority</option></select></div>
-  <div class="fg"><label class="fl">Description</label><textarea class="ft" placeholder="Detailed description..."></textarea></div>
-  <div class="f-row"><div class="fg"><label class="fl">Immediate Actions</label><textarea class="ft" placeholder="Taken immediately..."></textarea></div><div class="fg"><label class="fl">Corrective Actions</label><textarea class="ft" placeholder="Additional measures..."></textarea></div></div>
-  <div class="fg"><label class="fl">Attachments</label><div class="f-upload">&#128206; Attach Files</div></div>
-</div><div class="m-foot"><button class="btn btn-ghost" id="mIncCancel">Cancel</button><button class="btn btn-danger" id="mIncCreate">Register</button></div></div></div>
+<div class="modal-bg" id="mInc"><div class="modal"><div class="m-head"><div class="m-title">Зарегистрировать происшествие</div><button class="m-close" id="mIncClose">&#10005;</button></div><div class="m-body">
+  <div class="f-row"><div class="fg"><label class="fl">Дата и время</label><input type="datetime-local" class="fi" value="2026-03-27T14:00"></div><div class="fg"><label class="fl">Место</label><select class="fs"><option>Тенгиз</option><option>Карачаганак</option><option>Кашаган</option><option>Узень</option></select></div></div>
+  <div class="fg"><label class="fl">AI классификация</label><select class="fs"><option>Near Miss</option><option>Incident</option><option>Accident</option><option>First Aid</option><option>Medical Treatment</option><option>Environmental</option><option>Motor Vehicle</option><option>Stop Work Authority</option></select></div>
+  <div class="fg"><label class="fl">Описание</label><textarea class="ft" placeholder="Подробное описание..."></textarea></div>
+  <div class="f-row"><div class="fg"><label class="fl">Немедленные действия</label><textarea class="ft" placeholder="Принятые немедленно..."></textarea></div><div class="fg"><label class="fl">Корректирующие действия</label><textarea class="ft" placeholder="Дополнительные меры..."></textarea></div></div>
+  <div class="fg"><label class="fl">Файлы</label><div class="f-upload">&#128206; Прикрепить</div></div>
+</div><div class="m-foot"><button class="btn btn-ghost" id="mIncCancel">Отмена</button><button class="btn btn-danger" id="mIncCreate">Зарегистрировать</button></div></div></div>
 
 <!-- New Risk Assessment -->
-<div class="modal-bg" id="mRisk"><div class="modal"><div class="m-head"><div class="m-title">Risk Assessment</div><button class="m-close" id="mRiskClose">&#10005;</button></div><div class="m-body">
-  <div class="f-row"><div class="fg"><label class="fl">Site</label><select class="fs"><option>Тенгиз</option><option>Карачаганак</option><option>Кашаган</option></select></div><div class="fg"><label class="fl">Work Type</label><select class="fs"><option>ГНКТ</option><option>Азотная</option><option>Флюид Памп</option><option>КРС</option><option>Бурение</option></select></div></div>
-  <div class="fg"><label class="fl">Hazards</label><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px">
-    <span class="b b-high" style="cursor:pointer;padding:4px 10px">&#9889; Pressure</span>
+<div class="modal-bg" id="mRisk"><div class="modal"><div class="m-head"><div class="m-title">Оценка рисков</div><button class="m-close" id="mRiskClose">&#10005;</button></div><div class="m-body">
+  <div class="f-row"><div class="fg"><label class="fl">Объект</label><select class="fs"><option>Тенгиз</option><option>Карачаганак</option><option>Кашаган</option></select></div><div class="fg"><label class="fl">Тип работ</label><select class="fs"><option>ГНКТ</option><option>Азотная</option><option>Флюид Памп</option><option>КРС</option><option>Бурение</option></select></div></div>
+  <div class="fg"><label class="fl">Риски</label><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px">
+    <span class="b b-high" style="cursor:pointer;padding:4px 10px">&#9889; Давление</span>
     <span class="b b-critical" style="cursor:pointer;padding:4px 10px">&#9760; H&#8322;S</span>
-    <span class="b b-medium" style="cursor:pointer;padding:4px 10px">&#128295; Fall</span>
-    <span class="b b-high" style="cursor:pointer;padding:4px 10px">&#127959; Heights</span>
-    <span class="b b-low" style="cursor:pointer;padding:4px 10px">+ Add</span>
+    <span class="b b-medium" style="cursor:pointer;padding:4px 10px">&#128295; Падение</span>
+    <span class="b b-high" style="cursor:pointer;padding:4px 10px">&#127959; Высота</span>
+    <span class="b b-low" style="cursor:pointer;padding:4px 10px">+ Добавить</span>
   </div></div>
-  <div class="fg"><label class="fl">Mitigation</label><textarea class="ft" placeholder="Risk reduction measures..."></textarea></div>
+  <div class="fg"><label class="fl">Меры</label><textarea class="ft" placeholder="Меры снижения риска..."></textarea></div>
   <div class="fg" style="display:flex;align-items:center;gap:10px">
     <input type="checkbox" id="sw">
-    <label for="sw" style="font-family:var(--mono);font-size:10px;font-weight:700;color:var(--red);cursor:pointer;text-transform:uppercase;letter-spacing:1px">Stop Work — Risk Cannot Be Mitigated</label>
+    <label for="sw" style="font-family:var(--mono);font-size:10px;font-weight:700;color:var(--red);cursor:pointer;text-transform:uppercase;letter-spacing:1px">Stop Work — Риск не устраним</label>
   </div>
-</div><div class="m-foot"><button class="btn btn-ghost" id="mRiskCancel">Cancel</button><button class="btn btn-accent" id="mRiskCreate">Create</button></div></div></div>
+</div><div class="m-foot"><button class="btn btn-ghost" id="mRiskCancel">Отмена</button><button class="btn btn-accent" id="mRiskCreate">Создать</button></div></div></div>
 
 <!-- ═══════════════════════════════════════ SHORTCUTS OVERLAY ═══════════════════════════════════════ -->
 <div class="shortcuts-overlay" id="shortcutsOverlay">
   <div class="shortcuts-box">
-    <h3>Keyboard Shortcuts</h3>
-    <div class="sc-row"><span style="color:var(--muted)">Close window</span><span class="sc-key">ESC</span></div>
-    <div class="sc-row"><span style="color:var(--muted)">Show shortcuts</span><span class="sc-key">?</span></div>
-    <div class="sc-row"><span style="color:var(--muted)">New HOC card</span><span class="sc-key">N</span></div>
-    <div class="sc-row"><span style="color:var(--muted)">New incident</span><span class="sc-key">I</span></div>
-    <div class="sc-row"><span style="color:var(--muted)">Search</span><span class="sc-key">/</span></div>
-    <div class="sc-row"><span style="color:var(--muted)">Dashboard</span><span class="sc-key">D</span></div>
+    <h3>Горячие клавиши</h3>
+    <div class="sc-row"><span style="color:var(--muted)">Закрыть окно</span><span class="sc-key">ESC</span></div>
+    <div class="sc-row"><span style="color:var(--muted)">Показать сочетания</span><span class="sc-key">?</span></div>
+    <div class="sc-row"><span style="color:var(--muted)">Новая НОС-карта</span><span class="sc-key">N</span></div>
+    <div class="sc-row"><span style="color:var(--muted)">Новое происшествие</span><span class="sc-key">I</span></div>
+    <div class="sc-row"><span style="color:var(--muted)">Поиск</span><span class="sc-key">/</span></div>
+    <div class="sc-row"><span style="color:var(--muted)">Дашборд</span><span class="sc-key">D</span></div>
     <div style="text-align:center;margin-top:14px">
-      <button class="btn btn-ghost" style="padding:5px 16px;font-size:9px" onclick="document.getElementById('shortcutsOverlay').classList.remove('show')">Close</button>
+      <button class="btn btn-ghost" style="padding:5px 16px;font-size:9px" onclick="document.getElementById('shortcutsOverlay').classList.remove('show')">Закрыть</button>
     </div>
   </div>
 </div>
@@ -1659,22 +1659,22 @@ body {
 <!-- ═══════════════════════════════════════ JAVASCRIPT ═══════════════════════════════════════ -->
 <script>
 var T = {
-  dashboard: 'DASHBOARD',
-  hoc: 'HOC CARDS',
-  incidents: 'INCIDENTS',
-  risk: 'RISK ASSESSMENT',
-  programs: 'JOB PROGRAMS',
+  dashboard: 'ДАШБОРД',
+  hoc: 'НОС-КАРТЫ',
+  incidents: 'ПРОИСШЕСТВИЯ',
+  risk: 'ОЦЕНКА РИСКОВ',
+  programs: 'ПРОГРАММЫ РАБОТ',
   pjsm: 'PRE-JOB SAFETY',
-  users: 'USERS',
-  journal: 'EVENT LOG',
-  export: 'EXPORT'
+  users: 'ПОЛЬЗОВАТЕЛИ',
+  journal: 'ЖУРНАЛ',
+  export: 'ЭКСПОРТ'
 };
 
 function getGreeting() {
   var h = new Date().getHours();
-  if (h < 12) return 'Good morning, Askar';
-  if (h < 18) return 'Good afternoon, Askar';
-  return 'Good evening, Askar';
+  if (h < 12) return 'Доброе утро, Аскар';
+  if (h < 18) return 'Добрый день, Аскар';
+  return 'Добрый вечер, Аскар';
 }
 
 function nav(p) {
@@ -1726,20 +1726,20 @@ document.getElementById('btnNewRisk').addEventListener('click', function() { ope
 
 document.getElementById('mHocClose').addEventListener('click', function() { closeM('mHoc'); });
 document.getElementById('mHocCancel').addEventListener('click', function() { closeM('mHoc'); });
-document.getElementById('mHocCreate').addEventListener('click', function() { createAndClose('mHoc', 'HOC card created', 'HOC-0148 added'); });
+document.getElementById('mHocCreate').addEventListener('click', function() { createAndClose('mHoc', 'НОС-карта создана', 'HOC-0148 добавлена'); });
 
 document.getElementById('mIncClose').addEventListener('click', function() { closeM('mInc'); });
 document.getElementById('mIncCancel').addEventListener('click', function() { closeM('mInc'); });
-document.getElementById('mIncCreate').addEventListener('click', function() { createAndClose('mInc', 'Incident registered', 'INC-038 created'); });
+document.getElementById('mIncCreate').addEventListener('click', function() { createAndClose('mInc', 'Инцидент зарегистрирован', 'INC-038 создан'); });
 
 document.getElementById('mRiskClose').addEventListener('click', function() { closeM('mRisk'); });
 document.getElementById('mRiskCancel').addEventListener('click', function() { closeM('mRisk'); });
-document.getElementById('mRiskCreate').addEventListener('click', function() { createAndClose('mRisk', 'Assessment created', 'JSA-092 added'); });
+document.getElementById('mRiskCreate').addEventListener('click', function() { createAndClose('mRisk', 'Оценка создана', 'JSA-092 добавлена'); });
 
 // Toast
 function showToast(text, sub) {
   var t = document.getElementById('toast');
-  document.getElementById('toastText').textContent = text || 'Success';
+  document.getElementById('toastText').textContent = text || 'Готово';
   document.getElementById('toastSub').textContent = sub || '';
   t.classList.add('show');
   setTimeout(function() { t.classList.remove('show'); }, 3000);
@@ -1849,64 +1849,64 @@ document.querySelectorAll('.detail-row').forEach(function(row) {
     title.textContent = d.id;
 
     if (d.type === 'hoc') {
-      body.appendChild(buildDetailField('Date', d.date));
-      body.appendChild(buildDetailField('Site', d.site));
-      body.appendChild(buildDetailField('Department', d.dept));
-      body.appendChild(buildDetailField('Employee', d.employee));
-      body.appendChild(buildDetailField('Description', d.desc));
-      body.appendChild(buildDetailField('Status', d.status));
-      body.appendChild(buildDetailField('Responsible', d.responsible));
+      body.appendChild(buildDetailField('Дата', d.date));
+      body.appendChild(buildDetailField('Объект', d.site));
+      body.appendChild(buildDetailField('Подразделение', d.dept));
+      body.appendChild(buildDetailField('Сотрудник', d.employee));
+      body.appendChild(buildDetailField('Описание', d.desc));
+      body.appendChild(buildDetailField('Статус', d.status));
+      body.appendChild(buildDetailField('Ответственный', d.responsible));
       var photoField = document.createElement('div');
       photoField.className = 'dp-field';
       var photoLbl = document.createElement('div');
       photoLbl.className = 'dp-label';
-      photoLbl.textContent = 'Photos';
+      photoLbl.textContent = 'Фото';
       photoField.appendChild(photoLbl);
       var photosGrid = document.createElement('div');
       photosGrid.className = 'dp-photos';
       var ph1 = document.createElement('div');
       ph1.className = 'dp-photo-placeholder';
-      ph1.textContent = 'NO PHOTO';
+      ph1.textContent = 'НЕТ ФОТО';
       var ph2 = document.createElement('div');
       ph2.className = 'dp-photo-placeholder';
-      ph2.textContent = 'NO PHOTO';
+      ph2.textContent = 'НЕТ ФОТО';
       photosGrid.appendChild(ph1);
       photosGrid.appendChild(ph2);
       photoField.appendChild(photosGrid);
       body.appendChild(photoField);
     } else if (d.type === 'inc') {
-      body.appendChild(buildDetailField('Date', d.date));
-      body.appendChild(buildDetailField('Site', d.site));
-      body.appendChild(buildDetailField('AI Classification', d['class'] || ''));
-      body.appendChild(buildDetailField('Description', d.desc));
-      body.appendChild(buildDetailField('Status', d.status));
+      body.appendChild(buildDetailField('Дата', d.date));
+      body.appendChild(buildDetailField('Объект', d.site));
+      body.appendChild(buildDetailField('AI Классификация', d['class'] || ''));
+      body.appendChild(buildDetailField('Описание', d.desc));
+      body.appendChild(buildDetailField('Статус', d.status));
     } else if (d.type === 'program') {
-      body.appendChild(buildDetailField('Program', d.id));
-      body.appendChild(buildDetailField('Site', d.site));
-      body.appendChild(buildDetailField('Engineer', d.engineer));
-      body.appendChild(buildDetailField('Status', d.status));
-      body.appendChild(buildDetailField('Date', d.date));
+      body.appendChild(buildDetailField('Программа', d.id));
+      body.appendChild(buildDetailField('Объект', d.site));
+      body.appendChild(buildDetailField('Инженер', d.engineer));
+      body.appendChild(buildDetailField('Статус', d.status));
+      body.appendChild(buildDetailField('Дата', d.date));
     } else if (d.type === 'risk') {
-      body.appendChild(buildDetailField('Assessment', d.id));
-      body.appendChild(buildDetailField('Site', d.site));
-      body.appendChild(buildDetailField('Work Type', d.work));
-      body.appendChild(buildDetailField('Risk Level', d.level));
-      body.appendChild(buildDetailField('Status', d.status));
+      body.appendChild(buildDetailField('Оценка', d.id));
+      body.appendChild(buildDetailField('Объект', d.site));
+      body.appendChild(buildDetailField('Тип работ', d.work));
+      body.appendChild(buildDetailField('Уровень риска', d.level));
+      body.appendChild(buildDetailField('Статус', d.status));
       body.appendChild(buildDetailField('Workflow', d.workflow));
     } else if (d.type === 'pjsm') {
-      body.appendChild(buildDetailField('Meeting', d.id));
-      body.appendChild(buildDetailField('Date/Shift', d.date));
-      body.appendChild(buildDetailField('Site', d.site));
-      body.appendChild(buildDetailField('Crew', d.crew));
-      body.appendChild(buildDetailField('Participants', d.people));
-      body.appendChild(buildDetailField('Risks', d.risks));
+      body.appendChild(buildDetailField('Совещание', d.id));
+      body.appendChild(buildDetailField('Дата/Смена', d.date));
+      body.appendChild(buildDetailField('Объект', d.site));
+      body.appendChild(buildDetailField('Бригада', d.crew));
+      body.appendChild(buildDetailField('Участников', d.people));
+      body.appendChild(buildDetailField('Риски', d.risks));
       body.appendChild(buildDetailField('Stop Work', d.swa));
     } else if (d.type === 'user') {
-      body.appendChild(buildDetailField('Full Name', d.name));
-      body.appendChild(buildDetailField('Role', d.role));
-      body.appendChild(buildDetailField('Department', d.dept));
-      body.appendChild(buildDetailField('Site', d.site));
-      body.appendChild(buildDetailField('Status', d.userstatus));
+      body.appendChild(buildDetailField('ФИО', d.name));
+      body.appendChild(buildDetailField('Роль', d.role));
+      body.appendChild(buildDetailField('Подразделение', d.dept));
+      body.appendChild(buildDetailField('Объект', d.site));
+      body.appendChild(buildDetailField('Статус', d.userstatus));
     }
 
     panel.classList.add('open');
@@ -1966,7 +1966,7 @@ function filterHocSite(site) {
 function updateThemeBtn() {
   var btn = document.getElementById('themeToggleBtn');
   var isLight = document.documentElement.getAttribute('data-theme') === 'light';
-  btn.innerHTML = isLight ? '&#9679; Dark' : '&#9728; Light';
+  btn.innerHTML = isLight ? '&#9679; Тёмная' : '&#9728; Светлая';
 }
 (function() {
   var saved = localStorage.getItem('kgt-theme');
@@ -1989,7 +1989,7 @@ document.getElementById('themeToggleBtn').addEventListener('click', function() {
 document.getElementById('hocFullscreenBtn').addEventListener('click', function() {
   var panel = document.getElementById('hocTablePanel');
   panel.classList.toggle('fullscreen');
-  this.innerHTML = panel.classList.contains('fullscreen') ? '&#10005; Collapse' : '&#x26F6; Expand';
+  this.innerHTML = panel.classList.contains('fullscreen') ? '&#10005; Свернуть' : '&#x26F6; Развернуть';
 });
 </script>
 </body>
