@@ -935,64 +935,111 @@ body {
 [data-theme="light"] .sc-key { background: #F0F0EE; border-color: rgba(0,0,0,.12); color: #111; }
 [data-theme="light"] ::-webkit-scrollbar-thumb { background: rgba(0,0,0,.15); }
 
-/* ═══ LIGHT V2 THEME — premium, blue-accent, card-based ═══ */
+/* ═══ LIGHT V2 — soft, rounded, card-based, with shadows ═══ */
+/* V2 переопределяет ГЕОМЕТРИЮ: скруглённые углы, тени, карточки, больше воздуха */
 [data-theme="light-v2"] {
   --bg: #F0F2F5;
   --fg: #1A1A2E;
   --accent: #2563EB;
   --muted: rgba(26,26,46,.5);
   --muted-more: rgba(26,26,46,.06);
-  --border: rgba(26,26,46,.1);
-  --card-bg: rgba(26,26,46,.025);
+  --border: rgba(26,26,46,.07);
+  --card-bg: #FFFFFF;
   --green: #059669;
   --red: #DC2626;
   --yellow: #D97706;
   --blue: #2563EB;
   --purple: #7C3AED;
 }
-[data-theme="light-v2"] .sidebar { background: #FFFFFF; border-color: rgba(26,26,46,.08); }
-[data-theme="light-v2"] .header { background: #F0F2F5; }
-[data-theme="light-v2"] .modal { background: #FFFFFF; border-color: rgba(26,26,46,.1); border-top-color: #2563EB; }
-[data-theme="light-v2"] .detail-panel { background: #FFFFFF; border-color: rgba(26,26,46,.08); }
-[data-theme="light-v2"] .toast { background: #FFFFFF; border-top-color: #059669; }
-[data-theme="light-v2"] .status-bar { background: #FFFFFF; border-color: rgba(26,26,46,.08); }
-[data-theme="light-v2"] .notif-dropdown { background: #FFFFFF; border-color: rgba(26,26,46,.1); }
-[data-theme="light-v2"] .settings-dropdown { background: #FFFFFF; border-color: rgba(26,26,46,.1); }
-[data-theme="light-v2"] .shortcuts-box { background: #FFFFFF; }
+
+/* ── V2: Скруглённые углы на ВСЁМ ── */
+[data-theme="light-v2"] .sidebar { background: #FFFFFF; border-color: transparent; box-shadow: 2px 0 12px rgba(0,0,0,.04); }
+[data-theme="light-v2"] .header { background: #F0F2F5; border-color: transparent; }
+[data-theme="light-v2"] .stats-bar { border: none; gap: 12px; }
+[data-theme="light-v2"] .stat-col { background: #FFFFFF; border: none; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,.06); border-right: none !important; }
+[data-theme="light-v2"] .site-grid { border: none; gap: 12px; }
+[data-theme="light-v2"] .site-cell { background: #FFFFFF; border: none; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,.06); border-right: none !important; }
+[data-theme="light-v2"] .site-cell:hover { box-shadow: 0 4px 12px rgba(37,99,235,.1); transform: translateY(-1px); }
+
+/* ── V2: Таблицы в карточках ── */
+[data-theme="light-v2"] .tbl-wrap { background: #FFFFFF; border: none; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,.06); overflow: hidden; }
+[data-theme="light-v2"] .tbl-header { border-radius: 12px 12px 0 0; }
+
+/* ── V2: Бейджи скруглённые ── */
+[data-theme="light-v2"] .badge { border-radius: 6px; }
+
+/* ── V2: Кнопки скруглённые ── */
+[data-theme="light-v2"] .btn-accent { border-radius: 8px; background: #2563EB; color: #FFFFFF; box-shadow: 0 2px 8px rgba(37,99,235,.25); }
+[data-theme="light-v2"] .btn-accent:hover { background: #3B82F6; box-shadow: 0 4px 16px rgba(37,99,235,.3); transform: translateY(-1px); }
+[data-theme="light-v2"] .btn-ghost { border-radius: 8px; }
+[data-theme="light-v2"] .btn-ghost:hover { border-color: #2563EB; color: #2563EB; background: rgba(37,99,235,.04); }
+
+/* ── V2: Инпуты скруглённые ── */
 [data-theme="light-v2"] .fi,
 [data-theme="light-v2"] .fs,
-[data-theme="light-v2"] .ft { background: #FFFFFF; border-color: rgba(26,26,46,.12); color: #1A1A2E; }
+[data-theme="light-v2"] .ft { background: #FFFFFF; border-color: rgba(26,26,46,.12); color: #1A1A2E; border-radius: 8px; }
 [data-theme="light-v2"] .fi:focus,
 [data-theme="light-v2"] .fs:focus,
-[data-theme="light-v2"] .ft:focus { border-color: #2563EB; }
-[data-theme="light-v2"] .h-search { background: #FFFFFF; border-color: rgba(26,26,46,.1); color: #1A1A2E; }
-[data-theme="light-v2"] .h-btn { background: #FFFFFF; border-color: rgba(26,26,46,.1); color: rgba(26,26,46,.45); }
-[data-theme="light-v2"] .h-btn:hover { border-color: #2563EB; color: #2563EB; }
-[data-theme="light-v2"] .s-logo-mark { background: #2563EB; color: #FFFFFF; }
-[data-theme="light-v2"] .s-avatar { background: #2563EB; color: #FFFFFF; }
-[data-theme="light-v2"] .s-badge { background: #2563EB; color: #FFFFFF; }
-[data-theme="light-v2"] .s-item.active { color: #2563EB; background: rgba(37,99,235,.06); border-left-color: #2563EB; }
-[data-theme="light-v2"] .btn-accent { background: #2563EB; color: #FFFFFF; }
-[data-theme="light-v2"] .btn-accent:hover { background: #3B82F6; }
-[data-theme="light-v2"] .btn-ghost:hover { border-color: #2563EB; color: #2563EB; }
+[data-theme="light-v2"] .ft:focus { border-color: #2563EB; box-shadow: 0 0 0 3px rgba(37,99,235,.1); }
+[data-theme="light-v2"] .h-search { background: #FFFFFF; border-color: rgba(26,26,46,.1); color: #1A1A2E; border-radius: 8px; }
+[data-theme="light-v2"] .h-search:focus { box-shadow: 0 0 0 3px rgba(37,99,235,.1); }
+
+/* ── V2: Header кнопки ── */
+[data-theme="light-v2"] .h-btn { background: #FFFFFF; border-color: rgba(26,26,46,.1); color: rgba(26,26,46,.45); border-radius: 8px; }
+[data-theme="light-v2"] .h-btn:hover { border-color: #2563EB; color: #2563EB; box-shadow: 0 2px 8px rgba(37,99,235,.1); }
+
+/* ── V2: Sidebar навигация ── */
+[data-theme="light-v2"] .s-logo-mark { background: #2563EB; color: #FFFFFF; border-radius: 8px; }
+[data-theme="light-v2"] .s-avatar { background: #2563EB; color: #FFFFFF; border-radius: 8px; }
+[data-theme="light-v2"] .s-badge { background: #2563EB; color: #FFFFFF; border-radius: 6px; }
+[data-theme="light-v2"] .s-item { border-radius: 8px; margin: 1px 4px; border-left: none; }
+[data-theme="light-v2"] .s-item.active { color: #2563EB; background: rgba(37,99,235,.08); border-left: none; font-weight: 700; }
+[data-theme="light-v2"] .s-item:hover { background: rgba(26,26,46,.04); border-radius: 8px; }
+
+/* ── V2: Табы ── */
+[data-theme="light-v2"] .tab { border-radius: 8px 8px 0 0; }
 [data-theme="light-v2"] .tab.active { color: #2563EB; border-bottom-color: #2563EB; }
-[data-theme="light-v2"] .m-close { background: #F0F2F5; border-color: rgba(26,26,46,.1); color: rgba(26,26,46,.45); }
-[data-theme="light-v2"] .dp-close { background: #F0F2F5; border-color: rgba(26,26,46,.1); color: rgba(26,26,46,.45); }
-[data-theme="light-v2"] .f-upload { border-color: rgba(26,26,46,.15); color: rgba(26,26,46,.35); }
-[data-theme="light-v2"] .f-upload:hover { border-color: #2563EB; color: #2563EB; }
-[data-theme="light-v2"] .burger { background: #FFFFFF; border-color: rgba(26,26,46,.1); color: rgba(26,26,46,.45); }
-[data-theme="light-v2"] .sc-key { background: #E8EAED; border-color: rgba(26,26,46,.1); color: #1A1A2E; }
-[data-theme="light-v2"] .h-dot { background: #2563EB; }
-[data-theme="light-v2"] .status-dot { background: #059669; }
-/* V2 stat colors use accent */
+
+/* ── V2: Модалки скруглённые ── */
+[data-theme="light-v2"] .modal { background: #FFFFFF; border: none; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,.12); border-top: 3px solid #2563EB; }
+[data-theme="light-v2"] .m-close { background: #F0F2F5; border: none; border-radius: 8px; color: rgba(26,26,46,.45); }
+[data-theme="light-v2"] .m-close:hover { background: rgba(220,38,38,.1); color: #DC2626; }
+
+/* ── V2: Detail panel ── */
+[data-theme="light-v2"] .detail-panel { background: #FFFFFF; border: none; box-shadow: -8px 0 30px rgba(0,0,0,.08); }
+[data-theme="light-v2"] .dp-close { background: #F0F2F5; border: none; border-radius: 8px; color: rgba(26,26,46,.45); }
+
+/* ── V2: Toast ── */
+[data-theme="light-v2"] .toast { background: #FFFFFF; border: none; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,.1); border-left: 3px solid #059669; border-top: none; }
+
+/* ── V2: Dropdowns ── */
+[data-theme="light-v2"] .notif-dropdown { background: #FFFFFF; border: none; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,.1); }
+[data-theme="light-v2"] .settings-dropdown { background: #FFFFFF; border: none; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,.1); }
+[data-theme="light-v2"] .settings-item { border-radius: 0; }
+[data-theme="light-v2"] .settings-item:first-child { border-radius: 12px 12px 0 0; }
+[data-theme="light-v2"] .settings-item:last-child { border-radius: 0 0 12px 12px; }
+[data-theme="light-v2"] .shortcuts-box { background: #FFFFFF; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,.12); }
+
+/* ── V2: Status bar ── */
+[data-theme="light-v2"] .status-bar { background: #FFFFFF; border-color: transparent; box-shadow: 0 -1px 6px rgba(0,0,0,.04); }
+
+/* ── V2: Upload area ── */
+[data-theme="light-v2"] .f-upload { border-color: rgba(26,26,46,.12); color: rgba(26,26,46,.35); border-radius: 12px; background: rgba(37,99,235,.02); }
+[data-theme="light-v2"] .f-upload:hover { border-color: #2563EB; color: #2563EB; background: rgba(37,99,235,.04); }
+
+/* ── V2: Misc ── */
+[data-theme="light-v2"] .burger { background: #FFFFFF; border-color: rgba(26,26,46,.1); color: rgba(26,26,46,.45); border-radius: 8px; }
+[data-theme="light-v2"] .sc-key { background: #E8EAED; border-color: rgba(26,26,46,.08); color: #1A1A2E; border-radius: 4px; }
+[data-theme="light-v2"] .h-dot { background: #2563EB; border-radius: 4px; }
+[data-theme="light-v2"] .status-dot { background: #059669; border-radius: 50%; }
 [data-theme="light-v2"] .stat-col .stat-val { color: #2563EB; }
 [data-theme="light-v2"] .panel-action { color: #2563EB; }
 [data-theme="light-v2"] .section-label span:first-child { color: #2563EB; }
 [data-theme="light-v2"] .section-label .sl-line { background: #2563EB; }
-/* Card-like panels with subtle background */
-[data-theme="light-v2"] .tbl-wrap,
-[data-theme="light-v2"] .panel-wrap { background: #FFFFFF; border: 1px solid rgba(26,26,46,.08); }
-[data-theme="light-v2"] ::-webkit-scrollbar-thumb { background: rgba(26,26,46,.15); }
+[data-theme="light-v2"] .theme-toggle { border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,.08); border: none; background: #FFFFFF; }
+[data-theme="light-v2"] .theme-toggle button { border-radius: 8px; }
+[data-theme="light-v2"] .theme-toggle button.active { border-radius: 8px; }
+[data-theme="light-v2"] ::-webkit-scrollbar-thumb { background: rgba(26,26,46,.12); border-radius: 4px; }
 
 /* ═══ THEME TOGGLE (fixed bottom-right) ═══ */
 .theme-toggle {
