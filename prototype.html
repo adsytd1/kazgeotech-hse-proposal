@@ -935,6 +935,65 @@ body {
 [data-theme="light"] .sc-key { background: #F0F0EE; border-color: rgba(0,0,0,.12); color: #111; }
 [data-theme="light"] ::-webkit-scrollbar-thumb { background: rgba(0,0,0,.15); }
 
+/* ═══ LIGHT V2 THEME — premium, blue-accent, card-based ═══ */
+[data-theme="light-v2"] {
+  --bg: #F0F2F5;
+  --fg: #1A1A2E;
+  --accent: #2563EB;
+  --muted: rgba(26,26,46,.5);
+  --muted-more: rgba(26,26,46,.06);
+  --border: rgba(26,26,46,.1);
+  --card-bg: rgba(26,26,46,.025);
+  --green: #059669;
+  --red: #DC2626;
+  --yellow: #D97706;
+  --blue: #2563EB;
+  --purple: #7C3AED;
+}
+[data-theme="light-v2"] .sidebar { background: #FFFFFF; border-color: rgba(26,26,46,.08); }
+[data-theme="light-v2"] .header { background: #F0F2F5; }
+[data-theme="light-v2"] .modal { background: #FFFFFF; border-color: rgba(26,26,46,.1); border-top-color: #2563EB; }
+[data-theme="light-v2"] .detail-panel { background: #FFFFFF; border-color: rgba(26,26,46,.08); }
+[data-theme="light-v2"] .toast { background: #FFFFFF; border-top-color: #059669; }
+[data-theme="light-v2"] .status-bar { background: #FFFFFF; border-color: rgba(26,26,46,.08); }
+[data-theme="light-v2"] .notif-dropdown { background: #FFFFFF; border-color: rgba(26,26,46,.1); }
+[data-theme="light-v2"] .settings-dropdown { background: #FFFFFF; border-color: rgba(26,26,46,.1); }
+[data-theme="light-v2"] .shortcuts-box { background: #FFFFFF; }
+[data-theme="light-v2"] .fi,
+[data-theme="light-v2"] .fs,
+[data-theme="light-v2"] .ft { background: #FFFFFF; border-color: rgba(26,26,46,.12); color: #1A1A2E; }
+[data-theme="light-v2"] .fi:focus,
+[data-theme="light-v2"] .fs:focus,
+[data-theme="light-v2"] .ft:focus { border-color: #2563EB; }
+[data-theme="light-v2"] .h-search { background: #FFFFFF; border-color: rgba(26,26,46,.1); color: #1A1A2E; }
+[data-theme="light-v2"] .h-btn { background: #FFFFFF; border-color: rgba(26,26,46,.1); color: rgba(26,26,46,.45); }
+[data-theme="light-v2"] .h-btn:hover { border-color: #2563EB; color: #2563EB; }
+[data-theme="light-v2"] .s-logo-mark { background: #2563EB; color: #FFFFFF; }
+[data-theme="light-v2"] .s-avatar { background: #2563EB; color: #FFFFFF; }
+[data-theme="light-v2"] .s-badge { background: #2563EB; color: #FFFFFF; }
+[data-theme="light-v2"] .s-item.active { color: #2563EB; background: rgba(37,99,235,.06); border-left-color: #2563EB; }
+[data-theme="light-v2"] .btn-accent { background: #2563EB; color: #FFFFFF; }
+[data-theme="light-v2"] .btn-accent:hover { background: #3B82F6; }
+[data-theme="light-v2"] .btn-ghost:hover { border-color: #2563EB; color: #2563EB; }
+[data-theme="light-v2"] .tab.active { color: #2563EB; border-bottom-color: #2563EB; }
+[data-theme="light-v2"] .m-close { background: #F0F2F5; border-color: rgba(26,26,46,.1); color: rgba(26,26,46,.45); }
+[data-theme="light-v2"] .dp-close { background: #F0F2F5; border-color: rgba(26,26,46,.1); color: rgba(26,26,46,.45); }
+[data-theme="light-v2"] .f-upload { border-color: rgba(26,26,46,.15); color: rgba(26,26,46,.35); }
+[data-theme="light-v2"] .f-upload:hover { border-color: #2563EB; color: #2563EB; }
+[data-theme="light-v2"] .burger { background: #FFFFFF; border-color: rgba(26,26,46,.1); color: rgba(26,26,46,.45); }
+[data-theme="light-v2"] .sc-key { background: #E8EAED; border-color: rgba(26,26,46,.1); color: #1A1A2E; }
+[data-theme="light-v2"] .h-dot { background: #2563EB; }
+[data-theme="light-v2"] .status-dot { background: #059669; }
+/* V2 stat colors use accent */
+[data-theme="light-v2"] .stat-col .stat-val { color: #2563EB; }
+[data-theme="light-v2"] .panel-action { color: #2563EB; }
+[data-theme="light-v2"] .section-label span:first-child { color: #2563EB; }
+[data-theme="light-v2"] .section-label .sl-line { background: #2563EB; }
+/* Card-like panels with subtle background */
+[data-theme="light-v2"] .tbl-wrap,
+[data-theme="light-v2"] .panel-wrap { background: #FFFFFF; border: 1px solid rgba(26,26,46,.08); }
+[data-theme="light-v2"] ::-webkit-scrollbar-thumb { background: rgba(26,26,46,.15); }
+
 /* ═══ THEME TOGGLE (fixed bottom-right) ═══ */
 .theme-toggle {
   position: fixed;
@@ -1642,6 +1701,7 @@ body {
 <div class="theme-toggle" id="themeToggle">
   <button class="active" id="themeDark" onclick="setThemeMode('dark')"><span class="dot" style="background:#0A0A0A;border:1px solid rgba(255,255,255,.2)"></span> Тёмная</button>
   <button id="themeLight" onclick="setThemeMode('light')"><span class="dot" style="background:#F7F7F5;border:1px solid rgba(0,0,0,.15)"></span> Светлая</button>
+  <button id="themeLightV2" onclick="setThemeMode('light-v2')"><span class="dot" style="background:#F0F2F5;border:1px solid #2563EB"></span> V2</button>
 </div>
 
 <!-- ═══════════════════════════════════════ STATUS BAR ═══════════════════════════════════════ -->
@@ -2038,39 +2098,49 @@ function filterHocSite(site) {
   });
 }
 
-// Theme toggle — bottom-right switcher + settings menu item
+// Theme toggle — 3 themes: dark, light, light-v2
 function setThemeMode(mode) {
   if (mode === 'light') {
     document.documentElement.setAttribute('data-theme', 'light');
-    localStorage.setItem('kgt-theme', 'light');
+  } else if (mode === 'light-v2') {
+    document.documentElement.setAttribute('data-theme', 'light-v2');
   } else {
     document.documentElement.removeAttribute('data-theme');
-    localStorage.setItem('kgt-theme', 'dark');
   }
+  localStorage.setItem('kgt-theme', mode);
   updateThemeUI();
 }
 
 function updateThemeUI() {
-  var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+  var current = document.documentElement.getAttribute('data-theme') || 'dark';
   var darkBtn = document.getElementById('themeDark');
   var lightBtn = document.getElementById('themeLight');
+  var lightV2Btn = document.getElementById('themeLightV2');
   var settingsBtn = document.getElementById('themeToggleBtn');
-  if (darkBtn) { darkBtn.classList.toggle('active', !isLight); }
-  if (lightBtn) { lightBtn.classList.toggle('active', isLight); }
-  if (settingsBtn) { settingsBtn.innerHTML = isLight ? '&#9679; Тёмная' : '&#9728; Светлая'; }
+  if (darkBtn) darkBtn.classList.toggle('active', current !== 'light' && current !== 'light-v2');
+  if (lightBtn) lightBtn.classList.toggle('active', current === 'light');
+  if (lightV2Btn) lightV2Btn.classList.toggle('active', current === 'light-v2');
+  if (settingsBtn) {
+    if (current === 'light') settingsBtn.innerHTML = '&#9679; Тёмная';
+    else if (current === 'light-v2') settingsBtn.innerHTML = '&#9679; Тёмная';
+    else settingsBtn.innerHTML = '&#9728; Светлая';
+  }
 }
 
 // Restore saved theme
 (function() {
   var saved = localStorage.getItem('kgt-theme');
   if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
+  else if (saved === 'light-v2') document.documentElement.setAttribute('data-theme', 'light-v2');
   updateThemeUI();
 })();
 
-// Settings menu theme toggle (keep working)
+// Settings menu — cycle themes
 document.getElementById('themeToggleBtn').addEventListener('click', function() {
-  var isLight = document.documentElement.getAttribute('data-theme') === 'light';
-  setThemeMode(isLight ? 'dark' : 'light');
+  var current = document.documentElement.getAttribute('data-theme') || 'dark';
+  if (current === 'light-v2') setThemeMode('dark');
+  else if (current === 'light') setThemeMode('light-v2');
+  else setThemeMode('light');
 });
 
 // HOC fullscreen toggle
